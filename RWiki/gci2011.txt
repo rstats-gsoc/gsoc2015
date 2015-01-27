@@ -1,0 +1,35 @@
+====== Google Code-In 2011 ======
+**!!!This page is to initiate possible projects for the Google Code-In 2011. If you want to propose a project or participate in this year's GCI with R please join our google group:
+
+[[https://groups.google.com/group/gci-r|gci-r@googlegroups.com]]!!!**
+
+Details of the competition can be found [[http://google-opensource.blogspot.com/2011/10/google-code-in-are-you-in.html|here]]
+
+===== Status and Timeline =====
+
+* [[http://google-opensource.blogspot.com/2011/10/google-code-in-are-you-in.html|Nov 9]]: Google announces whether R foundation is accepted as a mentoring organisation for 2011, and proposals for R projects start to be considered.
+
+* Nov 21: GCI goes live for 13-17 year olds, so all projects must be finalized before this.
+
+===== Project Ideas =====
+
+Project ideas can be listed below on per-topic Wiki pages.  //Please// follow the formatting used for the [[developers:projects:gsoc2010:template]] project.
+
+
+
+
+==== Project proposals ====
+
+  * [[developers:projects:gci2011:hyperspecroxy2|Make Documentation compatible with roxygen2]]
+  * [[developers:projects:gci2011:hyperspecweb|Polish hyperSpec's web page]]
+  * [[developers:projects:gci2011:softclassvalweb|Polish softclassval's web page]]
+  * [[developers:projects:gci2011:guidependency|Dependency Graph for GUIs in R]]
+  * Import functions for various spectroscopic data formats. 
+    * .spc - see [[developers:projects:gci2011:hyperspecspc]] and [[developers:projects:gci2011:hyperspecspctests]]
+    *  I could pose similar tasks for other file formats, but would rather do that on request as I need to contact manufacturers wrt. the rights to publish the code open source
+  * [[developers:projects:gci2011:hyperspecplotspc|Refactor hyperSpec's spectra plotting function]] and [[developers:projects:gci2011:hyperspecplotspctests|write tests for the new functions]]
+  * [[developers:projects:gci2011:debianRinstaller|Combined installer for debianized and regular R packages]]
+
+To add a project, use the [[developers:projects:gsoc2010:template]] //Copy this page to add a new proposal//
+
+

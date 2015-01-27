@@ -1,0 +1,18 @@
+**Background/Motivation:** Graphics made using other programs can by imported into R using the grImport package, and this is useful for creating visualizations with R. For examples, see [[http://www.jstatsoft.org/v30/i04/|the grImport paper]], [[http://cbio.ensmp.fr/~thocking/image-labels.png|the iris data labeled with photos of the 3 flower species]] or [[http://www.flickr.com/photos/47179524@N02/4346623091/in/photostream|this scatterplot comparing several countries using their flags]]. 
+
+**Goal:** Improve R's ability to import and plot external vector graphics. [[http://sugiyama-www.cs.titech.ac.jp/~toby/flags/index.html|This table of state flags plotted in R]] shows some problems with plotting SVGs using [[http://cran.r-project.org/web/packages/grImport/index.html|grImport]].
+  * How to import SVG into R in a portable manner? One solution is to use [[https://r-forge.r-project.org/scm/viewvc.php/pkg/directlabels/etc/flags/svg2ps.py?view=markup&revision=533&root=directlabels|a python script]] to convert SVG to PS, then use grImport to read PS images. Is it possible to convert SVG to PS entirely in R? It should be possible to do this in C code that uses librsvg and cairo.
+  * Some complicated PS images cause errors in ''grImport::PostScriptTrace()'' when attempting to convert to RGML, e.g. [[http://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Kansas.svg]]. This image is also not rendered on my iPad, but is correctly rendered by firefox and evince. Can we fix this bug in PostScriptTrace?
+  * Some PS images are converted to RGML but then plotted incorrectly on the PDF graphics device. [[http://sugiyama-www.cs.titech.ac.jp/~toby/flags/index.html|See the table of state flags for examples]]. Can we fix these bugs?
+  * Using the PNG graphics device is clearly inferior to the PDF graphics device. [[http://sugiyama-www.cs.titech.ac.jp/~toby/flags/index.html|See the table of state flags for examples]]. Can we fix these inconsistencies?
+
+**Impact:**
+There are two types of code that can be developed for this project
+  * Code for importing vector graphics could be integrated to the grImport package.
+  * Code for rendering graphics could be integrated into the grid package which is distributed with every copy of R.
+
+**Tests:** 
+  * Diagnose what is going wrong with any ONE of the flags that currently do not import correctly.
+  * BONUS: suggest a fix for that one flag.
+
+**Mentors:** [[http://sugiyama-www.cs.titech.ac.jp/~toby/|Toby Dylan Hocking]] <toby@sg.cs.titech.ac.jp>, [[http://www.stat.auckland.ac.nz/~paul/|Paul Murrell]] <p.murrell@auckland.ac.nz>

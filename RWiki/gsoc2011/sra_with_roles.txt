@@ -1,0 +1,21 @@
+====== Social Relations Analyses with Roles: SoRARO ======
+
+ 
+**Summary:** A package for social relations analyses with roles is created (using structural equation modeling), which will complement the [[http://cran.r-project.org/web/packages/TripleR/index.html|TripleR]] package from GSoC 2010
+
+**Description:** Social relations analyses (Kenny, 1994) are a statistical tool to analyze round robin data of interpersonal perception or any other dyadic behavior. The interdependence of data calls for a sophisticated statistical approach which is outlined in Kenny et al. (2006). The package TripleR already analyzes round robin data in groups with indistinguishable members; SoRARO will extend this approach to groups with distinguishable members. Although the underlying statistics are quite different, the user interface and return values should be completely parallel to TripleR, so that users can work with both packages easily.
+
+**Skills required:** R programming, experiences in package building and documenting, psychological background knowledge with specific expertise concerning social relations analyses and structural equation models
+
+**Test:** Outline a formula interface that builds upon the interface of the TripleR package. Extend this interface to apply to SRA with roles. Likewise, outline the necessary data structure for SRAs with roles, as well based on the TripleR data structure.
+
+**Mentor:** Felix Schönbrodt [[http://www.psy.lmu.de/allg2/people/principal_investigators/schoenbrodt/index.html|website]]; [[mailto:felix.schoenbrodt@psy.lmu.de|email]]; **Backup-Mentor**: Stefan Schmukle, Universität Münster
+
+Suggestion date: Feb 15 2010
+
+
+
+
+Kenny, D. A. (1994). Interpersonal perceptions: A social relations analysis. New York: Guilford Press.
+
+Kenny, D. A., Kashy, D. A., & Cook, W. L. (2006). Dyadic data analysis. New York: Guilford.

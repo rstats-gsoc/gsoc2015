@@ -1,0 +1,16 @@
+====== .spc import for hyperSpec ======
+
+ 
+**Task Summary:** Write an import function for spectra stored in .spc file format.
+
+**Task Description:** The spc file format is a binary format to store spectroscopic data.  The specification is available ([[https://ftirsearch.com/features/converters/gspc_udf.zip|zipped Specification]]), it is a typical binary stucture containing header / subheader and data sections. HyperSpec is an R package to work with spectroscopic data which should be extended so that .spc files can be imported.
+
+A pure R version already exists, but is too slow for some applications.
+
+**Skills needed:** Reading of the file should preferrably be in C/C++, which can be directly invoked via the Rcpp package.
+
+**Rating:** hard (the file format has lots of subformats)
+
+**Category:** Code (note there is a corresponding Quality Assurance task)
+
+**Mentor:** [[Claudia.Beleites@ipht-jena.de|Claudia Beleites]] 2011/11/04

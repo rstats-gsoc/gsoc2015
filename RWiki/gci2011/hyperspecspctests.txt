@@ -1,0 +1,13 @@
+====== .spc import for hyperSpec: Test Suite ======
+ 
+**Task Summary:** Write tests to ensure proper working of the .spc import function (corresponding task) 
+
+**Task Description:** A number of .spc files as test cases is available
+
+**Skills needed:** This is a follow up task for the coding of the import function. Tests should be written using svUnit.
+
+**Rating:** medium
+
+**Category:** Quality Assurance
+
+**Mentor:** [[Claudia.Beleites@ipht-jena.de|Claudia Beleites]] 2011/11/04

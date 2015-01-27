@@ -1,0 +1,13 @@
+====== Javascript client for Rserve using nixysa  ======
+ 
+**Summary:** Javascript client for Rserve using nixysa
+
+**Description:** [[http://code.google.com/p/nixysa/|nixysa]] is a framework written in Python to automatically generate glue code for NPAPI plugins (plugins for browsers such as [[http://www.google.com/chrome|Google Chrome]] or [[http://www.mozilla.com/en-US/|Firefox]]), letting you easily expose C++ classes to Javascript from a simple IDL representation. Nixysa was originally conceived for the needs of [[http://code.google.com/intl/fr/apis/o3d/|O3D]], but is flexible enough to support a wide range of use cases.  
+
+This project will make a browser plugin to connect to [[http://www.rforge.net/Rserve/index.html|Rserve]] based on the existing C++ client, allowing a web application to interact with Rserve. 
+
+**Skills required:** R, C++, javascript. Familiar with Rserve. 
+
+**Test:** A hello world example of a nixysa plugin interacting with Rserve, for example showing a popup dialog box (alert) that displays the version of R (version$version.string)
+
+**Mentor:** Romain Francois <romain@r-enthusiasts.com>. Added on 17 march 2010.

@@ -1,0 +1,23 @@
+====== Apply as Student for GSoC ======
+
+
+===== Mailing Lists =====
+
+Sign up for the following mailing lists:
+ 
+  * [[https://groups.google.com/forum/?fromgroups#!forum/gsoc-r|Students + Mentors mailing list]]
+  *  Optional: [[https://groups.google.com/forum/?fromgroups#!forum/google-summer-of-code-discuss| General GSoC discussion mailing list]]
+
+
+
+
+
+===== Melange =====
+Google organizes the GSoC in Melange. You need to 
+  - Have a google account
+  - [[ http://www.google-melange.com/gsoc/homepage/google/gsoc2012| Register as student at melange]]
+  - Apply to a project by clicking on the orange "Apply" button on the google-melange main page. Choose the R project from the list. 
+  - You can see your proposals via "My Dashboard" in the menu on the left side
+  - Until submission deadline you can edit your proposal. Click on "Edit proposal" above your proposal.
+  - After that only comments are possible. Mentors may ask questions about your proposal.  Do your best to answer them completely and promptly.
+  - If you change your mind you can withdraw your proposal with the withdraw button on the left side of the proposal page

@@ -1,0 +1,25 @@
+**Summary:** Interactive plots for scientific reports
+
+**Description:** 
+
+Every scientific analysis should result in a reproducible report. The ReportingTools Bioconductor package provides multiple means of report generation, including an imperative API driven by an R script, as well as a declarative interface through knitr. ReportingTools converts common R/Bioconductor data structures like data.frames and ExpressionSets into report elements, such as tables and plots, according to user-definable mappings. It supports multiple backends, with the HTML backend being the most developed. The HTML report elements have some limited interactivity (such as sortable tables). Additional interactivity is enabled through integration with the shiny package.
+
+Our goal is to add mappings from R and Bioconductor data structures to simple interactive HTML report elements, where the interactivity is implemented in the front-end, independent of shiny or other R instance. These would include basic plots of summaries, as well as simple genomic plots, which would display alignments, per-position summaries, and annotations along the genome. Summarized data could be directly embedded in the report, and the client would access large datasets by querying standard biological data sources like DAS, AnnotationHub, ExperimentHub and web-accessible BAM/VCF/BigWig files. 
+
+This work would occur in a new or at least separate package that could be used directly, or through its integration with ReportingTools. The API will resemble that of ggbio, with extensions inspired by animint. The API could be implemented on top of animint. The genomic plotting might rely on and even drive the development of the pViz javascript library.
+
+We aim to support simple, lightweight plots in redistributable reports. There is no intent for this to replace the more sophisticated apps like epiviz(R) or shiny-based solutions. It could be summarized as an extension of animint with specific support for Bioconductor data structures and an emphasis on integration with report generation tools, in particular ReportingTools.
+
+**Skills required:** 
+
+   * Proficiency in Javascript and web technologies/frameworks like D3.js and backbone.js.
+   * Familiarity with R; having publicly released an R package would be a plus.
+   * Exposure to biological/sequencing use cases is a plus.
+
+**Test:** 
+
+Use ggbio::autoplot to plot one of the GRanges objects created by example(GRanges) and create an equivalent D3-based plot that displays the some aspect of the ranges (like the score) as a tooltip on mouse over.
+
+**Mentor:** 
+
+Michael Lawrence (michafla @ Genentech's domain)

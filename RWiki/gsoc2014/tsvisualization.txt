@@ -1,0 +1,66 @@
+====== Improve time series visualisation ======
+===== Summary =====
+This project will work to improve time series visualisation for xts time series objects, building on successful GSOC projects in 2012 and 2013.  Functions will be included in xtsExtra, an R package that provides supplementary functionality for xts.  The package also served as a development platform for the GSoC 2012 and 2013 xts project, for experimental code that may eventually end up in the xts package.
+
+===== Description =====
+The xts package contains a subclass of zoo that is designed to allow the fastest possible manipulation of large time series objects. Some of the core xts functionality has even been back-ported into zoo. The zoo/xts packages are some of the most widely used R packages, with over a hundred CRAN packages depending on them and many addtional dependencies in other repositories. 
+
+There are a number of functions distributed across different packages that provide suggestive functionality.  xts currently provides a rudimentary plot.xts method. The 2012 GSOC project had several goals, one of which was to extend the functionality of plot.xts. That project went very well, culiminating in a prototype from which we learned how the function could be extended even further - by simplifying the interface and extending the panel functionality. That will require some significant re-work, but we expect that the results will be well worth it.
+
+Some of the charts in the package PerformanceAnalytics are multi-panel charts with a variety of transformations of the original data, such as charts.PerformanceSummary or charts.RollingPerformance.  Two newer functions in that package, charts.TimeSeries, both create a small multiples of time series in a series of either line or bar charts.  Small multiples for time series data are sometimes shown with lattice, which is indifferent to aspects of time series that are relevant to their display.  Understanding these two different behaviors is important to the functionality detailed below.
+
+Quantmod provides a set of plotting functions via chartSeries and chart_Series for price data. These functions suffer from problems with axes and borders and are generally incompatible with standard R graphics tools. Jeff Ryan, the original author of xts and quantmod refers to chart_Series as an experimental function for a new version of chartSeries (note the lack of the underscore), and it provides several behaviors that are extremely useful.  See, for example, chart.Posn in the blotter package on r-forge.  Also note that the charts are arranged without using the 'layout' function, and can be added to or redrawn without re-specifying the entire set of charts.  See the add_TA function.
+
+This project will focus on plot.xts and will strive to complete a function that generates carefully polished time series charts that are  compatible with standard R graphics.  The function should:
+  * Lay out individual graphics as "panels" and "pages";
+  * Handle multi-column data as data within specified panels; and
+  * Draw lists of data (and/or their transformations) as small multiples of the same panel;
+  * Allow users to create transformations of the data in "panels";
+  * Define formats with par;
+  * Be compatible with layout.
+
+
+We want to keep certain conveniences for time series analysis:
+  * Provide a convenient default legend;
+  * Allow users to easily flag data or regions;
+  * Offer good date and label formatting for axes;
+  * Allow for coordinated x- and y-axes where desired;
+  * Provide panel titles;
+  * etc.
+
+With a modified plot.xts in hand, the project will:
+  * Create a series of default panels for inclusion in PerformanceAnalytics (for returns) or quantmod (for prices);
+  * Translate certain charts.* functions in PerformanceAnalytics to the new framework;
+  * Explore panel definition that includes other chart types.
+
+We will not accept proposals to switch to other R devices or graphics packages.  Even though there are a lot of interesting projects emerging, we intend to wait for them to mature and shake out before migrating.  Currently, base graphics remain the fastest, most flexible, and most widely used.
+
+The student in this project will develop a new version of plot.xts to be included in xtsExtra, along with any other supplementary or utility functions required.
+
+In addition, the student will write complete documentation for each function using Roxygen2, including key equations and examples. If the reference includes specific data and accompanying code, the student will create an example or demo that shows the results from the paper can be replicated. Students may also consider creating a vignette that goes beyond the functional documentation to show how the functions might be used, perhaps with some extended examples.
+
+===== Skills Required =====
+
+Applicants should have:
+
+  * Proficiency with R and familiarity with xts, quantmod, and TTR.
+  * At least some experience using or developing in R, and comfort with tools such as svn, Roxygen2, LaTeX (for equations in particular), and experience with base graphics.
+  * Those with demonstrable experience with finance-related packages will be preferred.
+  * A background in computer science or engineering with graduate training in finance.
+
+===== Test =====
+
+
+A successful applicant will:
+
+  * Discuss the proposed functionality.
+  * Develop a specific plan with a timeline for development, documentation (consider adding a vignette as well), and testing the functionality.
+  * Provide a complete code example of a function with documentation that demonstrates familiarity with the tools listed above and competence with base graphics. 
+  * Clearly identify any other committments or possible conflicts for their time during the coming summer.
+
+===== Mentors =====
+
+
+  * Peter Carl is one of the primary authors of PerformanceAnalytics and other related packages, has previously mentored GSOC projects, and would mentor the GSOC participant. 
+  * Joshua Ulrich is the primary author of TTR, coauthor of xts and DEoptim, and contributing author to quantmod and many other R packages.
+  * Brian Peterson is one of the primary authors of these packages, has previously mentored GSoC projects, and would be backup mentor for this project

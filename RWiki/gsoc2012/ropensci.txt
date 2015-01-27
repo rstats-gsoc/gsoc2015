@@ -1,0 +1,16 @@
+====== rOpenSci ======
+
+ 
+**Summary:** Dynamic access and visualization of scientific data repositories
+
+**Description:** [[http://ropensci.org|rOpenSci]] is a collaborative effort to develop R-based tools for facilitating Open Science.
+Projects in rOpenSci fall into two categories: those for working with the scientific literature, and those for working directly with the databases. Visit the active development hub of each project on github, where you can see and download source-code, see updates, and follow or join the developer discussions of issues.  Most of the packages work through an API provided by the resource (database, paper archive) to access data and bring it within reach of R’s powerful manipulation.
+
+See a [[http://ropensci.org/ropensci-packages/|complete list]] of our R packages currently in development.
+
+The student could choose to work on a package for a particular data repository of interest, or develop tools for visualization and exploration that could function across the existing packages.  
+
+**Skills required:** Should be able to use R to perform data manipulation and aggregation.  Familarity with R packages RCurl & XML, with linked data concepts, common web APIs, or advanced visualization tools in R would be helpful but not required; students can expect to learn these skills during the project.  
+
+
+**Mentor:** The [[http://ropensci.org/developers/|rOpenSci dev team]], Carl Boettiger, Scott Chamberlain, and Karthik Ram, with support from [[http://ropensci.org/advisors/|rOpenSci advisors]] Hadley Wickam, Duncan Temple Lang, Bertram Ludascher, JJ Allaire and Matt Jones.  

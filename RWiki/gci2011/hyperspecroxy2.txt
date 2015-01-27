@@ -1,0 +1,18 @@
+====== Refactor Doc Comments to use roxygen2 ======
+
+ 
+**Task Summary:** Make sure the doc comments work with roxygen2
+
+**Task Description:** Currently, hyperSpec uses a patched version of roxygen for creating the man pages. As roxygen is not under active development, but instead roxygen2 is available, the documentation should be adapted.
+
+  - check all exisiting doc comments for their compatibility with roxygen2
+  - track down incompatibilities (will be particularly related to S4 documentation; this list may serve as wishlist for roxygen2)
+  - correct the problems
+
+**Skills needed:** R
+
+**Rating:** Medium
+
+**Category:** Documentation
+
+**Mentor:**  [[Claudia.Beleites@ipht-jena.de|Claudia Beleites]] 2011/11/04

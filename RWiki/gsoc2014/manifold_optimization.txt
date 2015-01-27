@@ -1,0 +1,51 @@
+**Summary:** Build an R package for solving optimization problems over manifolds.  Such optimization problems are encountered frequently in applied mathematics, statistics, and machine learning.
+
+**Description:** The goal of this project is to create an R package, with a collection of functions each of which solves an optimization problem over a matrix argument with a manifold structure. The manifolds considered include but are not limited to, Stiefel manifolds, Grassmannian manifolds, fixed-rank manifolds, fixed-rank and positive semi-definte manifolds, oblique manifolds, rotation groups, special linear groups, and projective matrices manifolds. Optimization methods are provided specifically for each kind of manifold.
+Solving an optimization problem over manifold domains has wide applications in statistics and machine learning. Most multivariate analysis methods in statistics involve such a problem, such as principal components analysis, canonical correlation analysis, Fisher’s linear discriminant analysis, and reduced-rank regression.  Some other examples in recent machine learning literature are: 
+
+1)	In metric learning, a low-rank constraint on matrices allows one to learn a low dimensional representation of the data in a discriminative way. However, naïve approaches to optimization of an objective function over the set of low-rank matrices are either prohibitively time consuming (repeatedly using SVD) or numerically unstable (optimizing a factored representation of the low-rank matrix). However, taking adavantage of the manifold structure can improve the performance [5].
+
+2)	In signal processing, adaptive estimation of subspace of covariance matrices has been successfully applied in signal de-noising and feature extraction. Among existing methods, YAST [4] has demonstrated good stability and low complexity. However, in light of Riemannian Geometry, if the problem is formulated as a search over matrix manifold, we can further improve the YAST algorithm [3].
+
+There is very limited support in R for optimization on manifolds. The only available R package is the one written by Dr. Adragni and Dr. Cook, called GrassmannOptim [2]. It has a limited scope and focuses mainly on Grassmannian Manifolds. On the other hand, there is a Matlab toolbox for optimization on manifolds, called Manopt. It was mainly developed by P. A. Absil, who wrote a book on optimization over matrix manifolds [1]. 
+
+There are several objectives of this project:
+
+  - Develop a general purpose R package whose scope is substantially broader than the scope of the existing R package GrassmannOptim. 
+  - The new R package should cover the major optimization methods on manifold optimization, especially the gradient-like methods. It should have most of the typical functionality of the Matlab toolbox Manopt. It will provide a class of powerful, open-source tools to the large community of R users.
+  - The new R package will also include several new, untypical algorithms that were developed recently but not included in the existing Matlab toolbox. One such algorithm is the LORETA Algorithm for fixed rank matrices [5].
+
+
+**Skills required:** 
+
+Applicants should have:
+  - Knowledge of smooth manifolds, and optimization methods over such manifolds.  Some knowledge of recent development in this subject is desirable. 
+  - Experience of building an R package.
+  - Experience of developing and implementing computationally efficient algorithms.
+
+**Test:**
+
+  -Write a sample package including one matrix manifold structure. In addition, there should be one algorithm based on that manifold. In the end, apply this sample package to examples, reporting the methods used and results. 
+   -Develop a suggested plan for the project including a timeline for the development of the code, its documentation and testing.
+
+**Mentors:** 
+
+Professor Jianhua Huang (jianhua at stat.tamu.edu), Department of Statistics, Texas A&M University
+
+Website: http://www.stat.tamu.edu/~jianhua/
+
+Yihui Xie, (Xie at yihui.name), Ph. D., RStudio, Inc.,  Author of R packages knitr, shiny, etc. 
+
+Website: http://yihui.name/en/
+
+**Reference:**
+
+[1] Absil, P. A. (2009). Optimization algorithms on matrix manifolds. Princeton University Press.
+
+[2] Adragni, K. P. (2012). Grassmannoptim: An r package for grassman manifold optimization. Journal of Statistical Software, 50 1-18.
+
+[3] F. Yger, M. B. (2012). Oblique principal subspace tracking on manifold. IEEE International Conference, 
+
+[4] R. Badeau, G. R. (2008). Fast and stable yast algorithm for pincipal and minor subspace tracking. IEEE Transactions on Signal Processing, vol. 56, no. 8, 3437-3446.
+
+[5] Uri Shalit, D. W. (2012). Online Learning in the Embedded Manifolds of Low-Rank Matrices. Journal of Machine Learning Research, vol. 12, 429-458.

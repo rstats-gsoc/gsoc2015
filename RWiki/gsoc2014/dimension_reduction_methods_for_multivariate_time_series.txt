@@ -1,0 +1,67 @@
+====== Dimension Reduction Methods for Multivariate Time Series ======
+
+**Summary:** Building an R package for the estimation of high-dimensional vector autoregressions using regularization methods. Vector autoregressions have long proven to be an effective forecasting technique, especially for macroeconomic indicators, but they are heavily parameterized. The Lasso and its structured variants serve to reduce the parameter space and allow for the efficient and accurate estimation of high-dimensional time series.
+
+**Description:** The aim of this package is to develop a series of functions that incorporate regularization methods designed for univariate regression problems into a multivariate time-dependent context.
+
+The vector autoregression (VAR), popularized in macroeconomic forecasting by Sims (1980) has cemented itself as the de-facto standard among practitioners. However, since the number of parameters in a VAR increases quadratically with the number of series included, degrees of freedom are quickly exhausted. VARs in practice are usually limited to fewer than 10 series.   
+
+The three main procedures that we hope to have implemented are:
+
+1) The "Least Absolute Shrinkage and Selection Operator" (Lasso) of Tibshirani (1996), which will assign an L1 penalty to every VAR coefficient.
+
+2) The "Group Lasso" Procedure of Yuan and Lin (2006), which assigns an L2 penalty to each "group" of coefficients.
+
+3) The "Elastic Net" procedure of Zou and Hastie (2005) which assigns a linear combination of an L1 and squared L2 penalty.
+
+The standard Lasso implementations in glmnet, detailed in Friedman (2010) have limited support for multivariate regression; moreover additional scrutiny will need to be undertaken to select the penalty parameters in each model; due to time dependence, standard cross-validation techniques are not appropriate. 
+
+The conventional vector autoregression estimation function is the "ar" function in base R, which is primarily intended for univariate time series and has limited multivariate support. The "vars" package offers expanded functionality, but it is primarily econometrically motivated with the focus on structural estimation and impulse response modeling, as opposed to high-dimensional forecasting.
+ 
+The package "fastVAR" offered a Lasso-VAR procedure which calls glmnet and hence does not take into account time dependence. It has not been updated since 2012 and has been removed from the repositories.  
+
+There is very limited support for Group Lasso estimation in R. The package "grplasso" is oriented toward univariate generalized linear models and the package "standGL" requires a standardization. The existing regularization packages in R which offer multivariate support are oriented toward matrix factorization problems, which differ fundamentally from time series forecasting and assume that the end-user has substantial knowledge of regularization methods.  
+
+**Edit by David S. Matteson, 25 Feb 2014:** The SPAMS package appears to be a very general optimization package; the proposed package is not meant as a direct competitor or potential replacement, but rather to serve a specialized area of application. Though SPAMS does offer support for multivariate inputs, matrix factorization problems differ substantially from the time-dependent problems that we hope to solve.  
+
+In particular, we hope to develop a unified cross-validation and forecast evaluation procedure that can take advantage of both the VAR's unique structure as well as its time dependence. By taking advantage of these characteristics, we aim to achieve more optimal performance. We also hope to incorporate considerations from macroeconomic theory, and the Bayesian VAR literature, as well as allow for the use of time series classes into our estimation procedures. Hence, developing problem-specific algorithms will afford the greatest flexibility in achieving the proposed package's goals.
+
+Moreover, one of the primary aims of the package is to bridge the knowledge gap between the regularization and multivariate time series communities. Many economists, policymakers, and practitioners who make extensive use of VAR forecasts have little knowledge of Lasso and related procedures and likely would encounter great difficulty modifying SPAMS, or similar, for VAR fitting and forecasting. A user-friendly package tailored to their area of application would likely be of great utility to our intended audience and fill a void in the large scale macroeconometric forecasting community.
+
+The successful project would include:
+
+- Development of an R package which contains computationally efficient algorithms that incorporate the aforementioned regularization problems without the use of existing implementations.
+
+- Creation of a package vignette or Journal of Statistical Software article which enables practitioners to understand and use these procedures to forecast high-dimensional macroeconomic time series.
+
+**Skills required:** Applicants should have:
+
+- Experience with R package development.
+
+- Experience integrating compiled code within R using Rcpp or similar methods.
+
+- Experience developing computationally efficient algorithms and working with R's profiling tools.
+
+- A background in doctoral-level macroeconomics, time series econometrics, numerical linear algebra and statistics.
+
+**Test:** A successful applicant will:
+
+- Develop a specific plan with a timeline for development, documentation, and testing the functionality.
+
+- Derive an implementation of a Lasso-VAR procedure without the use of existing implementations and provide a document detailing the derivations as well as an outline of a cross validation procedure which takes into account time dependence. 
+
+- Using the above, provide a complete code example with documentation which can be used within the package.
+
+**Mentor:** David S. Matteson (matteson@cornell.edu) and Jacob Bien (jbien@cornell.edu).
+
+**References:**
+
+Jerome Friedman, Trevor Hastie, and Rob Tibshirani. Regularization paths for generalized linear models via coordinate descent. Journal of statistical software, 33(1):1, 2010.
+
+Christopher A Sims. Macroeconomics and reality. Econometrica: Journal of the Econometric Society, pages 1-48, 1980.
+
+Robert Tibshirani. Regression shrinkage and selection via the lasso. Journal of the Royal Statistical Society. Series B (Methodological), pages 267-288, 1996.
+
+Ming Yuan and Yi Lin. Model selection and estimation in regression with grouped variables. Journal of the Royal Statistical Society: Series B (Statistical Methodology), 68(1):49-67, 2006.
+
+Zou, Hui, and Trevor Hastie. "Regularization and variable selection via the elastic net." Journal of the Royal Statistical Society: Series B (Statistical Methodology) 67.2 (2005): 301-320.

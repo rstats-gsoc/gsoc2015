@@ -1,0 +1,67 @@
+====== Handle parallel (vectorized) objective functions in a new optimization wrapper package ======
+
+**Summary:** Modify/wrap some optimization packages to support vectorized objective functions. In the end a new 'vectorize' option will be available in the optimization function (optim, optmx, nmkb, ...), which will then call the objective function ('fn' argument) for many points together, thus allowing for parallel computing in 'fn' evaluations.
+
+**Description:** The idea is to allow vectorized call of 'fn' argument. Exmaple: for now, when nmkb (see [[http://cran.r-project.org/web/packages/dfoptim/dfoptim.pdf]] is building a polytype (see [[http://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method|Nelder Mead method]]), the points are passed to 'fn' sequentially. If the points could be submitted at the same time to 'fn' (that is the 'vectorized' way), 'fn' may be able to parallelize these evaluations.
+
+When fn is quite CPU-expensive, the parallel evaluation of fn(x[1,]), fn(x[2,]), fn(x[3,]), ... is distributed on several cores/CPUs, so the time-to-result may be the same as one unique point.
+
+Vectorized evaluation would also allow gradient-based methods e.g., Rcgmin, to be applied to functions without analytic derivative code by parallelizing the work of code like numDeriv.
+
+  * **Task 1: (10 days)** Identify the possible level of parallel calls of 'fn' in different methods and optimization packages (deoptim, dfoptim, optimx, Rcgmin). At least, [[http://en.wikipedia.org/wiki/Simulated_annealing|SANN]] and Nelder-Mead are natural candidates. The difficulty to implement vectorization needs to be evaluated, considering the level of current implementation (R only, C, Fortran, ...).
+  * **Task 2: (5-10 days)** Discussion with mentors to define methods to parallelize. Implementation.
+
+When this parallel/vectorized version is available, it should be tested on the following example (which does not make benefit of parallelization at this point):
+<code r>
+flb <- function(x) { 
+    p <- length(x); sum(c(1, rep(4, p-1)) * (x - c(1, x[-p])^2)^2)
+}
+## 25-dimensional box constrained
+tic <- proc.time()[3]
+nmkb(par=rep(3, 25), fn=flb, lower=rep(2, 25), upper=rep(4, 25), ...)
+toc <- proc.time()[3]
+toc-tic
+## Now try with vectorized flb:
+flb.vectorized <- Vectorize(flb)
+## The following optim must return the same result than previous one.
+tic <- proc.time()[3]
+nmkb.vectorized(par=rep(3, 25), fn=flb.vectorized, lower=rep(2, 25), upper=rep(4, 25), ...)
+toc <- proc.time()[3]
+toc-tic
+</code>
+  * **Task 3: (5 days)** Implement a ''Vectorize.foreach()'' function which does the same thing that the original ''Vectorize()'', but including a foreach loop instead of the mapply() used.
+ \\ Now, using this ''Vectorize.foreach()'' instead of Vectorize() will efficiently reduce the computing time: 
+<code r>
+flb.vectorized <- Vectorize.foreach(flb)
+## The following optim must return the same result than previous one.
+tic <- proc.time()[3]
+nmkb.vectorized(par=rep(3, 25), fn=flb.vectorized, lower=rep(2, 25), upper=rep(4, 25), ...)
+toc <- proc.time()[3]
+toc-tic
+</code>
+  * **Task 4: (15 days)** Benchmark the previous test for different foreach backends (doMC, doMPI, doParallel, doRedis, doRNG, doSNOW). 
+  * **Task 5: (2-5 days)** Implement a ''Vectorize.multicore()'' function which does the same thing that the original ''Vectorize()'', but including a mclapply() (from package multicore) instead of the mapply() used.
+  * **Task 6: (15 days)** Benchmark the previous test for different multi-CPU configurations. Mentors should help to provide access to these kind of resources.
+  * **Task 7: (10 days)** Consider a parallel wrapping of numDeriv package (which is a dependency of many optimization methods), in the same spirit. Benchmark with an optimization using numerical gradients.
+  * **Final task: (5-10 days)** All the previous materials (code, samples, documentation) are to be released in a dedicated package (something like optim.vectorized) and submitted on CRAN. A possible integration in another package (optimx) or R core will be proposed, if results are satisfying enough (and code clear and well documented).
+
+**Skills required:** C, R API. Building R from sources. Basic parallel computing skills.
+
+**Test:** Write a simplified ''Vectorize.multicore'' function using mclapply instead of lapply. Benchmark efficiency using Vectorize.multicore versus Vectorize on a multiple points call of a slowed function: ''slow.flb <- function(x) {Sys.sleep(1);flb(x)}''
+<code r>
+slow.flb.vectorized <- Vectorize(slow.flb)
+tic <- proc.time()[3]
+slow.flb.vectorized(seq(from=0,to=1,length=10))
+toc <- proc.time()[3]
+toc-tic
+slow.flb.vectorized.multicore <- Vectorize.multicore(slow.flb)
+tic <- proc.time()[3]
+slow.flb.vectorized.multicore(seq(from=0,to=1,length=10))
+toc <- proc.time()[3]
+toc-tic
+</code>
+
+**Mentors:** 
+  * Y. Richet, from [[http://www.irsn.org|IRSN]] is working in the field of computer experiments. Released a grid engine based on R for external HPC ([[http://promethee.irsn.org]]).
+  * in backup, J. Nash (nashjc _at_ uottawa.ca). B. Peterson and J. Ulrich are also interested in the subject. Depending on their availability, they should also support the project by their deep knowledge of optimization methods. 
+//[[yann.richet@irsn.fr|Yann Richet]] 2012/03/26//

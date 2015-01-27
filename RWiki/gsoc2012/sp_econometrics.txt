@@ -1,0 +1,44 @@
+====== Bayesian Spatial Econometrics with R======
+
+ 
+**Summary:**  Translate Matlab code in the Spatial Econometrics Toolbox
+for Bayesian methods into R.
+
+
+**Description:**
+The Spatial Econometrics Toolbox ([[http://www.spatial-econometrics.com/]]) provides 
+cutting edge methods for Spatial Econometrics. Some of the functions implemented therein 
+are already available in some R packages (e.g., spdep). Bayesian methods for Spatial
+Econometrics have not been implemented in R so far. This project will focus on
+translating the Matlab code for these methods into R.
+
+The models to translate include:
+
+- Spatial autoregressive model
+
+- Spatial autoregressive probit model
+
+- Spatial autoregressive tobit model
+
+The students will also develop a vignette based on datasets from the 
+Spatial Econometrics Toolbox.
+
+
+**Skills required:** 
+
+The student will need some knowledge of Matlab and R. A good understanding of
+computational Bayesian methods such as MCMC (and Gibbs sampling, in particular) 
+will be necessary too. The student will need to work with some packages on spatial 
+econometrics (such as spdep) and the coda package for processing MCMC output.
+
+
+**Test:**
+
+The student should demonstrate proficiency in Matlab and R. Some proof of
+having a good knowledge of computational Bayesian methods is required too
+(but a graduate course on Bayesian analysis will suffice).
+
+
+**Mentor:** Virgilio Gómez-Rubio will act as the main mentor. Another (backup) mentor will
+be required too.
+

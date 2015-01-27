@@ -1,0 +1,82 @@
+=== Org info ===
+
+Name: 	R Project for Statistical Computing
+Link_id: rproject
+Home page url: 	http://www.R-Project.org/
+Main organization license: GPL (generally version 2).
+
+GSoC Group Email: 	gsoc-r@googlegroups.com
+
+GSoC R admins:
+
+^ Name ^ Google link_id ^ email ^
+| Toby Dylan Hocking | tdhock | toby@sg.cs.titech.ac.jp |
+| Virgilio Gomez Rubio | virgil1977 | Virgilio.Gomez@uclm.es and becarioprecario@gmail.com |
+| Brian G. Peterson | braverock | brian@braverock.com |
+
+Description: The R Foundation (as the legal entity behind the R Project) is a
+not-for-profit organization working in the public interest. It has been founded by the
+members of the R Development Core Team in order to
+
+    * Provide support for the R project and other innovations in statistical computing. We believe that R has become a mature and valuable tool and we would like to ensure its continued development and the development of future innovations in software for statistical and computational research.
+
+    * Provide a reference point for individuals, instititutions or commercial enterprises that want to support or interact with the R development community.
+
+    * Hold and administer the copyright of R software and documentation.
+
+R is an official part of the Free Software Foundation's GNU project, and the R Foundation has similar goals to other open source software foundations like the Apache Foundation or the GNOME Foundation.
+
+Among the goals of the R Foundation are the support of continued development of R, the exploration of new methodology, teaching and training of statistical computing and the organization of meetings and conferences with a statistical computing orientation.
+
+=== If you chose "veteran" in the dropdown above, please summarize your involvement and the successes and challenges of your participation. Please also list your pass/fail rate for each year. ===
+
+We have had several students each year for GSoC 2008-2012, and our experience from 2011 is described in "R's Participation in the Google Summer of Code 2011," an R Journal article by Claudia Beleites and John C. Nash, the 2011 admins.
+
+http://journal.r-project.org/archive/2011-2/RJournal_2011-2.pdf
+
+Also, some results from 2012 appear in the table at the bottom of
+
+http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2012
+
+In 2010-2012, we have passed all students except one in 2010 and one in 2011. We have had numerous successes in writing and improving R packages, and creating new web tools for the R community. Our challenges are that some students produced code that did not advance the state of the art of R, or they dropped out. From the Mentors' Summit, this appears to be more or less similar to the experience of other projects, and indeed is no worse than typical commercial or government software projects.
+
+=== Why is your organization applying to participate in Google Summer of Code 2013? What do you hope to gain by participating? ===
+
+R is a large and complex software ecosystem involving a base system, more than 3500 add-on packages and a number of tools and information channels, mostly web-based. We expect to develop some R packages and enhance R's web presence, as we have done in previous years with GSOC.
+
+=== What is the URL for your Ideas list? ===
+
+http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2013
+
+=== What is the main development mailing list for your organization? ===
+
+The developers of the base R distribution (R-core) can be reached on: https://stat.ethz.ch/mailman/listinfo/r-devel. However R-core will not be directly involved with GSOC due to the structure of R as a small core system with more than 3500 add-in packages. GSOC activities of R focus on package development and related infrastructure e.g. cran2deb system for creating Debian/Ubuntu packages from R source packages.
+
+=== What is the main IRC channel for your organization? ===
+
+We do not use IRC. It does not fit with the general culture of statisticians and related scientists. We tend to work on packages in small groups of 1-3 people and use other communications channels, i.e. email, telephone.
+
+=== What criteria did you use to select your mentors for this year's program? Please be as specific as possible ===
+
+Mentors are selected based on their involvement with R packages or projects. The interested R package developers set up project ideas on our wiki project page. Then, we reach out to the larger R community using the r-help list or r-bloggers.com. One example from this year is Peter Carl, who has already found an interested student for the project he proposed, with the help of this blog post
+
+http://www.r-bloggers.com/gsoc-2013-iid-assumptions-in-performance-measurement/
+
+Additionally, prominent R sub-specialties, such as the Bioconductor project, often put forward highly prepared and motivated graduate students to work on projects.
+
+=== What is your plan for dealing with disappearing students? ===
+
+We plan on getting several different types of contact info for each student, and suggesting that mentors hold weekly meetings with each student. If students do not communicate regularly, they will be dropped/failed. Note that this strategy has worked well in previous years.
+
+=== What is your plan for dealing with disappearing mentors? ===
+
+For GSOC 2011 we had a mentor that disappeared for several weeks while he was changing jobs and moving. To deal with issues like this we required 2 or more mentors for each project in 2012. There were a number of cases in 2012 where the 'primary' mentor ended up really being secondary on the project. In these cases, the primary mentor did not disappear but in fact the secondary proved to more easily mentor and further the project goals. We intend to continue the multiple-mentors-required policy this year, and will not approve projects that we don't believe have a strong mentoring support team.
+
+=== What steps will you take to encourage students to interact with your project's community before and during the program? ===
+
+We hope that students applying are already involved with R through our many mailing lists, R User Groups, college or university courses that involve R, the UseR! conferences, and other activities. We encourage them to stay involved through these activities. In the past, some former GSOC students (e.g. Ian Fellows) have even returned in subsequent years to become GSOC mentors. Yixuan Qiu in the 2011 GSOC had already set up an R user group at his home institution in Beijing.
+
+=== What will you do to ensure that your accepted students stick with the project after Google Summer of Code concludes? ===
+
+R has many packages, and volunteer developers move among these from time to time. We
+would be happy to have students stay with the overall R family rather than insist they stick with the particular GSoC project they carry out this summer. After a GSoC project is finished, we must depend on the value of membership in the R community to keep students involved. However, we must recognize that many of them are still exploring the areas in which they wish to make their careers, and that a decision to choose other directions is not a vote against GSoC or R. R has had many significant successes in GSoC R project students who have become prominent members of sub-communities in the R ecosystem such as crystallography, bio-statistics, Rcpp, and finance.  We hope to continue to provide opportunities for students to grow their presence in the R community over time. 

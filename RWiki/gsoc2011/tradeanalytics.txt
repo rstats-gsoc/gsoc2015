@@ -1,0 +1,48 @@
+====== TradeAnalytics toolchain enhancements ======
+
+
+===== Summary: =====
+ 
+The R-Forge project TradeAnalytics has rapidly become a core component of trade-based investment analysis in R.  This GSOC project would aid in enhancing the project along any of several areas of current research and development.
+
+[[https://r-forge.r-project.org/projects/blotter/|TradeAnalytics R-Forge page]]
+ 
+===== Description: =====
+ 
+Several areas have been identified that could benefit from dedicated development effort
+
+
+
+==== optional 'portfolio' applyRules loop evaluation ====
+
+Dimension reduction/loop jumping was added to the applyRules code (via an evaluation index) to improve performance on large numbers of observations. Testing shows there are probably still some bugs here.
+
+We also want to add a ‘portfolio’ view of the evaluation index. This would give us knowledge of the other things going on in a portfolio and allow rules to react to things like current positions in other assets. It would also provide the foundation for rebalancing (below) and other things like portfolio-based hedging rules. The ‘portfolio’ view might additionally/differently require a ‘time’ view based on 'endpoints' as that discussed for rebalancing rules below.
+
+
+
+==== add endpoints support to rules evaluation ====
+
+The evaluation index could also support periodic execution of rules. applyRules currently loops first over each asset in a portfolio; then the strategy indicators, signals, and rules are applied. An ‘endpoints’ evaluation index would allow us to apply ‘rebalance’ rules at those points in time. In some ways, this is an extension of the ‘portfolio’ evaluation index discussed above.
+
+For example, to set your maximum positions periodically based on available capital, the relative volatility of the instruments, or your overall portfolio reward/risk (via LSPM or PortfolioAnalytics), you would add a ‘rebalance’ rule to be evaluated periodically on endpoints to set the maximum positions on a per-asset basis. In another example, you might wish to periodically update account equity.
+
+
+
+==== parameterization of strategies ====
+
+
+Parameter testing is a core part of quantitative strategy development or forensic evaluation of trade execution. This would involve generating parameter sets (either via brute force combinations or a more sophisticated methodology) and creating new blotter portfolios for each set. Each set is then tested and the trades and results would be stored in separate portfolios.
+
+The tests could be evaluated in parallel (e.g. using a foreach loop). For parallel execution to work, multiple objects will need to be passed back to the master node and all the data will need to be put into the areas that other user-level functionality will expect to find it.
+
+==== setup and teardown ====
+
+There is currently a fair amount of boilerplate code needed to setup and teardown before/after calling applyStrategy. Adding setup and teardown slots to the strategy object would allow the user to specify the setup and teardown functions or activities in the strategy object (e.g. simple things like getSymbols or complex custom functions). A good example of potential ‘teardown’ tasks would be calling updatePortf, updateAcct, updateEndEq, and portfReturns in blotter to give you all the raw material you needed for evaluating the test.
+
+
+===== Skills Required & Test: =====
+The successful applicant will demonstrate proficiency with R, xts, and blotter/quantstrat.  This could be via identifying a patch or extension, providing a new demo script for the one of the packages that would show understanding of the functionality provided, or by doing a detailed proposal with pseudocode for one or more  potential enhancements to the toolchain.  The ideal candidate would also demonstrate prior interest or experience in finance.
+
+===== Mentor: =====
+Brian Peterson is one of the primary authors of these related packages, and would mentor the GSOC participant. 2011-03-02

@@ -1,0 +1,9 @@
+====== SWeave driver for programmatic blogging ======
+ 
+**Summary:** Implement a new SWeave driver that posts both text and media content to blogs
+
+**Description:** SWeave is a powerful mechanism for literate statistical programming, in which explanatory text is intermingled with R code and computed results.  Blogging (by way of WordPress, MovableType, etc.) is a powerful mechanism for disseminating information across professional and social networks.  Though SWeave drivers exist for LaTeX, ODF, and asciidoc formats, there is not currently a driver that allows direct posting of blog content with embedded R code, and calculated R output (including any image graphics).
+
+**Skills required:** some exposure to SWeave, R programming, XML-RPC, and one of the popular blogging engines (e.g. WordPress)
+
+**Mentor:** Aaron Mackey, Asst. Prof. of Public Health Sciences, Univ. of Virginia -- ajmackey@gmail.com

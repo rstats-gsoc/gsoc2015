@@ -1,0 +1,24 @@
+====== debianRinstaller ======
+
+ 
+**Task Summary:** Write a function/package that will install a package first from the debian R repository if the package is there, else install from the regular CRAN repository
+
+**Task Description:** 
+    - Check function has required inputs
+    - Look for package name on debian R ppa
+    - If it exists, run the debian installer (apt, aptitude, etc.)
+    - else run the install.packages() function to install from a CRAN repository
+    - provide appropriate messages and returns. 
+    - Document the function, though if done well it should be self-explanatory.
+
+**Skills needed:** 
+    - sufficient knowledge of R to understand the install.packages() and related functions
+    - sufficient knowledge of debian and related packages (used by Ubuntu and others) to know about the .deb infrastructure. 
+    - ability to research details of the tools above as needed e.g., to search for the package
+    - ability to write short scripts in R and in some other language that can interact with the debian package infrastructure (Python, Perl, C, C++, etc.). The R package is envisaged as having a fairly simple single my.install.packages() function that will use system() to call a script in another language. (The mentor would likely use Perl, as that is most familiar to him.)
+
+**Rating:** Medium (likely easy if you know how; difficulty will be in getting the right information about debian infrastructure and its interfacing to R).
+
+**Category:** This is a code and interface task.
+
+**Mentor:** John C. Nash  (nashjc  _at_  uottawa.ca) 2011-11-07.

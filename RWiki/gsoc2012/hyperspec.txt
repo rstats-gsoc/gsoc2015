@@ -1,0 +1,172 @@
+====== hyperSpec: Future plans  ======
+ 
+** [[developers:projects:gsoc2013| Link to general R GSoC 2013 page]]**
+
+**Summary:** hyperSpec is a package for working with spectra (like NMR, Infrared, Raman, Fluorescence, UV/VIS, X-ray diffraction)
+Links: [[http://hyperSpec.r-forge.r-project.org]] and [[packages:cran:hyperspec]]
+
+**Description:** 
+Areas of future development are:
+
+  * parallelization & speed-up
+  * file and data base import filters
+  * plotting
+    * port to ggplot2 (basic functionality exists but needs to be extended)
+    * additional plots
+  * specialized functions functions for working with spectra (stand alone tasks)
+  * GUI
+    * widgets for building GUIs for spectroscopic tasks
+  * interface functions for conversion between hyperSpec and
+    * [[https://github.com/bryanhanson/ChemoSpec/blob/master/inst/doc/ChemoSpec.pdf|ChemoSpec]]
+
+**Skills required:** R programming, possibly C / C++\\
+Basic knowledge of spectroscopy or related chemistry/physics is helpful.
+
+**Test:** Check the code out from the svn repository at r-forge and contribute a function (including documentation & example) for one of the "stand-alone" tasks below. \\
+hyperSpec has a bunch of vignettes that introduce you to the ideas & use of this package.
+
+Feel free to contact me for further information / literature (also for a manuscript draft describing the package).
+
+**Mentor:** [[Claudia.Beleites@ipht-jena.de|Claudia Beleites]]
+**Co-Mentors:** Simon Fuller
+
+ --- //[[Claudia.Beleites@ipht-jena.de|Claudia Beleites]] 2013/04/07//
+
+====== More Details ======
+
+
+
+===== parallelization & speed up =====
+  * many calculations can easily be parallelized with  parallel versions of ''apply'', ''sweep'', ''aggregate'' & Co.
+  * modify apply so that rowSum & Co. can easily be used
+  * some pre-processing methods should be suitable for GPU processing at 32bit precision
+  * identify bottleneck functions and replace by C/C++
+  * maybe data.table would be a fast alternative to the data.frames 
+
+Optmized BLAS are easily used in R and the ''parallel'' package is now part of core R. Key for successful parallelization of hyperSpec's functions is a good strategy to decide 
+  * on which level to parallelize and to
+  * determine packet size
+
+
+
+===== more file import filters =====
+  * requires C/C++ 
+  * spe (binary format, documentation available)
+  * Witec (see also [[http://gwyddion.net]])
+  * [[http://www.unipress.waw.pl/fityk/xylib/]]
+  * jaz
+  * ...
+
+
+===== plotting =====
+
+* speed up `plotmap`
+  * many spatially resolved hyperSpec data sets are on a square grid, however the `levelplot`ting of such maps doesn't make any use of this and is very slow for large objects. 
+
+==== port plot functions to ggplot2 ====
+  * much nicer results
+  * user can customize the plot object / add other things afterwards.
+    * users are scared of writing lattice panel functions
+    * grouping / faceting is needed
+    * base plots allow adding, but axis labels etc. must be set immediately & grouping is close to impossible
+    * estimate: plotspc spends probably > half of the code on handing through tons of possible settings.
+  * plotspc needs cutting wavelength axes & stacked plotting
+  * proof-of-concopt functions exist already
+
+==== new plots ====
+  * ternary plots of mixtures (like for phase diagrams)
+
+
+===== GUIs =====
+hyperSpec is thought to provide an infrastructure to work with spectra. 
+  * It is important to be able to script data analyses and include the analysis e.g. in Sweave documents. 
+  * Spectroscopic data analysis is also a highly visual task. 
+Thus, hyperSpec has a very general set-up. For now, no more than very basic ''locator ()'' like interaction functions are available.
+
+  * One GUI for all spectroscopic tasks would be too complicated
+  * Small GUIs that are very efficient for specific tasks are better.
+  * hyperSpec should help development of such tasks with GUI-versions of the plotting functions
+    * zoom, scroll, select & measure points 
+    * should be able to be called communicating with each other (hot linked)
+
+  * [[http://rforge.net/Acinonyx/|Acinonyx]] is very promising, but for the moment neither stable nor on CRAN. Therefore, the GUI development has low priority at the moment.
+
+  * However, most GUI tasks have a user interface part and a "computation" task that should be handled separately (so that the calculation can be done e.g. in batch mode on a server without graphical interface). Calculation projects can be done now, and they are listed below. 
+
+
+
+==== specific GUIs ====
+  * //most of these tasks are related to some stand-alone topics (see below)//
+  * interactive spike filtering for Raman spectra
+    * simple spike finding algorithm available
+  * align different spatially resolved measurements
+    * microscope image & spectral measurements
+    * this is important for the presentation of results of a data analysis
+    * as well as for labelling spectra of heterogeneous samples, e.g. for classification:
+
+| {{:packages:cran:hyperspec:p1382diagnose-sm.png|:packages:cran:hyperspec:p1382diagnose-sm.png}} | -> | {{:packages:cran:hyperspec:p1382-label.png|:packages:cran:hyperspec:p1382-label.png}} |
+| stained section with reference diagnosis (microscope image) | | class memberships of spatially resolved measurement |
+
+
+  * Measurement GUI: define grid with arbitrary outline 
+    * code partially available (Matlab)
+    * outline:
+      * record stage movement 
+      * draw outline on microscope image (automatic edge finder?)
+    * grid options: square, hexagonal 
+    * measurement order: along x/y, comb / snake, random
+  * pre-processing
+    * offset & baseline correction, normalization, centering, etc.
+    * should produce code that can be copied into scripts / Sweave documents
+    * includes a number of the stand-alone tasks
+  * Cluster analysis GUI
+  * Spectra fitting / library search GUI
+    * see below
+
+
+
+
+
+===== restructure the class =====
+  * more than one spectra matrix can be in the object (for multi-way data)
+  * other wavelength-related data can be attached to the columns of a spectra 
+  * Maybe even matrix decompostition data?
+  * compatibility to other classes
+  * speed up hyperSpec by using datatables instead of data.frames?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===== Stand-alone topics =====
+  * Fourier-transform smoothing/interpolation
+    * The wavelength / frequency axis is //not// guaranteed to be evenly spaced. One major use of this function will be interpolating data that is not evenly spaced onto an evenly spaced axis.
+  * blending spectra
+    * e.g. during piecewise baseline correction: do transition from one baseline to the other on the overlapping wavelength range.
+    * e.g. for piecewise collected spectral ranges
+  * ternary plotting for mixture diagrams (ggplot2)
+    * plot a dot for each spectrum
+    * should optionally allow points outside the triangle
+    * plot hexbin / density / contour lines for the density
+  * bi/trivariate coloring for plotmap
+    * as if there were e.g. a red and a green fluorescence label
+    * option: additive / subtractive color mixing
+    * a basic implementation using ''ggplot2'' exists
+  * peak/spike finder
+  * peak/band alignment
+  * peak fitting 
+  * signal-to-noise-ratio calculations
+    * single spectrum 
+    * repeated measurements
+  * matrix/array method for apply that preserves dimensions
+  * further methods, e.g. ''transform''
+  * a file import filter, see above

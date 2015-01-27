@@ -1,0 +1,23 @@
+====== Refactoring of plotspc ======
+
+ 
+**Task Summary:** Divide the function into suitable helper functions to allow easier writing of plotting functions with other than base graphics, e.g. lattice, ggplot2, acinonyx(?)
+
+**Task Description:** 
+helper functions for 
+  - preparation of the data
+  - the axes 
+    - x-axis: cut axes
+    - y-axis: "stacking" of spectra
+  - plotting of filled areas (polygons)
+  - plotting of lines
+  - ...
+should replace the corresponding parts of ''plotspc''.
+
+**Skills needed:** R
+
+**Rating:** Hard
+
+**Category:** Code (there is a corresponding Quality Assurance Task)
+
+**Mentor:** [[Claudia.Beleites@ipht-jena.de|Claudia Beleites]] 2011/11/04

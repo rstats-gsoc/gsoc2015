@@ -1,0 +1,60 @@
+====== Google Summer of Code 2010 ======
+
+
+===== Overview =====
+
+This wiki page will be the central hub of information about the [[http://www.r-project.org|R Project]] participation in the [[http://socghop.appspot.com/site/home/site|Google Summer of Code]] (GSoC) for 2010.  
+
+{{:developers:projects:2010soclogo.jpg|:developers:projects:2010soclogo.jpg}}
+
+Previous projects are listed on the [[http://www.r-project.org/soc08|soc08]] and [[http://www.r-project.org/soc09|soc09]] pages.
+
+===== Status and Timeline =====
+
+R has been accepted as one of the participating organisation as of March 18, 2010.
+
+As per the [[http://socghop.appspot.com/document/show/gsoc_program/google/gsoc2010/faqs#timeline|GSoC 2010 timeline]]:
+
+  * the student application period does not start until March 29, and ends April 9;
+  * by April 21 all mentors have to be signed up, and scoring/ranking has to be completed and double applicants will then be filtered out;
+  * accepted proposals will be announced on April 26.
+  * coding commences May 24.
+
+See [[http://socghop.appspot.com/document/show/gsoc_program/google/gsoc2010/faqs#timeline|the GSoC timeline]] for full details.
+
+===== Project Ideas =====
+
+Project ideas can be listed below on per-topic Wiki pages.  //Please// follow the formatting used for the first suggestion.
+
+
+
+
+==== Projects with mentors ====
+
+  * [[developers:projects:gsoc2010:suggestion_form]] //Use this to add new proposals// by copying the page content
+  * [[developers:projects:gsoc2010:gpclib_replacement]] Replacement for gpclib.  (R/GEOS)
+  * [[developers:projects:gsoc2010:nosql_interface]] NoSQL interface for R
+  * [[developers:projects:gsoc2010:cran_stats]] Aggregate CRAN package download statistics across multiple mirrors
+  * [[developers:projects:gsoc2010:crantastic2]] Enhancements to crantastic to encourage further community building 
+  * [[developers:projects:gsoc2010:interactive-check]] Run R CMD check interactively during package development
+  * [[packages:cran:hyperspec:gsoc]] Extensions to the hyperSpec package for hyperspectral data 
+  * [[developers:projects:gsoc2010:adinr]] Automatic Differentiation (AD) in R with ADMB, cppAD or other tools. 
+  * [[developers:projects:gsoc2010:vrs]] Virtual R Supercomputer provides an R interface to BOINC, the distributed computing platform. 
+  * [[developers:projects:gsoc2010:sra]] Social Relations Analyses in R 
+  * [[developers:projects:gsco2010:rbeancounter]] Port Beancounter to R and extend it
+  * [[developers:projects:gsoc2010:syrfr]] Symbolic Regression capable of discovering the functions which fit input data best using genetic algorithm search
+  * [[developers:projects:gsoc2010:rpy2ff]] Persistent storage-based vectors and arrays used by both R and Python
+  * [[developers:projects:gsoc2010:rserve_javascript]] Javascript client for [[http://www.rforge.net/Rserve/index.html|Rserve]] using [[http://code.google.com/p/nixysa/|nixysa]]
+  * [[developers:projects:gsoc2010:blogweave]] implement SWeave driver for blog postings
+  * [[developers:projects:gsoc2010:ritk]] [[http://www.itk.org|ITK]] functionality in R
+
+
+
+==== Proposal Suggestions ====
+
+Submission of unsolicited proposals (via, say, the mailing list mentioned in the next paragraph) is certainly welcome.  However, each proposal has a big barrier to pass: it will to need explain why this particular project is of use to the community, and it will have to show how it can be achieved in three months. At a minimum, a submission should also include a review of related packages that address the same or similar problems and discuss how these packages are not sufficient to the task.
+
+
+===== Discussion List =====
+
+A  [[http://groups.google.com/group/gsoc-r|Google groups mailing list]] has been created for mentors and prospective students. Please subscribe so that you can post to ''gsoc-r@googlegroups.com'' for any discussions pertaining to R and the GSoC 2010.

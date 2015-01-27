@@ -1,0 +1,15 @@
+
+
+====== Package for Handling Rough Sets ======
+
+ 
+**Summary:** A package for handling rough computations relating to reducts and knowledge in GNU/R. 
+
+**Description:** To Do
+
+**Skills required:** Knowledge of Rough Sets, Algorithms for reducts (possibly), Ability to handle big data sets in GNU/R or C , or knowledge representation with rough and fuzzy sets. 
+
+
+**Test:** Implementation of any of the basic reduct algorithms in any language OR implementation of any routine in concept analysis or allied field in addition to competence in GNU/R
+
+**Mentor:** [[http://www.logicamani.in|A Mani]]. 05.03.2014

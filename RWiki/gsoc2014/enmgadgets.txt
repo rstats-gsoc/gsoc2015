@@ -1,0 +1,25 @@
+**Title**: ENMgadgets – Tools for pre and post processing of data in Ecological niche modeling.
+
+**Description**:
+Ecological niche modeling technique has gained substantial popularity in estimating species distributions and is rapidly improving in its conceptual framework. Various niche modeling algorithms are available which are implemented in package ‘dismo’ in R. However, processing of input and output data are done outside R environment especially in ArcGIS.  Package ENMGadgets is in its infancy stage to facilitate users to prepare data required for niche models in R environments.  We are proposing to strengthen ENMGadgets which already has few functions like DistanceFilter, PCARaster, PCAProjection, etc.
+ 
+We propose to develop functions for few pre and post processing of ecological niche modeling data like:
+
+  * BatchCrop – to calibrate niche models, all the environmental variables are to be cropped to same spatial resolution and extent.
+
+
+  * Threshold – to threshold model output based on least training probability method or by specific percentage of training data set omission parameter. 
+
+  * Partial ROC – to evaluate performance of continuous model prediction by Maxent.  Ref: doi:10.1016/j.ecolmodel.2007.11.008
+
+  * MOP – to interpret the effect of extrapolation of the model calibrated in a region and projected on different time or space. Ref: http://dx.doi.org/10.1016/j.ecolmodel.2013.04.011
+
+  * PAM – to generate presence-absence matrix based on grid size and species distribution output generated from niche models.
+ 
+ 
+
+
+ 
+**Mentor(s)** :  Jorge Soberón
+
+//Could the mentor provide his email?//

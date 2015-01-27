@@ -1,0 +1,26 @@
+====== panorama ======
+
+ 
+**Summary:** Interactive web graphics for R
+
+**Description:** Research results from analysing data can now be presented on the web and there are some very nice examples, including excellent static graphic displays.  However, explaining what can be seen in graphics in detail and helping readers understand them can be challenging.  Viewers should be able to explore the graphics themselves to help them in grasping the ideas being presented.  Interactive presentations can be much more effective than static reports and offer ways of involving people in the analytic process. This involves querying, interactive controls like sliders, and linking of different graphics. 
+
+Related: [[http://svgmapping.r-forge.r-project.org/SVG_Mapping/Gallery.html|SVGMapping]] [[http://www.stat.auckland.ac.nz/~paul/gridSVG/|gridSVG]]
+
+This project has the goal of designing and developing a software which allows the results of visualization analyses to be presented in the form of interactive applets on the web, incorporating the use of statistical methods using the modeling capabilities of R. 
+
+**Skills required:** Experience with programming in Java, good knowledge of R, experience in data visualization and interactive software.
+
+**Test:** Write an applet for drawing an scatterplot that can be queried.  Provide options for adding a regression line calculated in R using Rserve.
+
+**Mentor:** Antony Unwin
+
+Professor of Computer-Oriented Statistics and Data Analysis
+
+University of Augsburg
+
+86135 Augsburg, Germany
+
+Tel: + 49 821 5982218
+
+antony.unwin@math.uni-augsburg.de

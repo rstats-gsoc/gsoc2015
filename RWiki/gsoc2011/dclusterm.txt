@@ -1,0 +1,26 @@
+====== DClusterm: Model-based detection of disease clusters
+
+**Summary:** Model-based detection of disease clusters
+
+**Background** The analysis of disease data is important in order to
+detect disease outbreaks and links to risk factors. Some of the methods
+for cluster detection have been implemented in the DCluster package.
+However, a model-based approach would be of interest in order to explore
+disease incidence to potential risk factors.
+
+**Description** Model-based clustering will be implemented using Generalized
+Linear Models (in principle, for Poisson and Binomial families). Clustering
+will be modelled as dummy variables (1=area is in a cluster, 0=area is not
+is a cluster). Hence, many possible clusters will be proposed and the
+most likely cluster will be selected according to likelihood ratio test, AIC 
+and (possibly) any other reasonable method.
+
+**Skills required:** : A good working knowledge of R and Generalized Linear Models.
+Some understading of spatial statistics will be a plus.
+
+**Test:** Fit a GLM using the North Carolina SIDS data. See example("readShapePoly") in maptools package. In this GLM, SID74 will be the outcome and BIR74*sum(SID74)/sum(BIR74) an offset; the Poisson family will be used. In addition, a dummy variable representing a spatial cluster
+will be included. This dummy variable will include 5 different contiguous regions (i.e., the
+value of this dummy variable will be 1 for these 5 regions and 0 otherwise). Display the
+residuals of this model in a map.
+
+**Mentor:** Virgilio Gómez-Rubio, University of Castilla-La Mancha (Virgilio.Gomez@uclm.es); proposed on 2011/03/21.

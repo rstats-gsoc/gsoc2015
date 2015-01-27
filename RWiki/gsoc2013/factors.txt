@@ -1,0 +1,113 @@
+''Linear factor model for asset returns''
+ 
+=====Summary:=====  
+Building an R package for estimation, risk analysis and performance analysis of linear factor models for asset returns and portfolios.   Factor models for asset returns are used to decompose risk and return into explainable and unexplainable components, generate estimates of abnormal return,  describe the covariance structure of returns,  predict returns in specified stress scenarios, and provide a framework for portfolio risk analysis.    
+=====Description:=====  
+This GSoC project will extend the factorAnalytics package that currently resides on R-Forge https://r-forge.r-project.org/scm/viewvc.php/?root=factoranalytics
+
+This project has three main parts: estimation, risk and performance analysis.
+
+====Estimation:====  
+A factor model decomposes an asset’s return into factors common to all assets and an asset specific factor. Often the common factors are interpreted as capturing fundamental risk components, and the factor model isolates an asset’s sensitivities to these risk factors. The three main types of multifactor models for asset returns are: 
+  - Macroeconomic factor models:  macroeconomic factor models use observable economic time series like interest rates and inflation as measures of pervasive or common factors in asset returns.
+  - Fundamental factor models:  fundamental factor models use observable firm or asset specific attributes such as firm size, dividend yield, and industry classification to determine common factors in asset returns. A BARRA approach is provided here. and is discussed at length in Grinold and Kahn (2000), Conner et al (2010), and Cariño et al (2010). 
+  - Statistical factor models:  statistical factor models treat the common factors as unobservable or latent factors. 
+
+Estimation methods for macroeconomic factor models are based on time series regression and involves model selection using traditional forward/backward stepwise regression (e.g. using the the R function step() from the stats package),  all subsets selection (e.g using the R function regsubsets() from the leaps package), LARS and LASSO (e.g. using the lars package), robust estimation (e.g. using the function step.lmRob() in the Robust packag); and methods for capturing changing regression coefficients such as dynamic least squares (DLS).  
+
+Estimation methods for fundamental factor modes involves cross-section regression and includes traditional OLS, GLS and Robust regression methods. 
+Estimation methods for  statistical factor models are based on principle component analysis (PCA) for cases in which the number of  time observations are greater than the numbers of assets (traditional full rank case), and cases for which the number of time observations are less than the number of assets (non-standard case) , see  Conner and Korajczyk (1986). An important empirical problem is the choice of the number of factors as discussed by Connor and korajczyk (1993)  and Bai and Ng (2002).
+
+Print, Summary, and Plot functions should be  provided for every estimation method. 
+
+Important references include Connor (1995), who gives an overview of three types of factor models for asset returns and compares their explanatory power. Campbell, Lo, and MacKinlay (1997) and Grinold and Kahn (2000) survey the econometric specification of these models. Johnson and Wichern (1998) provides an excellent treatment of statistical factor models. Good textbook discussions of statistical factor models with applications in finance are given in Alexander (2001), Tsay (2001) and Zivot and Wang (2006).
+
+====Risk Analysis:====
+Based on an estimated factor model, asset return covariance matrices can be calculated which decompose the covariance structure of assets into explained and unexplained components.  For risk analysis Euler’s theorem can be used to decompose standard risk measures such as volatility, VaR and ETL into contributions from individual risk factors.  Technical details are provided in Yamai and Yoshiba (2002), Hallerback (2003) and Meucci (2007). Factor model Monte Carlo based on nonparametric bootstrap methods can be used to compute these decompositions under minimal assumptions as described in Jiang (2009). 
+
+====Performance Analysis:====
+
+Based on an estimated factor model, observed performance or performance relative to a benchmark portfolio can be decomposed into explained components due to observed factors and unexplained residual components.
+
+====Other functionality:====
+
+Factor models can also be used for predicting returns under specified stress scenarios.
+
+=====Skills required:===== 
+Applicants should have:
+  *     At least some experience using or developing in R, and comfort with tools such as svn, Roxygen2, LaTeX (for equations in particular), and familiarity with base graphics.
+  *     Those with demonstrable experience with finance-related packages will be preferred.
+  *     A background of graduate level economics or finance with solid programming skill in R is preferred.
+=====Test===== 
+A successful applicant will:
+  *    Discuss the list of proposed functionality and associated visualization for inclusion in factorAnalytics or other relevant packages based on the literature cited here.
+  *    Develop a specific plan with a timeline for development, documentation (consider adding a vignette as well), and testing the functionality.
+
+  *    Provide a complete code example of a function with documentation that could be used in the package factorAnalytics (exceptional examples will be considered for inclusion in the package and their author given full credit for the contribution). The example does not need to pertain to the subject of this project, but should demonstrate your coding ability and familiarity with the tools used in developing factorAnalytics.
+  * Clearly identify any other commitments or possible conflicts for their time during the coming summer.
+
+=====Mentor:===== 
+Eric Zivot
+
+=====References:===== 
+
+Alexander, C. (2001). Market Models: A Guide to Financial Data Analysis, John Wiley & Sons, Chichester, UK.
+
+Bai, J. and Ng, S., (2002). “Determining the Number of Factors in Approximate Factor Models,” Econometrica, 70, 191-221.
+
+Campbell, J.Y., Lo, A.W., and MacKinlay, A.C. (1997). The Econometrics of Financial Markets. Princeton University Press, Princeton, NJ. 
+
+Chamberlain, G. and Rothschild, M. (1983). “Arbitrage, Factor Structure and Mean-Variance Analysis in Large Asset Markets,” Econometrica, 51, 1305-1324.
+
+Chan, L.K., Karceski, J. and Lakonishok, J. (1998). ”The Risk and Return from Factors,” Journal of Financial and Quantitative Analysis, 33(2), 159-188.
+
+Chan, L.K., Karceski, J. and Lakonishok, J. (1999). “On Portfolio Optimization: Forecasting Covariances and Choosing the Risk Model,” Review of Financial Studies, 5, 937-974.
+
+Chen, N.F., Roll, R., and Ross, S.A. (1986). “Economic Forces and the Stock Market,” The Journal of Business, 59(3), 383-404. 
+
+Christoffersen, P. (2009). “Value-at-Risk Models,” in T.G. Andersen et al (eds.) Handbook of Financial Time Series, Springer.
+
+Connor, G. (1995). “The Three Types of Factor Models: A Comparison of Their Explanatory Power,” Financial Analysts Journal, 42-46.
+
+Connor, G., and Korajczyk, R.A. (1986). “Performance Measurement with the Arbitrage Pricing Theory: A New Framework for Analysis,” Journal of Financial Economics, 15, 373-394.
+
+Connor, G., and Korajczyk, R.A. (1988). “Risk and Return in an Equilibrium APT: Application of a New Test Methodology,” Journal of Financial Economics, 21, 255-289.
+
+Connor, G. and Korajczyk, R.A. (1993). “A Test for the Number of Factors in an Approximate Factor Model,” The Journal of Finance, vol. 48(4), 1263-92.
+
+Elton, E. and M.J. Gruber (1997). Modern Portfolio Theory and Investment Analysis, 5th Edition. John Wiley & Sons, New York.
+
+Epperlein, E. and A. Smillie (2006). “Cracking VAR with Kernels,” Risk. 
+
+Fama, E. and K.R. French (1992). “The Cross-Section of Expected Stock Returns”, Journal of Finance, 47, 427-465.
+
+Fung, W., and D. Hsieh (1997). “Empirical Characteristics of Dynamic Trading Strategies: The Case of Assets,” Review of Financial Studies.
+
+Goldberg, L.R., Yayes, M.Y., Menchero, J., and Mitra, I. (2009). “Extreme Risk Management,” MSCI Barra Research.
+
+Goldberg, L.R., Yayes, M.Y., Menchero, J., and Mitra, I. (2009). “Extreme Risk Analysis,” MSCI Barra Research.
+
+Goodworth, T. and C. Jones (2007). “Factor-based, Non-parametric Risk Measurement Framework for Assets and Asset-of-Assets,” The European Journal of Finance.
+
+Gourieroux, C., J.P. Laurent, and O. Scaillet (2000). “Sensitivity Analysis of Values at Risk”, Journal of Empirical Finance.
+
+Grinold, R.C. and Kahn, R.N. (2000). Active Portfolio Management: A Quantitative Approach for Producing Superior Returns and Controlling Risk, Second Edition. McGraw-Hill, New York.
+
+Hallerback, J. (2003). “Decomposing Portfolio Value-at-Risk: A General Analysis”,   The Journal of Risk 5/2.
+
+Jiang, Y. (2009). Overcoming Data Challenges in Asset-of-Assets Portfolio Management, PhD Thesis, Department of Statistics, University of Washington.
+
+Johnson andWichern (1998). Multivariate Statistical Analysis. Prentice-Hall, Englewood Cliffs, New Jersey.
+
+Jorian, P. (2007). Value at Risk, Third Edition, McGraw Hill.	
+
+Meucci, A. (2007). “Risk Contributions from Generic User-Defined Factors”, Risk. 
+
+Qian, E.E. (2006). “On the Financial Interpretation of Risk Contribution: Risk Budgets Do Add Up”, Journal of Investment Management.
+
+Qian, E.E., R.H. Hua, and E.H. Sorensen (2007). Quantitative Equity Portfolio Management: Modern Techniques and Applications, Chapman & Hall/CRC Financial mathematics Series.
+
+Sharpe, W.F. (1970). Portfolio Theory and Capital Markets. McGraw-Hill, New York.
+Sheikh, A. (1995). “BARRA’s Risk Models,” mimeo, BARRA.
+
+Yamai, Y. and T. Yoshiba (2002). “Comparative Analyses of Expected Shortfall and Value-at-Risk: Their Estimation Error, Decomposition, and Optimization,” Institute for Monetary and Economic Studies, Bank of Japan.

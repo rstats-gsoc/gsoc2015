@@ -1,0 +1,67 @@
+=====Title=====
+**Profiling Tools for Parallel Computing with R**
+
+
+=====Summary=====
+As R users become more and more sophisticated parallel programmers, the need for profiling tools becomes ever greater.  This is especially true for distributed computing over MPI.  Being able to generate data for communications, memory usage, I/O performance, etc. for an algorithm makes it much easier to debug and optimize that code. Many state-of-the-art tools already exist for solving this problem, but to date, no one has brought them to R. This project entails the development of a package, pbdPROF, which allows parallel R users to easily profile their parallel codes, and use the best analytics and visualization toolbox, R, to evaluate the profiling results.
+
+
+
+
+
+
+
+
+
+
+
+=====Description=====
+Many great tools for profiling MPI codes already exist; they merely need to be incorporated into R packages in the appropriate way.  Possible parallel profiling libraries for the project include [[https://www.mcs.anl.gov/research/projects/fpmpi/WWW/index.html|fpmpi]], [[http://mpip.sourceforge.net/|mpiP]], [[http://www.nersc.gov/users/software/debugging-and-profiling/ipm|IPM]], and [[http://www.cs.uoregon.edu/research/tau/home.php|TAU]].  When these libraries are correctly linked with MPI code during compilation, they automatically generate reports which give various measures of otherwise difficult to detect performance data.  This data can be incredibly valuable to a developer writing MPI codes.  
+
+However, there are two problems which need to be addressed for the R community.  First, if an R programmer wanted to use these libraries with, for example, [[http://cran.r-project.org/web/packages/pbdMPI/|pbdMPI]] or [[http://cran.r-project.org/web/packages/Rmpi/index.html|Rmpi]], then he or she would have to manually compile the profiling library dynamically and manage the compiling and linking with the appropriate R package(s).  Secondly, the reports these libraries generate are often nearly incomprehensible, and must be cleaned and parsed before real insight can be obtained.
+
+To resolve these issues, we propose the development of an R package which directly solves both of these problems.  The package will be tightly integrated with [[http://r-pbd.org/|pbdR]] packages, but it must be able to work easily with other packages which link with an MPI library, e.g. [[http://cran.r-project.org/web/packages/Rmpi/index.html|Rmpi]].  The package will contain the necessary library source files, which will automatically be compiled when installing the package, and export necessary flags so that higher packages (such as [[http://cran.r-project.org/web/packages/pbdMPI/|pbdMPI]]) can easily be configured to link with these profiling libraries.  
+
+The successful project would include:
+  * Development of an R package, pbdPROF, which easily enables profiling of MPI codes using [[http://cran.r-project.org/web/packages/pbdMPI/|pbdMPI]] and [[http://cran.r-project.org/web/packages/Rmpi/index.html|Rmpi]].
+  * Development of parsing and plotting functions for this package to analyze profiler output.
+  * Creation of a package vignette which will explain to both users and package developers how to utilize the pbdPROF package.
+  *  Demonstrating the usefulness of the package by profiling the parallel k-means implementations in the [[http://cran.r-project.org/web/packages/pmclust/index.html|pmclust]] package.
+
+
+=====Skills required=====
+The applicant should have:
+  * A strong interest in parallel computing, with parallel programming experience strongly preferred.
+  * Experience using R.
+  * Some knowledge of C, compiling, and linking.
+  * Basic familiarity with LaTeX and git/github will be useful.
+
+
+
+
+
+
+=====Tests=====
+  * Write a simple example interfacing R to C using the .Call() interface.  See the [[http://cran.r-project.org/doc/manuals/R-exts.html#Calling-_002eCall|Writing R Extensions]] manual for more information.
+  * This test requires a system installation of an MPI library, such as [[http://www.open-mpi.org/|OpenMPI]] or [[http://www.mpich.org/|MPICH2]].  Compile the [[https://www.mcs.anl.gov/research/projects/fpmpi/WWW/index.html|fpmpi]] library and successfully run the "waittime" example (included with the library source) with 2 processors.  After compiling both the library and examples, the example can be run via the command "mpiexec -np 2 waittime". If the example runs successfully, then it will generate a file named fpmpi_profile.txt.
+
+
+=====Mentors=====
+The pbdR Core Team:
+  * [[http://thirteen-01.stat.iastate.edu/snoweye/mypage/|Wei-Chen Chen]] <wccsnow@gmail.com>
+  * George Ostrouchov <ostrouchovg@ornl.gov>
+  * Pragneshkumar Patel <pragnesh@utk.edu>
+  * Drew Schmidt <schmidt@math.utk.edu>
+
+
+
+=====References=====
+  * FPMPI: https://www.mcs.anl.gov/research/projects/fpmpi/WWW/index.html
+  * mpiP: http://mpip.sourceforge.net/
+  * IPM: http://www.nersc.gov/users/software/debugging-and-profiling/ipm
+  * TAU Performance System: http://www.cs.uoregon.edu/research/tau/home.php
+  * The Rmpi package: http://cran.r-project.org/web/packages/pbdMPI/
+  * The pbdR project: http://r-pbd.org/
+  * The pbdMPI package: http://cran.r-project.org/package=pbdMPI
+  * The pbdDEMO package: http://cran.r-project.org/package=pbdDEMO
+  * The pmclust package: http://cran.r-project.org/web/packages/pmclust/index.html

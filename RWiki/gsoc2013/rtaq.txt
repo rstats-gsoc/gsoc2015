@@ -1,0 +1,45 @@
+**Highfrequency: add inferential methods to highfrequency**
+
+**Summary**
+
+Toolkit for data management and analysis of high-frequency financial data in R.
+
+**Description**
+The economic value of analyzing high-frequency financial data is now obvious, both in the academic and financial world. It is not only the basis of intraday and daily risk monitoring and forecasting, input to the portfolio allocation process, and also for high-frequency trading. For the efficient use of high-frequency data in financial decision making, the highfrequency package implements state of the art techniques for cleaning, matching, liquidity, risk and correlation calculation based on high-frequency data. For many of the high-frequency data based estimators, analytical formulae are available to compute standard errors and do inference. 
+
+The goal of this project is to develop much needed extra functionality in this growing area:
+
+______1. Realized quarticity estimates:______
+A key quantity in determining the high-frequency data based volatility measures is the integrated quarticity, estimated using realized quarticity measures. Several estimators are available. The first objective of this project is to implement these realized quarticity estimators.  The second and third objective is to apply these quarticity estimates to the calculation of standard errors for RV measures and the implementation of jump test statistics. 
+
+__2. Standard errors and confidence bands for RV measures:__
+Under assumptions, standard errors on the realized volatility measures can be computed. The second goal of this project is to implement the standard error calculation for popular RV measures such as the realized variance, bipower variation, medRV/minRV and ROWVar. 
+
+__3. Jump test statistics based on daily RV measures:__
+Many applications based on high-frequency data requires to detect the days on which the price process is characterized by a jump occurrence. A popular testing procedure for this is to compute test statistics based on the difference between a non-robust RV and a jump robust RV measure. 
+
+
+
+__4. Standard errors for the parameter estimates of the heavy model:__
+The heavyModel function in highfrequecy uses highfrequency based volatility measures to forecast future volatility using a time series model. Standard errors need to be implemented for the parameters of the time series model. The final objective of this project is to implement the likelihood function of the heavy model in C to speed up the estimation. To help with this, Chris Blakely kindly shared us his C-code for the heavy model implementation. 
+
+
+**Literature**
+
+Huang and Tauchen. 2005. The relative contribution of jumps to total price variance. Journal of Financial Econometrics 3, 456-499.
+
+Andersen, Dobrev and Schaumburg. 2011. A Functional Filtering and Neighborhood Truncation Approach to Integrated Quarticity Estimation http://econ.au.dk/fileadmin/site_files/filer_oekonomi/Working_Papers/CREATES/2011/rp11_23.pdf and the references therein. 
+
+Shephard and Sheppard. 2012. Realising the future: forecasting with high-frequency-based volatility (HEAVY) models. Journal of Applied Econometrics 25, 197-231.
+
+**Skills required**
+
+The successful applicant should have proficiency with R, xts and highfrequency. The ideal candidate would also have prior experience on the analysis of high-frequency data and market microstructure.
+
+**Test**
+
+The successful applicant must demonstrate prior experience with high frequency data and R. This could be via identifying a patch or extension, providing a new demo script for the highfrequency package that would show understanding of the functionality provided, or by doing a detailed proposal with pseudocode for one or more potential enhancements to the toolchain.
+
+**Mentors**
+
+Dr. Kris Boudt and Jonathan Cornelissen co-author the highfrequency package (together with Scott Payseur). They published many articles in the area of high-frequency financial data in leading international financial and econometrics journals. Kris Boudt previously mentored GSOC participants. 

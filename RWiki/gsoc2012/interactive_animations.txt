@@ -1,0 +1,24 @@
+**Background/Related work:** standard R graphics are based on the pen and paper model, which makes animations and interactivity difficult to accomplish. Non-interactive animations can be accomplished with the ''animation'' package, and some interactions with non-animated plots can be done with the [[https://github.com/ggobi/cranvas/wiki|qtbase, qtpaint, and cranvas packages]]. Linked plots in the web are possible using [[http://www.omegahat.org/SVGAnnotation/SVGAnnotationPaper/SVGAnnotationPaper.html|SVGAnnotation]] or [[http://sjp.co.nz/projects/gridsvg/|gridSVG]], but using these to create such a visualization requires knowledge of Javascript. The [[https://r-forge.r-project.org/scm/viewvc.php/pkg/?root=svgmaps|svgmaps]] package defines interactivity (hrefs, tooltips) in R code using igeoms, and exports SVG plots using gridSVG. [[https://github.com/trifacta/vega|Vega]] can be used for describing plots in Javascript.
+
+The [[https://github.com/tdhock/animint|animint]] package [[http://sugiyama-www.cs.titech.ac.jp/~toby/animint/|supports brushing by adding 2 new aesthetics to the grammar of graphics]]:
+  * ''showSelected=variable'' means that only the subset of the data that corresponds to the selected value of ''variable'' will be shown.
+  * ''clickSelects=variable'' means that clicking a plot element will change the currently selected value of ''variable''.
+The basic idea is to start from a list of ggplots, then export all their data in CSV along with a ''plot.json'' metadata file, which is then read and plotted using [[http://d3js.org|D3]]. The result is several linked, interactive, animated plots which are viewable in a web browser:
+
+^ Title               ^ Plots ^ Clickable plots ^ Variables shown ^ Animated? ^
+| [[http://sugiyama-www.cs.titech.ac.jp/~toby/animint/evolution-simulator/index.html|Evolution simulator]] |     3 |               3 |               6 | yes       |
+| [[http://sugiyama-www.cs.titech.ac.jp/~toby/animint/breakpoints/index.html|Breakpoints]]         |     2 |               1 |               5 | no        |
+| [[http://sugiyama-www.cs.titech.ac.jp/~toby/animint/mmir/index.html|Max margin interval regression]] |  4 |  2 |  9 | no |
+
+**Proposal:** implement several improvements to the ''animint'' package, so that more of the features of ggplot2 are available in these plots.  In its current form, a
+large part of the grammar is not available, so the GSOC student should implement one or several of the following:
+  * Scales
+  * Facets
+  * Stats
+  * Coordinate transforms
+
+**Tests:** 
+  * To demonstrate some knowledge of D3, github, and ggplots, implement support for drawing rectangles (geom_rect) or horizontal lines (geom_hline) in the animint package.
+  * Convert an example from the animation package to an interactive animint plot, e.g. kmeans.ani, knn.ani, grad.desc.
+**Mentors:** [[http://sugiyama-www.cs.titech.ac.jp/~toby/|Toby Dylan Hocking]] <toby.hocking@inria.fr>,
+[[http://had.co.nz/|Hadley Wickham]] <h.wickham@gmail.com>, backup [[http://yihui.name|Yihui Xie]] <xie@yihui.name>.

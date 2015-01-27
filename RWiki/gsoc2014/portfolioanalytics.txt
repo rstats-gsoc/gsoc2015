@@ -1,0 +1,115 @@
+====== Header ======
+Extend optimization types, graphics in PortfolioAnalytics
+ 
+=====Summary:===== 
+
+Continue to extend and add more advanced features to PortfolioAnalytics.
+
+=====Description:=====
+PortfolioAnalytics is a leading R package for complex portfolio optimization, allowing for the creation of complex constraints and objectives that mirror real-world portfolio optimization problems.
+
+Most people are introduced to portfolio optimization in much simpler contexts where global optimizers are not required.  In GSoS 2012, support for the R package 'ROI' was added to add support for quadratic, linear, and conical solvers to PortfolioAnalytics.  For example, mean-variance portfolios with linear inequality constraints are quadratic, mean-Gaussian-ETL objectives are linear, mean-variance with alpha uncertainty penalty are conical, etc.
+
+Many complex portfolio optimization problems are 'global optimization' problems, and not tractable by convex objective and constraint optimizers.  As such, PortfolioAnalytics includes a Burns-style random portfolio backend, and also utilizes R packages DEoptim, pso, soma, and gensa.  These methods work very well for global optimization objectives.
+
+The goal for this GSoC project will be to continue to extend PortfolioAnalytics to make it more general, easier to use, and more consistent across the solvers available.  
+
+==== New Feature Areas ====
+
+====== more visualizations =====
+ * optimal weights relative to the weights of a benchmark portfolio
+ * need to have the benchmark allocation available.
+
+  What can we learn from commercial products?
+
+===== extend support for factor portfolio optimizations =====
+
+===== rank based optimization =====
+  * acts as a dimension reduction technique, widely practiced
+  * a la Almgren, i.e., replacing returns estimates with ranks
+
+===== Layered Optimization =====
+* direct support for multi-layer optimization in the portfolio specification 
+* specify sub-portfolios that are to be optimized separately
+
+Specify several sub portfolios with possibly different assets, constraints, and objectives that are optimized and then combined to form an overall portfolio. This would lend itself to opportunities for more       visualizations. Essentially a portfolio of portfolios... 
+
+Typically, the way we've done hierarchical optimization is that you optimize (including rebalancing, where appropriate) each 'leaf node' portfolio first.  The out of sample portfolio returns from these 'leaf node' portfolios are then uses as the 'assets' in the next higher level, and the optimizer is assigning 'weights' to each of the leaf node portfolios.
+
+Among other applications this is really useful for an asset management company running a bunch of funds-of-funds (as was Tremont when they were a customer of FinAnalytica when I was running it).
+
+===== Bayesian optimization =====
+
+One model is the Meucci-style model where we support the modern formulation of Black-Litterman where the asset manager can express views, and where scenarios can be applied to the optimization.
+
+Another is to do more robust estimation/prediction of moments using Bayesian models for the moments.
+
+ 
+===== Regime Switching Models =====
+Formal support for regime switching models that would change objectives on the change of regime
+
+
+===== support for supervised learning solvers =====
+
+There are several papers on using support vector machines in this space, often in concert with genetic algos.
+
+===== more examples, vignettes, demos  =====
+  I think we are pretty good on demos for current functionality. It goes without saying that any features added in the upcoming GSoC should include examples and demos.
+
+* A vignette or two on using custom moments 
+
+* example of custom objective functions would be useful. 
+
+I think this is a pretty powerful feature of PortfolioAnalytics that is under documented. One example of using custom moments could be using shrinkage or other robust methods to estimate a variance-covariance matrix.
+
+=== General ===
+
+The student in this project will develop a list of specific functions identified from this outline to be included in PortfolioAnalytics. New code will be consistent with interfaces of other functions in PortfolioAnalytics.
+
+In addition, the student will write complete documentation for each function using Roxygen2, including key equations and examples.  If the reference includes specific data and accompanying code, the student will create an example or demo that shows the results from the paper can be replicated. Students may also consider creating a vignette that goes beyond the functional documentation to show how the functions might be used, perhaps with some extended examples.
+
+In their proposal, students should demonstrate an understanding of the concepts discussed above, including a brief discussion about how the functionality might be used by investors.  
+
+=== References ===
+  * ReturnAnalytics on R-Forge.  https://r-forge.r-project.org/projects/returnanalytics/
+
+  * [[https://r-forge.r-project.org/scm/viewvc.php/*checkout*/pkg/PortfolioAnalytics/inst/doc/DesignThoughts.pdf?root=returnanalytics | PortfolioAnalytics 'Design Thoughts'  PDF]] 
+
+  * ROI on R-Forge: https://r-forge.r-project.org/projects/roi/
+
+  * DEoptim on CRAN: http://cran.r-project.org/web/packages/DEoptim/index.html
+
+  * Particle Swarm Optimization on CRAN: http://cran.r-project.org/web/packages/pso/index.html
+
+  * SOMA on CRAN: http://cran.r-project.org/web/packages/soma/index.html
+
+  * rgenoud on CRAN: http://cran.r-project.org/web/packages/rgenoud/index.html
+
+  * quadprog on CRAN: http://cran.r-project.org/web/packages/quadprog/index.html
+
+  * [[http://www.amazon.com/Introduction-Modern-Portfolio-Optimization-S-PLUS/dp/0387210164|Modern Portfolio Optimization]] by Bernd Scherer and Doug Martin, 2005
+
+=====Skills required:===== 
+Applicants should have:
+  * Prior experience using or developing in R, and comfort with tools such as svn, Roxygen2, LaTeX (for equations in particular), and familiarity with base graphics.
+  * Those with demonstrable experience with finance-related or optimization related R packages will be preferred.
+  * A background in computer science or engineering with graduate training in finance would likely be ideal.
+
+
+
+
+=====Test:=====
+
+  * Discuss the list of proposed functionality for inclusion in PortfolioAnalytics.
+  * Develop a specific plan with a timeline for development, documentation (consider adding a vignette as well), and testing the functionality.
+  * Provide a complete code example of a function with documentation that could be used in the package PortfolioAnalytics (exceptional examples will be considered for inclusion in the package and their author given full credit for the contribution). The example does not need to pertain to the subject of this project, but should demonstrate your coding ability and familiarity with the tools used in developing PortfolioAnalytics.
+  * Clearly identify any other commitments or possible conflicts for their time during the coming summer.
+
+=====Mentor:===== 
+
+Brian Peterson is one of the primary authors of these packages, and has previously mentored GSoC projects. 
+
+Peter Carl is one of the primary authors of these packages, and has previously mentored GSoC projects. 
+
+Doug Martin is Applied Mathematics and Statistics Professor and Director of the Computational Finance program at the University of Washington, and author of several papers and books on portfolio construction.
+ 

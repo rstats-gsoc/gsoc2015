@@ -1,0 +1,11 @@
+====== msfga: Model Search Space Size Fit Goodness Adjustment  ======
+ 
+**Summary:** R has stepwise regression without adjustments of goodness of fit statistics which do not yet count the entire number of degrees of freedom in the model used to generate the best fit.
+
+**Description:** We need to be able to adjust the goodness of fit statistic for stepwise regression before we can properly offer symbolic regression, because people are used to adjusting the r<sup>2</sup> statistic with the number of degrees of freedom in the best fit instead of the total number of degrees of freedom in the model used to produce it, which is improper for stepwise or symbolic regression.  We will measure the proper way to count degrees of freedom in stepwise and symbolic regression instead of just counting the number of independent variables in the best fit.  We will use Monte Carlo methods to validate our answers.  This will enable [[developers:projects:gsoc2010:syrfr]] for 2012 Google Summer of Code.
+
+**Skills required:** R, stepwise regression, computing adjusted r<sup>2</sup> and F-statistic values, Monte Carlo validation of confidence interval predictions, calculation of confidence intervals from linear and optionally nonlinear models, and generation of algebraic formula trees as a search space.  Please ask if you have questions about any of these topics.
+
+**Test:** First please write a description of how r<sup>2</sup> is adjusted for a fit's degrees of freedom in ordinary linear regression, and how F statistics are calculated. Send that to jim -at- talknicer.com along with an R transcript showing how you calculate confidence intervals from a linear regression fit to random data and use additional random data from the same distribution function to validate the correctness of the calculated confidence intervals. I will select the best entrants and help you write your project proposal. We must get Hadley Wickham's approval of your proposal.
+
+**Mentor:** James Salsman, email jim -at- talknicer dot com, @jsalsman on Twitter, 14 February 2011. Please tweet or send mail if interested.

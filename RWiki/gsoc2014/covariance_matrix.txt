@@ -1,0 +1,102 @@
+====== Covariance Matrix Estimators ======
+
+ 
+==== Summary:====
+There are now exists a very wide range of methods for estimating covariance and correlation matrices for asset returns that are useful in risk models and mean-variance portfolio optimization.  The methods include shrinkage estimators, estimators for handling unequal histories, and robust estimators that are not much influenced by outliers, among others.  This project will create an R covariance estimators package for which the resulting estimators may by easily used in factor based risk models in the FactorAnalytics package, and in portfolio optimization in the PortfolioAnalytics package. The project will build on initial work on an R covariance matrix estimators package by Ross Bennett as part of his Research Assistant work in the University of Washington AMATH MS Degree program.
+
+
+==== Description: ====
+
+Classical product moment estimators are maximum likelihood estimators under multivariate normality, and are in that sense optimal.  However, these estimators and methods based on these estimators can be far from optimal and suffer from the following problems in that they: (a) exhibit substantial instability when the number of assets are a sizeable fraction of the number of observations, (b) are rank deficient when the number of assets exceeds the number of observations, (c) are subject to substantial outlier influence (not outlier robust), (d) cannot handle unequal asset returns histories.
+The following modern covariance estimators solve these kinds of problems and as such are very important complements to the classical estimators for portfolio managers who build covariance matrix related risk models and optimize portfolios via mean-variance methods. The overall goal of this project is to implement the following collection of methods in an R package that facilitates interoperability and ease of use of the methods.
+
+1. Shrinkage Covariance Matrix Estimators. The best-known covariance matrix estimators of this type are those due to Ledoit and Wolf (2004, 2012), which can be found along with related papers at www.econ.uzh.ch/faculty/wolf/publications.html.  See also the cov.shrink function in the corpcor package, and related details provided by Schafer and Strimmer (2005) and Opgen-Rhein and Strimmer (2007). 
+Recent work by Donoho and colleagues (see Donoho, Gavish and Johnstone, 2014 and references therein) on optimal shrinkage of eigenvalues in certain covariance models and has resulted in relatively simple methods that can be effectively used for very large covariance matrices.   These results put estimation of large dimension covariance matrices, e.g., for the Russell 3000, on a strong theoretical footing.
+
+2. Unequal Histories Covariance Estimators. Many asset management problems involve the use of unequal histories of asset returns.  Examples include fund-of-hedge-funds portfolios where the fund managers have varying histories, and asset management shops with multiple portfolio products of varying histories. The classic approach to this problem is due to Stambaugh (1997) as discussed in Section 6.8 of Scherer and Martin (2005), where a robust version provides a robust covariance matrix estimator for unequal histories.  There is also an extensive R package monomvn due to Gramacy (2011) and related papers Gramacy et. al. (2009, 2011).  The use of the robust approach poses challenges of rank deficiencies in the case of unequal histories with some histories being exceptionally short, and this issue needs attention.  A potentially useful alternative approach is via the factor-model Monte-Carlo method of Jiang and Martin (2013)
+
+3. Robust Covariance Matrix Estimators.  Outliers in asset returns can very badly distort classical covariance and correlation matrix estimators, thereby miss-leading asset managers who use the estimators for exploratory purposes as well as for risk assessment and for mean-variance optimization. There are many such estimators based on “classical” multivariate mixture outlier models (i.e., market movement outliers), including: MVE (Minimum Volume Ellipsoid), Fast MCD (Minimum Covariance Determinant), MM-estimator (Maronna, Martin and Yohai, 2006).  The robust, robustbase and rrcov package implements these estimators among others.  The rrcov manual and vignettes are available at the CRAN web site.
+Unfortunately the classical outlier model is not adequate for dealing with idiosyncratic (asset specific) outliers, and dealing with such outliers is an ongoing recent research topic.  See Allqallaf et. al. (2009) and Martin (2013).  The latter appear as independent outliers across assets, and for dealing with these one needs robust covariance matrix estimators that operate on a pairwise basis and then put together the robust pairwise estimators in a way that results in a positive definite robust covariance matrix estimator.  Such a method was introduced by Maronna and Zamar (2002), and is also available in the package rrcov. 
+
+4. Robust Distances for Outlier Detection and Shrinkage.  Classical covariance estimator based Mahalanobis distance methods have been used in finance by Chow and Kritzman (20xx) and Kritzman (20xx).  However, outliers can distort these distances in a way that makes the estimators virtually useless (see Martin, Clark and Green, 2011), and robust distances based on robust covariance matrix estimators provide superior performance.  See Scherer and Martin Section 6.7 (2005), Boudt et. al. (2008), and Martin et. al. (2010). 
+
+5. Robust EWMA Estimators. Classical exponentially weighted moving average (EWMA) covariance matrix estimators that preserve positive definiteness are straightforward to implement.  But robust versions are needed and more difficult to implement, and a useful method has been proposed by Croux, Gelper and Malhieu (2010). 
+
+6. Random Matrix Theory for Testing Covariance and Correlation Estimates. It is sometimes of interest to tell whether correlations in a correlation matrix estimate are real or simply noise, and random matrix theory can be used for this purpose.  See for example Gatheral (2008). A particularly useful application of this method would be to test for non-zero correlation in the frequently used constant correlation model.
+
+This project will result in an R covariance matrix estimators package that implements most if not all of the methods listed above, with the following guidelines:
+
+1. The package will build upon work done on such a package by Ross Bennett as of  June 15, 2014.
+
+2. The package will leverage existing packages such as robust, robustbase, rrcov and monomvn, and the ideas in Todorov and Filzmozer (2009) as appropriate.
+
+3. The package will incorporate interoperability in the sense for example that an unequal histories normal distribution MLE method, will seamlessly accept a robust covariance matrix in place of a classical covariance matrix as a user option.
+
+4. The package will use a consistent convention for delivery of robust covariance and correlation matrix estimates for use in FactorAnalytics, PortfolioAnalytics and PerformanceAnalytics.
+
+5. Complete documentation for each function will be provided, including key equations and examples, using Roxygen2.
+
+6. Specific functionality demos and vignettes will be provided, with the choices to be determined by mutual agreement with the project mentors (see below).
+
+
+=== References === 
+Alqallaf, F., Van Aelst, S., Yohai, V. J. and Zamar, R. (2010).  “Propagation of outliers in multivariate data”, Annals of Statistics, Vol. 37, No. 1, 311-331
+
+Boudt, K., Peterson, B. and Croux, C. (2008). “Estimation and decomposition of downside risk for portfolios with non-normal returns”. Journal of Risk 11, 79–103.
+
+Croux, C., Gelper, S. and Malhieu, K. (2010). “Robust exponential smoothing of multivariate time series, Computational Statistics and Data Analysis, 54, 2, 2999-3006).
+
+Donoho, D., Gavish, M. and Johnstone, I. M. (2014).  “Optimal shrinkage of eigenvalues in the spiked covariance model”.  http://arxiv.org/abs/1311.0851. 
+
+Gatheral (2008) “Random matrix theory and covariance estimation” presentation available at http://mfe.baruch.cuny.edu/jgatheral/.
+
+Gramacy, R. B., Lee, J. H. and Silva, R. (2009).  “On estimating covariances between many assets with histories of highly variable length”, http://arxiv.org/abs/0710.5837 .
+
+Gramacy, R. B. and Pantaleo, E. (2010).  “Shrinkage regression for multivariate inference with missing data and an application to portfolio balancing”, Bayesian Analysis 5, Number 2, 237-262.
+
+Ledoit, O. and Wolf. M. (2004).  “A well-conditioned estimator for large-dimensional covariance matrices”. Journal of multivariate analysis, 88(2):365–411.
+
+Ledoit, O. and Wolf,M. (2012).  “Nonlinear shrinkage estimation of large-dimensional covariance matrices”. The Annals of Statistics, 40(2):1024–1060.
+
+Maronna, R. Martin, R.D., and Yohai, V. J. (2006). Robust Statistics : Theory and Methods, Wiley.
+
+Maronna RA, Zamar RH (2002). “Robust estimation of location and dispersion for high-dimensional datasets", Technometrics, 44, 307{317.
+
+Martin, R. D., Clark, A. and Green, C. G. (2010). “Robust portfolio construction”, in Handbook of Portfolio Construction: Contemporary Applications of Markowitz Techniques, J. B. Guerard, Jr., ed., Springer.
+
+Martin, R. D. (2013). “Robust Covariances and Distances: Common Risk Factor versus Idiosyncratic Outliers”, www.rinfinance.com/agenda/2013/talk/DougMartin.pdf.  ‎
+
+Scherer, B. and Martin, R. D. (2005). Modern Portfolio Optimization, Springer. 
+
+Todorov, V. and Filzmoser, P. (2009). “An Object Oriented Framework for Robust Multivariate Analysis." Journal of Statistical Software, 32(3), 1{47. URL http://www.jstatsoft.org/v32/i03/}.
+
+==== Skills required: ====
+Applicants should have:
+
+- Proficiency with R and some experience in developing in R.
+
+- Knowing or comfort in quickly learning tools such as svn, Roxygen2 and LaTeX 
+
+- Those with demonstrable experience with finance-related packages will be preferred.
+
+- A background in computer science or engineering with graduate training in finance is ideal.
+
+
+==== Test: ====
+
+A successful applicant will:
+
+- Discuss the proposed package functionality.
+
+- Write development timeline for code implementation, documentation and testing.
+
+- Provide a complete code example of a function with documentation that demonstrates familiarity with the tools listed above.
+
+- Identify any personal commitments that conflicts for their time during summer 2014.
+
+
+==== Mentors: ====
+
+- Doug Martin is Professor of Applied Mathematics and Director of the MS-CFRM program at the University of Washington.  He is co-author with Bernd Scherer of Introduction to Modern Portfolio Optimization (2005), and is currently writing a new book on the topic with Scherer and Guy Yollin.  He has previously mentored GSOC projects, and would mentor the GSOC participant.  Email:  doug@amath.washington.edu
+
+- Kjell Konis is Acting Assistant Professor of Applied Mathematics at the University of Washington and maintainer of the following R packages: FlexBayes, RHugin, lpSolveAPI, robust and safeBinaryRegression.  He will be co-mentor with Doug Martin. Email: kjellk@uw.edu. 

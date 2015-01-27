@@ -1,0 +1,89 @@
+=====Title=====
+**pbdPROF: Profiling Tools for High Performance Computing with R**
+
+
+=====Summary=====
+The pbdPROF package currently enables easy profiling of MPI-using R programs, as well as offering publication quality, easily interpreted visualizations for profiler outputs.  We intend to broaden the scope of the package and include more generic performance analysis tools, such as PAPI, Byfl, and/or TAU.  
+
+
+=====Description=====
+Last year, we participated in the successful Google Summer of Code project for [[http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2013:mpiprofiler|a set of MPI profilers]], culminating in the CRAN package [[http://cran.r-project.org/web/packages/pbdPROF/index.html|pbdPROF]].  This year, we hope to parlay that successful experience to expand pbdPROF into a broader, even more useful tool for R package developers.  
+
+R's own Rprof() function is extremely useful, but its profiling capabilities are limited to simple timings of R functions.  This is a very good starting point in performance analysis, but for more experienced developers working with compiled code, additional performance information can be invaluable.  A more general framework that offers access to, for example, low-level software/hardware counters can have tremendous impact when trying to optimize performance of compiled code.
+
+Fortunately, the HPC community is rife with excellent libraries for performing exactly this task (see References section below).  However, utilizing these libraries in an R package is generally far from trivial.  We are proposing to make these performance analysis tools easily and readily available to R package developers.  This framework would include: building a set of wrappers, bundling a subset of these tools into the pbdPROF package itself (such as with fpmpi in pbdPROF), and making the process of linking with supported external performance tools simple.  Finally, the package will offer utilities for capturing outputs from these tools, parsing the outputs, and visualizing the results.  
+
+Finally, the project will emphasize portability and accessibility.  For the former, the package should easily build on as many major operating system platforms as each integrated performance tool will allow.  For the latter, the final product should be "recognizable" to R programmers and easily integrated into an R workflow.
+
+
+=====Goals=====
+  * Expand pbdPROF to include several performance analysis tools, such as PAPI, Byfl, or TAU.
+  * Develop parsing and plotting utilities to enable quick analysis of profiler output.
+  * Extend the package's vignette and documentation to include the new developments.
+
+
+
+=====Skills required=====
+The applicant should have:
+  * Working knowledge of the C language.
+  * Ability to work in a UNIX-like environment (Linux, BSD, Mac, etc.).
+  * Familiarity with autotools (the GNU build system).
+  * Experience using R, particularly [[http://cran.r-project.org/web/packages/ggplot2/index.html|ggplot2]].
+  * Basic familiarity with LaTeX and git/github will be useful.
+
+
+
+
+=====Tests=====
+  * Write a simple C function callable by R using the native C interface (see the [[http://cran.r-project.org/doc/manuals/R-exts.html#Calling-_002eCall|Writing R Extensions]] manual for information, or see the src/ trees of the [[http://cran.r-project.org/web/packages/pbdMPI/index.html|pbdMPI]] and/or [[http://cran.r-project.org/web/packages/pbdBASE/index.html|pbdBASE]] packages for examples).  This function should take a numeric (double) input and return that value plus 1.0.  For quick reference, the basic build process is:  compile the function as a shared library, load the library with dyn.load(), and call the compiled code via .Call() .
+ 
+  * Build [[http://icl.cs.utk.edu/papi/|PAPI]], and run the PAPI_flops example.  Provide that example's output.
+
+
+
+
+=====Mentors=====
+Primary GSoC contact: Drew Schmidt
+  * email: <schmidt@math.utk.edu>
+  * link_id: wrathematics
+\\
+The pbdR Core Team also includes:
+  * Wei-Chen Chen 
+    * email: <wccsnow@gmail.com>
+    * link_id: snoweye
+  * George Ostrouchov 
+    * email: <ostrouchovg@ornl.gov>
+    * link_id: ornlgeorge 
+  * Pragneshkumar Patel 
+    * email: <pragnesh@utk.edu>
+    * link_id: prag
+\\
+All pbdR Core Team members will participate and help with mentoring, but the listed primary contact will be leading the mentorship.
+
+
+
+=====References=====
+pbdPROF:
+  * Current dev build: https://github.com/RBigData/pbdPROF
+  * Stable CRAN build: http://cran.r-project.org/package=pbdPROF
+
+\\
+Profilers:
+  * Performance Application Programming Interface (PAPI): http://icl.cs.utk.edu/papi/
+  * Byfl: https://github.com/losalamos/Byfl
+  * TAU Performance System: http://www.cs.uoregon.edu/research/tau/home.php
+  * HPCToolkit: http://hpctoolkit.org/
+  * IPM: http://www.nersc.gov/users/software/debugging-and-profiling/ipm
+  * Scalasca: http://www.scalasca.org/about/about.html
+
+\\
+Vis tools for profilers:
+  * ParaProf: https://www.cs.uoregon.edu/research/tau/docs/paraprof/
+  * Jumpshot: http://www.mcs.anl.gov/research/projects/perfvis/software/viewers/
+
+\\
+Related work:
+  * The Rmpi package: http://cran.r-project.org/web/packages/pbdMPI/
+  * The pbdR project: http://r-pbd.org/
+  * The pbdMPI package: http://cran.r-project.org/package=pbdMPI
+  * The pbdDEMO package: http://cran.r-project.org/package=pbdDEMO

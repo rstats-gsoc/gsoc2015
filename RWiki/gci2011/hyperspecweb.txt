@@ -1,0 +1,12 @@
+====== hyperSpec's web page ======
+
+ 
+**Task Summary:** Give hyperSpec a nice homepage
+
+**Task Description:** hyperSpec is hosted at [[http://hyperSpec.r-forge.r-project.org]] and needs a nice web page. The content is there in plain html, and a good style sheet would considerably improve the sight and usability of the web page.
+
+**Skills needed:** css/html/(php)
+
+**Rating:** easy
+
+**Category:** outreach

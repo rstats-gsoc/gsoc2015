@@ -1,0 +1,102 @@
+====== Header ======
+PortfolioAnalytics constraints, usability, and graphics
+ 
+=====Summary:===== 
+
+Increase the reach and usability of objectives and constraints in PortfolioAnalytics, including normalizing the interface to all supported constraint types, normalizing summary, print, and graphics methods, and allowing for support of complex constraints even in optimization engines that do not support them directly.
+
+=====Description:=====
+PortfolioAnalytics is a leading R package for complex portfolio optimization, allowing for the creation of complex constraints and objectives that mirror real-world portfolio optimization problems.
+
+Most people are introduced to portfolio optimization in much simpler contexts where global optimizers are not required.  In GSoS 2012, support for the R package 'ROI' was added to add support for quadratic, linear, and conical solvers to PortfolioAnalytics.  For example, mean-variance portfolios with linear inequality constraints are quadratic, mean-Gaussian-ETL objectives are linear, mean-variance with alpha uncertainty penalty are conical, etc.
+
+Many complex portfolio optimization problems are 'global optimization' problems, and not tractable by convex objective and constraint optimizers.  As such, PortfolioAnalytics includes a Burns-style random portfolio backend, and also utilizes R packages DEoptim, pso, soma, and gensa.  These methods work very well for global optimization objectives.
+
+The goal for this GSoC project will be to continue to extend PortfolioAnalytics to make it more general, easier to use, and more consistent across the solvers available.  This work will fall into three broad areas: constraints, utility functions, and 'example' functionality.
+
+
+====Constraints:====
+Constraints are currently supported as box constraints in all solvers and linear inequality constraints specified in a case by case manner for the ROI solvers.  We would like to unify the constraints interfaces as described in the 'Design Thought' reference below in order to simplify the user experience and make the user experience the same regardless of the chosen solver.  To that end, work will proceed in the following areas:
+  * create an ''add.constraint'' function
+  * support integer constraints in addition to continuous variable (floating point) constraints
+  * move box constraints out of the portfolio specification constructor and use add.constraint for them
+  * provide for linear inequality constraints using rglpk-like syntax e.g. 'gt','lt','eq','gte','lte' to define
+  * provide for group inequality constraints using the same type of syntax as used for linear inequality constraints
+  * provide quadratic constraint specification
+  * separate constraints that can be agnostic to assets in the portfolio to constraints that require knowledge of the investment assets
+ 
+Update TDH 9 Apr 2013: you may want to look at and use ideas from [[http://quadmod.r-forge.r-project.org/|a quadratic programming modeling language that is used to symbolically specify linear constraints in R code using S3 methods]].
+
+====Utility Functions:====
+===Mapping Functions===
+Most optimization solvers in R only support box constraints.  If PortfolioAnalytics is going to support broader constraint types generally, as above, then we need a function that can map the inputs from the optimization solver to a set of feasible weights in a repeatable way, and that can be utilized by any solver.  PortfolioAnalytics already supports a modular objective function, and for solvers where mapping of constraints to weights is not possible before calling the objective function, the mapping function could be added as the first step in the modular objective.  The features required of such a mapping function are described in detail in the 'Design Thoughts' vignette.
+===Summary,Print, and Plot methods===
+In the goal of helping the user to be agnostic to the solver, where possible, common R idioms like print, plot, and summary should be supported.  Each solver returns objects of a different type and composition, as could be expected given the differing provenance of those solvers.  We should unify the output to the degree possible for when detailed dissection of results is required, but also provide high level utility functions to make things easy for the user. PortfolioAnalytics currently supports summary, print, and plot methods only for Differential Evolution and random portfolio solvers.  These should be added for all other solvers.
+
+=== Adaptive Penalty Methods ===
+PortfolioAnalytics  currently supports fixed penalties by objective.  This project should add adaptive penalty functions on both constraints and objectives.  For constraints feasibility of the target constraints should be checked against basic boundaries and against a sample set.  Warnings should be provided to the user, along with the opportunity to apply relaxation criteria.  For objectives, it should be possible to increase the penalty terms on the objective components as optimization proceeds, to force convergence.  More details are provided in the 'Design Thoughts' vignette.
+
+====Example Functionality:====
+Several complex optimizations become possible once constraints and objectives are appropriately defined.  By way of example, here are some methods that will bwe supported (numerical references are to [[http://www.amazon.com/Introduction-Modern-Portfolio-Optimization-S-PLUS/dp/0387210164|Modern Portfolio Optimization]] equations )
+  * Mixed integer programming (MIP) with buy-in thresholds and cardinality constraints: (3.12).
+  * MIP round lot constraints: (3.13) and (3.14)
+  * MIP tracking indices with small number of stocks: (3.15)
+  * Turnover constraints: (3.16) and (3.17)
+  * Proportional costs: (3.18) and (3.19)
+  * Fixed costs: (3.20), (3.21) and (3.22)
+  * Linear and piecewise transaction costs
+  * Turnover (which can be supported as either a constraint under certain circumstances or an objective)
+
+All of these are currently cumbersome in R, and should be easy for the user of PortfolioAnalytics.
+
+Very specialized and commonly used constraints such as full-investment (weights sum to one), and zero-dollar and active weights (weights sum to zero) should be specified by a single PortfolioAnalytics optional argument. For risk exposutures, the current target and limit arguments placed on the risk objective could be extended to allow for an optional argument consisting of a matrix of exposures (e.g., extracted from a factor model exposures matrix outside of PortfolioAnalytics) and exposure limits might be useful.
+
+The student in this project will develop a list of specific functions identified from this outline to be included in PortfolioAnalytics. New code will be consistent with interfaces of other functions in PortfolioAnalytics.
+
+In addition, the student will write complete documentation for each function using Roxygen2, including key equations and examples.  If the reference includes specific data and accompanying code, the student will create an example or demo that shows the results from the paper can be replicated. Students may also consider creating a vignette that goes beyond the functional documentation to show how the functions might be used, perhaps with some extended examples.
+
+In their proposal, students should demonstrate an understanding of the concepts discussed above, including a brief discussion about how the functionality might be used by investors.  
+
+=== References ===
+  * ReturnAnalytics on R-Forge.  https://r-forge.r-project.org/projects/returnanalytics/
+
+  * [[https://r-forge.r-project.org/scm/viewvc.php/*checkout*/pkg/PortfolioAnalytics/inst/doc/DesignThoughts.pdf?root=returnanalytics | PortfolioAnalytics 'Design Thoughts'  PDF]] 
+
+  * ROI on R-Forge: https://r-forge.r-project.org/projects/roi/
+
+  * DEoptim on CRAN: http://cran.r-project.org/web/packages/DEoptim/index.html
+
+  * Particle Swarm Optimization on CRAN: http://cran.r-project.org/web/packages/pso/index.html
+
+  * SOMA on CRAN: http://cran.r-project.org/web/packages/soma/index.html
+
+  * rgenoud on CRAN: http://cran.r-project.org/web/packages/rgenoud/index.html
+
+  * quadprog on CRAN: http://cran.r-project.org/web/packages/quadprog/index.html
+
+  * [[http://www.amazon.com/Introduction-Modern-Portfolio-Optimization-S-PLUS/dp/0387210164|Modern Portfolio Optimization]] by Bernd Scherer and Doug Martin, 2005
+
+=====Skills required:===== 
+Applicants should have:
+  * Prior experience using or developing in R, and comfort with tools such as svn, Roxygen2, LaTeX (for equations in particular), and familiarity with base graphics.
+  * Those with demonstrable experience with finance-related or optimization related R packages will be preferred.
+  * A background in computer science or engineering with graduate training in finance would likely be ideal.
+
+
+
+
+=====Test:=====
+
+  * Discuss the list of proposed functionality for inclusion in PortfolioAnalytics.
+  * Develop a specific plan with a timeline for development, documentation (consider adding a vignette as well), and testing the functionality.
+  * Provide a complete code example of a function with documentation that could be used in the package PortfolioAnalytics (exceptional examples will be considered for inclusion in the package and their author given full credit for the contribution). The example does not need to pertain to the subject of this project, but should demonstrate your coding ability and familiarity with the tools used in developing PortfolioAnalytics.
+  * Clearly identify any other commitments or possible conflicts for their time during the coming summer.
+
+=====Mentor:===== 
+
+Doug Martin is Applied Mathematics and Statistics Professor and Director of the Computational Finance program at the University of Washington, and author of several papers and books on portfolio construction.
+ 
+
+Guy Yollin is a Applied Mathematics Instructor in the Computational Finance program at the University of Washington, former head developer at Insightful, and has extensive optimization and hedge fund experience.
+
+Brian Peterson is one of the primary authors of these packages, and has previously mentored GSoC projects. 2013-04-06

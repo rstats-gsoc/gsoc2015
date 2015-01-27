@@ -1,0 +1,14 @@
+__//**copy the source of this wiki doc, don't edit it directly**//__
+
+====== Header ======
+
+ 
+**Summary:** A brief project summary in just a few words aka "headline"
+
+**Description:** A more detailed description, possibly enhanced with links and references.
+
+**Skills required:** A list of required skills (programming languages, experience, methodologies, ...) for the prospective student
+
+**Test:** A test an applicant has to pass in order to qualify for the topic 
+
+**Mentor:** A mentor willing and able to guide the student. A datestamp about when the suggestion was made.

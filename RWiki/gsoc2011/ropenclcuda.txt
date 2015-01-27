@@ -1,0 +1,26 @@
+====== Library for OpenCL/CUDA Parallelism in R ======
+
+ 
+**Summary:**
+
+This library will provide a way to easily create parallel functions to run on graphics processing units (GPUs) without needing to write CUDA/OpenCL code explicitly.
+
+**Description:**
+
+OpenCL and CUDA are two methods to access a GPU in order to expose general-purpose programming functionality; that is, to use a video card for functionality other than rendering textures and video (and so on). The key property of these video cards is that they have many cores (potentially hundreds) which are geared towards computing floating-point data. Being able to offload floating-point intensive work to the GPU can provide a significant performance advantage over traditional processors as a result, and since a large amount of statistical computations are floating-point, this functionality can greatly enhance the speed of computations in R. The main focus will be translating R functions, with an emphasis on vector/matrix data, to CUDA/OpenCL-compatible C/C++ code such that the many benefits of General-Purpose GPU computations can be taken advantage of by the R community.
+
+**Reference Packages:**
+
+foreach, inline, rcpp, romp, doMC, gputools, rgpu, codetools
+
+**Skills required:**
+
+Experience programming in C/C++, R, OpenCL, and CUDA; knowledge of GPGPU and parallel computing
+
+**Test:**
+
+Translate a snippet of R into CUDA-compatible C/C++.
+
+**Mentor:**
+
+Dr. Ferdinand Jamitzky, Leibniz Supercomputing Centre, of the Bavarian Academy of Sciences and Humanities, Boltzmannstraße 1, 85748 Garching bei München, Room I.2.035, Phone: ++49-89-35831-8727, e-mail: jamitzky@lrz.de

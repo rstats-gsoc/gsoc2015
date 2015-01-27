@@ -1,0 +1,16 @@
+====== Virtual R Supercomputer ======
+ 
+**Summary:** Develop an R interface that runs on BOINC (the Berkeley Open Infrastructure for Network Computing).
+
+**Details:** There are a large number of packages dedicated to high-performance computing with R.  To get real performance improvements out of parallel computing, each of these packages assumes either direct access to a grid or adds the additional expense of using something like Amazon EC2. 
+
+BOINC has about 605,000 active computers (hosts) worldwide processing on average 4.6 petaFLOPS as of Mar 4th 2010 (http://en.wikipedia.org/wiki/Berkeley_Open_Infrastructure_for_Network_Computing).  These hosts volunteer their resources for scientific research.  The vrs package will allow any researcher to submit a self-contained R simulation to be run across the BOINC network of computers, giving researchers direct access to vast computing power at no cost.
+
+**Skills:** Good R and C++ programming skills.  Familiarity with basic open source development tools like svn and make is assumed.  Experience with Debian or Ubuntu Linux. 
+
+**Tests:** 
+  - Use RInside (http://dirk.eddelbuettel.com/code/rinside.html) to write a C++ application that calculates the value of Pi using a monte carlo approach with R (see rosetta code for an example implementation of the R code: http://rosettacode.org/wiki/Monte_Carlo_methods#R).  The looping part of the operation should in the C++ layer.
+  - Describe, in words, what the following BOINC functions do: get_output_file_info, create_work, boinc_init_parallel, boinc_wu_cpu_time.
+  - Run the "Quick Start" BOINC example application (can be run as a virtual machine to limit setup time).
+
+**Mentor:** Shane Conway (smc77@columbia.edu). 

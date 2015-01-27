@@ -1,0 +1,9 @@
+**Summary:** A package using structural equation modeling to analyze bidirectional effects in dyadic data structures
+
+**Description:** The Actor-Partner Interdependence Model (APIM; Kashy & Kenny, 1999; Kenny, Kashy, & Cook, 2006) is a model of dyadic relationships that integrates a conceptual view of interdependence in two-person relationships with the appropriate statistical techniques for measuring and testing it. Structural equation modeling makes it easy to translate the two-person relationships in the form of path diagram into a model to be estimated and testing using SEM. So far, there is only one r package "dyad", which is solely based on Gottman-Murray equations. It cannot handle complex interaction effects such as partner-moderated partner effects or actor-moderated partner effects. Our goal is: a) provide an easy interface for the calculation of APIMs with three components (actor effects, partner effects and relationship effects; b) provide chi-square tests for model fit; c) provide parameter estimates for those three components and Wald tests for them. d) provide variance/covariance estimates and likelihood tests for them. e) provide functions for newer developments like APMeMs and APMoMs (mediation and moderation in dyadic designs).
+
+**Skills required:** R programming, experiences in package building and documenting, psychological background knowledge with specific expertise concerning dyadic data structural equation models
+
+**Test:** Write a function to replicate the results of the APIM analysis in "Dyadic Data Analysis" (Kenny Kashy, & Cook, 2006), Chapter 7 (Campbell et al. data; see also http://davidakenny.net/kkc/c7/c7.htm). Make sure that the function call is as general, reusable, and easy as possible.
+
+**Mentor:** Dr. Felix Schönbrodt, Ludwig-Maximilians-Universität Munich: felix.schoenbrodt@psy.lmu.de; Co-Mentor: Prof. Mitja Back, Johannes Gutenberg University Mainz

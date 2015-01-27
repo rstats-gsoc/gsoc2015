@@ -1,0 +1,166 @@
+====== Tools for composite index analysis ======
+===== Summary =====
+The CItools package available on R-forge https://r-forge.r-project.org/R/?group_id=1848 contains various functions to compute and analyze the sensitivity of composite indicators in terms of aggregation method used, choice of weights, normalization and outlier cleaning technique. The package now is specialized to one composite index (UNIDO’s competitive industrial performance index) and needs to be generalized to cope with any type of dataset of indicators that need to be aggregated in a composite index. Additional functionality that needs to be included is the creation of subindicators based on principal component analysis and factor analysis. 
+
+
+
+
+===== Description =====
+The construction of a composite index is a result of several stages that involve decisions regarding choice of indicators, aggregation method, normalization method, cleaning method, etc.  
+
+Because the decisions are often subjective, a sensitivity analysis is useful to assess the robustness of the CIP calculation to variations on the decisions made and to analyse how much each source of uncertainty contributes to the total uncertainty of the CIP index. 
+
+One central issue that arises in using the CIP index is the impact of changing the relative importance of each subindicator on the rankings produced by the CIP index. This is the type of functionality offered by the CItools package together with other important methodological choices made in the construction of the CIP index. In particular, the CItools package permits to evaluate the sensitivity of the rankings to the weights, treatment of missing and/or outlying values, the choice of normalization method and the choice of aggregation method.
+
+The current versions of the CItools package is limited in terms of scope as it currently works only for one particular database: the Competitive Industrial Performance Index data of UNIDO. The goal of this GSoC project is to make the CItools package general purpose. This will require the following actions:
+
+1. Design the package in an object oriented way. Define an object representing a composite index. The current function computeCIP() will be the constructor, it will return an object of the respective class. On such objects methods can be executed: at least the standard print() and plot() - with different graphical presentations of the index (to be defined). Further methods on these objects could be compare(), sensitivity().
+
+2. Graphical visualization of the results: see examples for graphical presentation of the CIP on http://www.unido.org/data1/Statistics/Research/cip.html
+- For a selected country, present several selected or all sub-indicators (8 for CIP),  for one or several years, on a bar chart or a radial plot
+- Present the indicator(s) as a choropleth world or regional map 
+- Graphical presentation of the sensitivity analysis
+
+
+If time permits, the student will have to provide a GUI for invoking the functions of the package and give the possibility the package to be used by people who do not want to program in R. This could be based on Shiny and/or GTK.
+
+
+
+
+===== Skills required =====
+Applicants should have:
+
+ - A good working knowledge of programming in R. 
+
+- Familiarity with statistics. 
+
+
+
+
+
+
+===== Test =====
+
+i.	The successful applicant should be able to demonstrate the ability to extend functions in CItools by doing the following:
+
+####################################################################################################
+
+##
+
+## * Steps marked by * are optional
+
+##
+
+## 1. Download and install the package CItools from https://r-forge.r-project.org/R/?group_id=1848
+
+##    This data set contains data on 8 indicators for 125 countries, for 15 years.
+
+##    Extract the data for one year, e.g. 2010.
+
+##    Select the following 8 variables (indicators) MVApc, MXpc, MHVAsh, MVAsh, MHXsh, MXsh, ImWMVA, ImWMT.
+
+## 2. Perform robust principal components (PCA) on the data set. Compare to classical PCA. 
+
+##    Are there outliers? Do a biplot and score plot. Discuss the results.
+
+##
+
+## 2a*. Use the CRAN package countrycode to identify the countries on the plots (by name or by ISO code)
+
+##
+
+## 3. Visit stat.unido.org and select the data set MVA 2013: Manufacturing (available for free). Select
+
+##      and download the variables GDP and MVA at constant 2005 prices as well as Population.
+
+##      Missing values are represented as "...".
+
+##      Why " at constant prices" ?
+
+##
+
+## 4. Calculate the following derived variables:
+
+##      a) MVA per capita.
+
+##      b) Share of MVA in GDP and
+
+##      c) Average annual growth rate of MVA per capita for a selected period (e.g. 2005-2012)
+
+##
+
+## 5. For selected (several) countries and selected period (from-to) plot:
+
+##      a) MVA per capita by time
+
+##      b) Share of MVA in GDP by time
+
+##      c) Average annual growth rate of MVA per capita as a bar chart
+
+##
+
+## 5a*. Plot the average annual growth rate of MVA per capita on a world map
+
+##
+
+## 6. Using the data set created so far, write a simple shiny application in which the user can select:
+
+##          - Several countries and a time period
+
+##          - Variable - one of (i) MVA per capita, (ii) Share of MVA in GDP or (iii) Average annual growth rate 
+
+##          - Presentation - (i) Table or (ii) Chart
+
+##      The selected data subset will be represented as a table or as a chart (as in 5.)
+##
+
+##  7*. Add a plot representing the selected data on a world map
+
+##
+
+##  8*. Program the same simple application in RGtk2. Which of these two GUI tools do you prefer?
+
+##
+
+##  9. Tell me how much time did you spent for completing the assignment. Which steps were most difficult?
+
+##
+################################################################
+
+
+ii.	Develop a suggested plan for the project including a timeline for the development of the code,  its documentation and testing.
+
+===== Mentor =====
+
+**Mentor:** Dr. David Ardia, Dr. Kris Boudt and Dr. Valentin Todorov
+
+
+
+
+
+
+===== References =====
+
+Main References: 
+
+1. Appendix on sensitivity analysis of the CIP on pages 129-138 of the UNIDO publication "The Industrial Competitiveness 
+of Nations- Looking back, forging ahead": http://www.unido.org/fileadmin/user_media/Services/PSD/Competitive_Industrial_Performance_Report_UNIDO_2012_2013.PDF 
+
+2. OECD (2008) Handbook on Constructing Composite Indicators, Paris: OECD.
+
+3. Saisana, M., Saltelli, A. and Tarantola, S. (2005) ‘Uncertainty and sensitivity analysis techniques as tools for the quality assessment of composite indicators.’ Journal of Royal Statistical Society A 168, 307-323. 
+
+4.  David Ardia, Kris Boudt and Valentin Todorov (2014). CItools: Computation, comparison and sensitivity analysis of composite indicators of performance. R package version 1-00.01/r2.   http://R-Forge.R-project.org/projects/cia/
+
+Other references:
+
+Cherchye, L., Moesen, W., Rogge, N., Van Puyenbroeck, T., Saisana, M. and Saltelli, A. (2008) ‘Creating composite indicators with DEA and robustness analysis: the case of the Technology Achievement Index.’ Journal of the Operational Research Society 59, 239-251. 
+
+Cherchye, L., Moesen, W., Rogge, N. and Van Puyenbroeck, T. (2011) ‘Constructing composite indicators with imprecise data: A proposal.’ Expert Systems with Applications 38, 10940-10949. 
+
+Decanq, K., and Lugo, M.A. (2012) ‘Weights in multidimensional indices of well-being: An overview.’ Econometric Reviews, forthcoming. 
+
+Foster, J.E., McGillivray, M. and Seth, S. (2012) ‘Composite Indices: Rank robustness, statistical association, and redundancy.’ Econometric Reviews 32, 35-56. 
+
+
+

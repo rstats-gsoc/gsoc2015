@@ -1,0 +1,13 @@
+====== Port Beancounter to R and extend it  ======
+ 
+**Summary:** Port the Beancounter (perl) program to R and extend it by leveraging on the many tools available in R
+
+**Description:** [[http://dirk.eddelbuettel.com/code/beancounter.html|Beancounter]] is a reasonably simple yet mature Perl program that uses Perl modules to download financial data, stores it SQL backends (with support for PostgreSQL, MySQL, SQLite and ODBC) and analyses it with a number of simple canned reports such as profit/loss and risk reports.
+
+When Beancounter was written, R had none of the numerous Finance modules (see e.g. the [[http://cran.r-project.org/web/views/Finance.html|Finance Task View]]).  It now makes more sense to have this in R, and to extend it from R with e.g. Sweave for reports etc.
+
+**Skills required:** R programming and packaging skills, some understanding of database programming from R, an interest in Finance
+
+**Test:** Write an simple R package that downloads data for three securities and reports a correlation and covariance matrix.
+
+**Mentor:** Dirk Eddelbuettel. Suggestion added 2010-03-10

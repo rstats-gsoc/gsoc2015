@@ -1,0 +1,37 @@
+====== Improvements to data visualisation, subsetting, and analytics for time series data. ======
+
+===== Summary =====
+Improve data subsetting approaches, visualisation, and data analytics for xts time series objects.
+
+
+===== Description =====
+xts is a subclass of zoo, designed to allow the fastest possible manipulation of large time series objects.  Some of the core xts functionality has even been back-ported into zoo.  The zoo/xts packages are some of the most widely used R packages, with over a hundred CRAN packages depending on them and many addtional dependencies in other repositories.  This project would add additional plotting, subsetting, and analytical features to xts to bring its supported functionality more in-line with R norms for much slower objects such as data.frames, and to add additional time series analytics functionality to the package.  Some of this work may be back-ported into zoo.
+
+===Plotting===
+xts currently provides a rudimentary plot.xts method, and quantmod provides a more comprehensive set of plotting functions via chartSeries and chart_Series.  These functions suffer from problems with axes and borders, and no support for panels, qqplot, boxplot, or histogram methods.  Although xts has rather transparent as.* methods that allow some base R functions to be used rather painlessly, it would be beneficial to have xts versions of these methods available for ease of use.  Primitives for most of these methods are available in PerformanceAnalytics, and should be adaptable to more general purpose xts methods.
+ 
+===Multi-Class Columns===
+One existing strength and deficiency of xts/zoo arises from its use of 'matrix' as the underlying core data type for the main time series data.  One request often heard on the various R mailing lists is to support columns of various types as is done in data.frame.  One problem with this suggestion is that data.frame objects are extremely slow, and xts objects are routinely used to hold time series data with tens of billions of observations.
+
+The general goal here would be for a data.frame-like ability for differing column classes, while retaining the power and speed of `[.xts` and the xts methods for rbind and cbind.  The likely implementation approach would construct something akin to the list-structure of data.frames where class-specific list elements whould share an index, so that subsetting indices could then be applied to each column (or grouping of columns)
+at the C level.  It is possible that multiple columns that shared a column class could be grouped into single list slots to avoid additional aggregation.
+
+===Analytical Methods===
+Many existing time series methods in R such as AR/ARIMA, Holt Winters, and VAR methods assume a regular time series.  While many xts series are sufficiently regular to use these methods, there is no guarantee that this is the case.  This would provide 'bridge' functionality to intelligently convert non-regular xts data to data regular enough to be converted to base R ts and passed to and from the multitude of time series functions that require regular data.  The zooreg subclass from zoo will provide a template for this to create a (likely non-user-facing) "xtsreg" class, we could easily have an object that maps naturally on to ts objects and could use that code in conjunction with some appropriate translations.
+
+=====Skills required===== 
+The successful applicant should have proficiency with R, xts, quantmod, and TTR. The ideal candidate would also have prior experience on the analysis of high-frequency data and market microstructure.
+
+=====Test===== 
+The successful applicant must demonstrate prior experience with high frequency data and R. This could be via identifying a patch or extension, providing a new demo script for the or quantmod packages that would show understanding of the functionality provided, or by doing a detailed proposal with pseudocode for one or more potential enhancements to the toolchain.
+
+
+
+=====Mentors===== 
+Jeffrey Ryan is the primary author of xts and quantmod, a coauthor of zoo, and primary or coauthor on multiple other R packages.
+
+Joshua Ulrich is the primary author of TTR, coauthor of xts and DEoptim, and contributing author to quantmod and many other R packages.
+
+Brian Peterson is a contributing author of xts/quantmod, and has previously mentored GSOC participants. 2012-03-09.
+
+Stuart Greenlee is a quantitative trader based in Chicago who spends much of time working with the xts and zoo packages.

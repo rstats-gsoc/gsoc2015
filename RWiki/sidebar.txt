@@ -1,0 +1,9 @@
+====== Developers' projects ======
+Section for discussing (future) projects around R development.
+
+===== Section content =====
+{{indexmenu>developers:projects}}
+
+
+----
+Back to [[developers:developers|Developers section]] | [[:start|Start page]]

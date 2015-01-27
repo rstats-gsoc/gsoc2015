@@ -1,0 +1,7 @@
+====== Developers' projects ======
+
+Discuss here (future) projects that are not mature enough to get a definitive location ([[http://R-forge.r-project.org|R-Forge]], ...) or name. This is also the section to use for writing proposals, like for the [[developers:projects:gsoc2012|Google Summer of Code 2012]] and [[developers:projects:gci2011|Google Code-In 2011]].
+
+**NOTE** This is a good place to provide links to ideas for Summer of Code or similar projects, including those that get some interest but do not for some reason get funded in a current competition.
+
+Please, once your project finds his way on a definitive location, indicate it clearly with a link to the main project's page. If, unfortunately, you decide not to push the project further, indicate it also clearly.

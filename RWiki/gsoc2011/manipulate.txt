@@ -1,0 +1,13 @@
+====== manipulate ======
+ 
+**Summary:** Interactive graphical R applets for teaching statistics and calculus
+
+**Description:** Many concepts in statistics and calculus can be illuminated powerfully by interactive graphical displays: call them applets.  For example, in a statistical modeling class, an applet can be used to show the effect of adding interaction terms to a model, or how solutions to sets of linear equations are found.  In calculus, an applet can show how the quality of a polynomial approximation changes as the order is increased.  Indeed, just about any static textbook illustration can be made more effective by the addition of interactivity: changing parameters, model orders, initial conditions, etc.  The RStudio IDE makes possible the creation of interactive graphical applets using its built-in manipulate package.
+
+This project will develop about 20 manipulate applets to illustrate various concepts encountered in statistics and calculus.  The applets will be published as part of Project MOSAIC, an NSF-supported curricular development initiative that encourages greater use of sophisticated computing in introductory college-level calculus and statistics courses.  
+
+**Skills required:** Proficiency in general R programming and constructing custom graphical displays.  Familiarity of basic principles of statistics and calculus (through multivariate) that will be the objects of the applets.
+
+**Test:** Test: The ability to write an R function that can display a cobweb plot, that is, the iteration of the system x_{i+1} = g( x_i ) such as the logistic map in a chaotic regime. (A rough example of such a plot is at http://math.la.asu.edu/~chaos/logistic.html)
+
+**Mentor:** Daniel Kaplan (Macalester College) and J.J. Allaire (RStudio). 3/11/2011.

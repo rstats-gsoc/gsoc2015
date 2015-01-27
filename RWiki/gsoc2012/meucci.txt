@@ -1,0 +1,31 @@
+===== Summary ===== 
+Extend the functionality of key ReturnAnalytics packages with the current research of Attilio Meucci, a thought leader in risk and portfolio management.
+
+===== Description ===== 
+Attilio Meucci is a pioneer in advanced risk and portfolio management. His innovations include Entropy Pooling (technique for fully flexible portfolio construction), Factors on Demand (on-the-fly factor model for optimal hedging), Effective Number of Bets (entropy-eigenvalue statistic for diversification management), Fully Flexible Probabilities (technique for on-the-fly stress-test and estimation without re-pricing), and Copula-Marginal Algorithm (algorithm to generate panic copulas).  Attilio Meucci serves as the chief risk officer at Kepos Capital LP. Concurrently, he is adjunct professor at the Master's in Financial Engineering – Baruch College - CUNY.
+
+Attilio has included Matlab code, some of which requires the additional Optimization Toolkit, alongside his key papers to better demonstrate the concepts.  We would like to convert that code to R to make it more widely assessible.
+
+Beyond the initial conversion, we will functionalize key aspects of that code and consider including functions in PerformanceAnalytics, PortfolioAnalytics, or developing a package around one or more of the concepts described above, starting with the Effective Number of Bets.  
+
+PerformanceAnalytics is an R package that provides a collection of econometric functions for performance and risk analysis. PortfolioAnalytics is an extensible business-focused framework for portfolio optimization and analysis.
+
+=== References ===
+  * ReturnAnalytics on R-Forge.  https://r-forge.r-project.org/projects/returnanalytics/
+
+  * Meucci, Attilio, Managing Diversification (April 1, 2010). Risk, pp. 74-79, May 2009; Bloomberg Education & Quantitative Research and Education Paper. Available at SSRN: http://ssrn.com/abstract=1358533
+
+  * Meucci, Attilio, Factors on Demand, Building a Platform for Portfolio Managers, Risk Managers and Traders
+    http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1565134 
+
+  * Meucci, Attilio, Exercises in Advanced Risk and Portfolio Management - With Step-by-Step Solutions and Fully Documented Code (August 15, 2010). Available at SSRN: http://ssrn.com/abstract=1447443 or http://dx.doi.org/10.2139/ssrn.1447443
+
+  * Meucci, Attilio, Risk and Asset Allocation. Springer Finance (2005) ISBN: 3540222138
+
+===== Test ===== 
+The successful applicant will demonstrate proficiency with both Matlab and R.  Within R, the candidate should show proficiency with xts and  PerformanceAnalytics or PortfolioAnalytics. This could be via identifying a patch or extension, providing a new demo script for the one of the packages that would show understanding of the functionality provided, or by doing a detailed proposal with pseudocode for one or more potential enhancements to the toolchain. The ideal candidate would also demonstrate prior interest or experience in finance.
+
+=====Mentor===== 
+Brian Peterson is one of the primary authors of these packages, and has previously mentored GSoC projects.
+
+Peter Carl is one of the primary authors of these related packages, and would mentor the GSOC participant. 2012-02-24

@@ -1,0 +1,91 @@
+====== ExploreStoch ======
+
+**Summary:** To develop functions for exploratory analysis and
+visualization of multivariate and high-dimensional data from
+stochastic dynamic processes.
+
+**Description:** The overall objective is to contribute with functions
+that can be helpful in exploring, plotting and analyzing data from
+high-dimensional dynamic systems, in particular, emphasizing the
+internal dynamic of the process. The results may be embedded in the
+processdata package (https://r-forge.r-project.org/projects/multdiff/).
+
+Some concrete data examples and ideas are:
+
+  * Gene expression dynamics. 
+
+Time course gene expression measurements
+are very high-dimensional dynamic processes -- often observed at
+relatively few time points. Some of the scientific objectives include
+the ability to identify groups of genes that are co-regulated, genes
+that react to external stimuli, or, more ambitiously, the regulatory
+network among the genes.
+
+  * Activities of neuron cells. 
+
+Dynamic spike times and membrane
+potentials for neuron cells form another class of dynamic stochastic
+processes. A characteristic of the data is that the spike times are
+discrete events. Some of the scientific objectives are to model how
+the membrane potential cause spikes, and how spikes from multiple
+neurons co-occur, and perhaps to infer the network among the observed 
+neurons from the spike times. 
+
+For both examples above it is of interest to visualize the dynamics.
+Static (time-series) plots can be useful, in particular if the
+coordinates can be grouped and color coded in a sensible way. The
+proposal is, however, to focus on functions that produce animations,
+e.g. using the animation R package. Besides simple 1d-animations,
+2d-animations of (X_t, dX_t) based on an SDE model is of interest. 
+For discrete event times a suggestion for replacing the (X_t, dX_t)
+animation is to consider an (R_t, lambda_t) animation where R_t is the
+time since last event and lambda_t is a (model based)
+intensity. The infrastructure for handling continuous process data and
+discrete event times is available in the processdata R package, and 
+the R package ppstat (https://r-forge.r-project.org/projects/ppstat/) 
+provides a class of multivariate intensity based models. 
+
+Static plots of the above can also be implemented, but a prime
+motivation for working with animations is to make it easier to visualize
+concurrency or, at least, the order in time of the dynamic behavior of
+the processes. 
+
+To better represent signaling cascades, a
+more ambitious goal could be to superimpose a 1d-animation 
+on a graph that represent the direct interactions between the process
+components, and, for instance, use color coding to represent the
+values of the process, spike times, time since last event etc.
+
+  * Functional data and classification. 
+
+One can also consider  
+(high-frequency) observations of a continuous signal, sometimes
+referred to as functional data, with the purpose of discriminating
+between two or more groups based on the signal. A concrete data
+example, that can be used in the project, consists of acceleration 
+signals from walking horses, where the purpose is to discriminate lame
+horses from healthy horses. The signals are 3d signals.
+
+For functional data, such as the horse data mentioned above, the
+objective is to produce static plots or animations that emphasize the
+discrepancies between the groups, that is, between the lame and
+healthy horses in the example. 
+
+A successful completion of this project consists of an R implementation
+to solve one or more of the visualization tasks described above. The
+implementation must be based on data being of one of the classes
+implemented in the processdata package. It is encouraged that the
+resulting visualizations are combined with techniques for dimension
+reduction, clustering and color coding to aid the interpretation of
+the data. 
+
+**Skills required:** R programming, preferably with a good knowledge of R
+graphics some of the R packages for plotting and visualization, 
+e.g. the animation, rgl and ggplot2 packages. Knowledge of stochastic processes.
+
+**Test:** Use svn to check code out the processdata package from R-Forge and read the vignette. 
+
+**Mentor:** Niels Richard Hansen 
+
+//[[Niels.R.Hansen@math.ku.dk|Niels Richard Hansen]] 06-04-2011//
+

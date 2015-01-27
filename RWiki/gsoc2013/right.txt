@@ -1,0 +1,49 @@
+====== RIGHT : R Interactive Graphics via HTml ======
+ 
+**Summary:** R Interactive Graphics via HTml (RIGHT) will support easy data exploration using interactive graphics and analysis and reveal information hidden among static graphs. It will use HTML5 canvas and JavaScript, instead of Qt, to make analysis and visualization results easier to distribute to wider audience. Furthermore, it will support intuitive R API for easy setup.
+
+**Background/Motivation:** There are excellent packages in R that produces very polished static graphics, e.g. lattice and ggplot2. However, exploring data using static graphics can be tedious: users have to frequently interact with command line to get meaningful graphs that answer even a simple question like “how are graphical elements (a point or a group of points) in one graph related to those in another graph?” Interactive graphics linking data in different graphs and interactive visualization of summary statistics, combined with intuitive R API for setup, can help address these questions and make data exploration easy and also fun. 
+
+**Description**
+
+The goal of project RIGHT is to develop interactive graphics and analysis to easily explore data using HTML5 and JavaScript with an intuitive R API. 
+
+The project will have three components:
+  - HTML5 and JavaScript libraries (RIGHTJS) for interactive visualization. Supported features will include, but not be limited to:
+    * Various types of basic graphs including scatter plot, histogram, and box and whisker.
+    * Interactivity features: 
+      * Tooltip: display detailed information when mouse hovers.
+      * Simultaneous selection: related data points on different graphs are simultaneously selected when clicked.
+      * Multiple selections: selection with ctrl/shift key and box selection.
+      * Hiding: selected data points can be hidden (for, say, outlier removal for interactive analysis) via right-click menu.
+      * Searching: data points can be searched with Boolean statements.
+      * Table: table shows detailed information about the selected data points.
+  - R API 
+    * HTML5 and JavaScript code generation is supported through an intuitive R API similar to what is found in widely used static graphics packages, e.g. base graphics, lattice, and ggplot2.
+    * R package with documentation will be developed for distribution through CRAN.
+  - Interactive data analysis support
+    * (Complex) data analysis will be done on the server side (remote or local) and the graphs will be updated interactively. For example, if a user selects and hides outliers, analysis will be performed on the server (remote or local) and graphs will be updated accordingly.
+
+**Demo:** a part of the first two components has been implemented. A demo video is available at [[http://youtube.googleapis.com/v/thlwjYFC_yY?vq=hd1080;hd=1;autoplay=1;]].
+
+**Languages:** RIGHT will use **HTML5 canvas** & **JavaScript** for the following reasons:
+  * Browsers natively support event handling necessary for interactive visualization, and JavaScript engines are powerful enough to visualize reasonably large data.
+  * The performance will only get better as websites become more complex. RIGHT can piggy-back on the performance enhancements of JavaScript engines demanded by others.
+  * HTML5 canvas and JavaScript make it easy to disseminate analysis and visualization results to wider audience since they are well adopted in many platforms including mobile.
+
+**Code** https://code.google.com/p/r-interactive-graphics-via-html/
+
+**Related work/Literature**
+  * [[http://spotfire.tibco.com/|TIBCO Spotfire]]: [[http://www.youtube.com/user/SpotfireGuy|many interactive visualization features]] were inspired by this commercial software package. RIGHT will be open source and provide an intuitive R API for setup; in comparison, Spotfire setup is only supports GUI-based setup.
+  * [[https://github.com/ggobi/cranvas|cranvas]]: this is an excellent package that produces interactive visualization using Qt. Visualization using Qt has limited availability in mobile platforms (see [[http://doc.qt.digia.com/4.7/supported-platforms.html|Qt Supported Platforms]]). A package based on HTML5 canvas and JavaScript with similar functionality will give users more options when analysis and visualization results need to be widely distributed.
+  * [[http://www.omegahat.org/SVGAnnotation/|SVGAnnotation]], [[http://sjp.co.nz/projects/gridsvg/|gridSVG]], [[http://svgmapping.r-forge.r-project.org/SVG_Mapping/Home.html|SVGMapping]], and [[https://github.com/hadley/r2d3|r2d3]]: SVG-based packages can provide polished visualization [[http://d3js.org/]], but the DOM-based approach makes it difficult to provide some types of interactivity. For instance, the many-to-one simultaneous selection between the scatter plot and the histogram shown in the [[http://youtube.googleapis.com/v/thlwjYFC_yY?vq=hd1080;hd=1;autoplay=1;|demo]] will be difficult to create with SVG, especially among more than two graphs. 
+  * [[http://www.rforge.net/canvas/|canvas]]: canvas package uses HTML5 canvas but does not support interactivity.
+  * [[http://www.rstudio.com/shiny/|RStudio Shiny]]: Shiny does not offer interactive visualization. However, server offloading idea came from Shiny Server.
+
+**Skills required:** R, JavaScript, and HTML5
+
+**Tests**
+  - Load Theoph dataset and plot concentration (conc) versus time (Time) by subject (Subject) with at least two graphics packages in R. Points for each subject should have different colors, and a legend should be added.
+  - Re-draw the plot created in problem 1 with JavaScript using the kineticJS library (http://kineticjs.com/).
+
+**Mentors:** [[http://icc.skku.ac.kr/~jaewlee|Jae W. Lee]] <jaewlee@gmail.com>, Jung Hoon Lee <flammy@gmail.com>

@@ -1,0 +1,121 @@
+===== TITLE: =====
+
+**Addressing IID Assumptions in Finance: Autocorrelation and Drawdowns in Performance Analysis**
+
+
+===== SUMMARY: =====
+ 
+Financial data are typically not identically and independently distributed (IID), but standard tools for analyzing performance are based on this assumption with little information about how sensitive they are to violations of IID assumptions.  This project will develop the different approaches for addressing autocorrelation observed in financial data that have recently been discussed in the literature.  
+
+Functions will be included in PerformanceAnalytics, an R package that provides a collection of econometric functions for performance and risk analysis. That package applies current research on return-based analysis of strategy or fund returns for risk, autocorrelation and illiquidity, persistence, style analysis and drift, clustering, quantile regression, and other topics.
+
+===== DESCRIPTION: =====
+
+Non-normality and autocorrelation can impact the performance of many standard measures that investors use to make decisions.  Various authors, such as Lo (2002) and Burghardt, et. al. (2012), have noted that the effects of autocorrelation can be huge, but are largely ignored in practice.  Burghardt observes that the effects are particularly interesting in the case of drawdowns, a widely used performance measure that describes the performance path of an investment.
+
+
+The concept of drawdown, a cumulative loss of capital from a prior peak level, has long been used by investors to evaluate the performance of investment strategies and managers. The Commodity Futures Trading Commission’s (CFTC) mandatory disclosure even requires managed futures advisors to disclose their “worst peak-to-valley drawdown” as part of their performance description.  
+ 
+
+The utility of drawdown as a measure remains somewhat unclear.  David Harding, Georgia Nakou and Ali Nejjar at Winton Capital Management note their frustration, offering that "... the conventional cursory use of drawdown as a statistic fails most or all of these tests, making it worse than useless." 
+ 
+
+Investors are faced with an exit decision under uncertainty for a strategy or manager (sometimes referred to as a "stop-out") as a fiduciary to protect the well-being of their assets.  Consider a multi-strategy firm, where the executive managers must decide where and when to exit an investment agreement with one of their underlying portfolio managers. These decisions can be contentious and emotional, given that there is little theoretical justification for setting expectations and decision points.
+ 
+
+Drawdown is a difficult measure to use effectively.  On one hand, it is an interesting descriptive statistic and potentially useful when the analyst has an understanding of the return generating process underlying it.  On the other hand, drawdown is practically difficult to compare across strategies for decision making.  
+ 
+
+Fortunately, the academic literature on non-IID effects and their consequences for measures like drawdown has been developing.  Notable milestones include Grossman and Zhou (1993) and Meucci (2010), both of which discuss the continuous-rebalancing of the investment in a single asset.  Cvitanic and Karatzas (1995) extended the framework to include multiple assets.  Yang ans Zhong (2012) recently extended the idea into discrete time, in what they call "Rolling Economic Drawdown."  Checkhlov, Uraysev and Zabarankin (2003, 2005) introduce a risk measure called Conditional Drawdown-at-Risk (CDaR).  
+
+
+Several papers consider a measure of potential drawdown as a quantile as an analog to VaR, including Bailey and Lopez de Prado (2013), Lopez de Prado and Peijan (2004), Mendes and Leal (2005), and Hayes (2006).  Magdon-Ismail and Atiya (2004) consider potential drawdown within an extreme value framework.  Checkhlov, Uraysev and Zabarankin (2003 and 2005) develop a measure of an average of drawdowns experienced, as an analog to CVaR.  Different closed-form and analytic solutions are proposed, such as in Burghardt and Liu (2012), where they employ a moving block bootstrap.
+
+
+Magdon-Ismail and Atiya (2004) note that Calmar and Sterling ratios can be normalized to these expected drawdown measures.  
+
+
+Drawdown-related measures are only one example of a measure affected by non-normality and time-dependence.  Lo (2002) shows that the Sharpe measure may be overestimated when hedge fund returns are autocorrelated.  Similarly, common methods of annualization (the "square root of time" heuristic) from lower-frequency data would underestimate volatility.
+
+More general solutions are proposed by Getmansky, Lo and Makarov (2004) and Okunev and White (2003), who offer two different methods to unsmooth hedge fund return series to recompose the “true” performance series.  Okunev and White generalize the method developed by Geltner (1993) and Brooks and Kat (2002) to be applied to real estate investments.
+
+The student in this project will develop from a list of specific functions identified from this body of literature to be included in PerformanceAnalytics, a widely used R package that provides a large collection of functions for returns-based performance and risk analysis. New code will be consistent with interfaces of other functions in PerformanceAnalytics.
+
+In addition, the student will write complete documentation for each function using Roxygen2, including key equations and examples.  If the reference includes specific data and accompanying code, the student will create an example or demo that shows the results from the paper can be replicated. Students may also consider creating a vignette that goes beyond the functional documentation to show how the functions might be used, perhaps with some extended examples.
+
+In their proposal, students should demonstrate an understanding of the concepts discussed in the literature described above, including a brief discussion about how the ideas might be used by investors.  
+
+
+===== SKILLS REQUIRED: =====
+
+Applicants should have:
+  * At least some experience using or developing in R, and comfort with tools such as svn, Roxygen2, LaTeX (for equations in particular), and familiarity with base graphics.
+  * Those with demonstrable experience with finance-related packages will be preferred.
+  * The ability to read Matlab and Python code will also be helpful.
+  * a background in computer science or engineering with graduate training in finance.
+
+
+===== TEST: =====
+
+A successful applicant will:
+  * Discuss the list of proposed functionality and associated visualization for inclusion in PerformanceAnalytics or other relevant packages based on the literature cited here.
+  * Develop a specific plan with a timeline for development, documentation (consider adding a vignette as well), and testing the functionality.  
+  * Provide a complete code example of a function with documentation that could be used in the package PerformanceAnalytics (exceptional examples will be considered for inclusion in the package and their author given full credit for the contribution).  The example does not need to pertain to the subject of this project, but should demonstrate your coding ability and familiarity with the tools used in developing PerformanceAnalytics.
+  * Clearly identify any other committments or possible conflicts for their time during the coming summer.
+
+===== MENTOR: =====
+
+  * Peter Carl is one of the primary authors of these related packages, has previously mentored GSOC projects, and would mentor the GSOC participant. 2013-03-01
+  * Brian Peterson is one of the primary authors of these packages, has previously mentored GSoC projects, and would be backup mentor for this project
+
+===== REFERENCES: =====
+
+  * Acar, E., and Shane, J.: Maximum Loss and Maximum Drawdown in Financial Markets, Unpublished manuscript, 1997 http://www.intelligenthedgefundinvesting.com/pubs/easj.pdf
+
+  * Bailey, David H. and Lopez de Prado, Marcos, The Sharpe Ratio Efficient Frontier (July 1, 2012). Journal of Risk, Vol. 15, No. 2, Winter 2012/13. Available at SSRN: http://ssrn.com/abstract=1821643 or http://dx.doi.org/10.2139/ssrn.1821643
+
+  * Bailey, David H. and Lopez de Prado, Marcos, Drawdown-Based Stop-Outs and the 'Triple Penance' Rule (January 1, 2013). Available at SSRN: http://ssrn.com/abstract=2201302
+
+  * Bailey, David H. and Lopez de Prado, Marcos, The Strategy Approval Decision: A Sharpe Ratio Indifference Curve Approach (January 2013). Algorithmic Finance, Vol. 2, No. 1 (2013). Available at SSRN: http://ssrn.com/abstract=2003638 or http://dx.doi.org/10.2139/ssrn.2003638
+
+  * Burghardt, G., Duncan, R. and L. Liu, Deciphering drawdown. Risk magazine, Risk management for investors, September, S16-S20, 2003.  http://www.risk.net/data/risk/pdf/investor/0903_risk.pdf
+
+  * Kat, Harry M. and Brooks, Chris, The Statistical Properties of Hedge Fund Index Returns and Their Implications for Investors (October 31, 2001). Cass Business School Research Paper. Available at SSRN: http://ssrn.com/abstract=289299 or http://dx.doi.org/10.2139/ssrn.289299
+
+  * Burghardt, G., and L. Liu, It's the Autocorrelation, Stupid (November 2012) Newedge working paper.  http://www.amfmblog.com/assets/Newedge-Autocorrelation.pdf
+
+  * Cavenaile, Laurent, Coen, Alain and Hubner, Georges, The Impact of Illiquidity and Higher Moments of Hedge Fund Returns on Their Risk-Adjusted Performance and Diversification Potential (October 30, 2009). Journal of Alternative Investments, Forthcoming. Available at SSRN: http://ssrn.com/abstract=1502698  Working paper is at http://www.hec.ulg.ac.be/sites/default/files/workingpapers/WP_HECULg_20091001_Cavenaile_Coen_Hubner.pdf
+
+  * Chekhlov, Alexei, Uryasev, Stanislav P. and Zabarankin, Michael, Portfolio Optimization with Drawdown Constraints (April 8, 2000). Research Report #2000-5. Available at SSRN: http://ssrn.com/abstract=223323 or http://dx.doi.org/10.2139/ssrn.223323
+
+  * Chekhlov, Alexei, Uryasev, Stanislav P. and Zabarankin, Michael, Drawdown Measure in Portfolio Optimization (June 25, 2003). Available at SSRN: http://ssrn.com/abstract=544742 or http://dx.doi.org/10.2139/ssrn.544742
+
+  * Getmansky, Mila, Lo, Andrew W. and Makarov, Igor, An Econometric Model of Serial Correlation and Illiquidity in Hedge Fund Returns (March 1, 2003). MIT Sloan Working Paper No. 4288-03; MIT Laboratory for Financial Engineering Working Paper No. LFE-1041A-03; EFMA 2003 Helsinki Meetings. Available at SSRN: http://ssrn.com/abstract=384700 or http://dx.doi.org/10.2139/ssrn.384700
+
+  * Grossman, S. and Z. Zhou (1993): “Optimal Investment Strategies for controlling drawdowns.” Mathematical Finance, Vol. 3, pp. 241-276. http://www.intelligenthedgefundinvesting.com/pubs/rb-zzsg.pdf
+
+  * Harding D, G Nakou and A Nejjar, 2003. The pros and cons of drawdown as a statistical measure for risk in investments. AIMA Journal, April 2003, pages 16–17. http://www.intelligenthedgefundinvesting.com/pubs/rb-hnn.pdf or as working paper:  http://www.turtletrader.com/drawdown.pdf
+
+  * Hayes, Brian T.: Maximum Drawdowns of Hedge Funds with Serial Correlation, Journal of  Alternative Investments 8, pp. 26-38, 2006 (N/A online?)
+
+  * Lo, Andrew W., The Statistics of Sharpe Ratios. Financial Analysts Journal, Vol. 58, No. 4, July/August 2002. Available at SSRN: http://ssrn.com/abstract=377260
+
+  * Lopez de Prado, Marcos and Foreman, Matthew, Markowitz meets Darwin: Portfolio Oversight and Evolutionary Divergence (July 15, 2012). Johnson School Research Paper Series No. 39-2011. Available at SSRN: http://ssrn.com/abstract=1931734 or http://dx.doi.org/10.2139/ssrn.1931734
+
+  * Lopez de Prado, Marcos and Peijan, Achim, Measuring Loss Potential of Hedge Fund Strategies. Journal of Alternative Investments, Vol. 7, No. 1, pp. 7-31, Summer 2004. Available at SSRN: http://ssrn.com/abstract=641702
+
+  * Magdon-Ismail, M. and Amir Atiya,  Maximum drawdown.  Risk Magazine, 01 Oct 2004. http://www.risk.net/data/Pay_per_view/risk/technical/2004/1004_tech_atiya.pdf or http://alumnus.caltech.edu/~amir/mdd-risk.pdf.  Matlab code at http://www.mathworks.com/help/finance/emaxdrawdown.html
+ 
+  * Magdon-Ismail, M., Atiya, A., Pratap, A., and Yaser S. Abu-Mostafa:  On the Maximum Drawdown of a Browninan Motion, Journal of Applied Probability 41, pp. 147-161, 2004 http://alumnus.caltech.edu/~amir/drawdown-jrnl.pdf
+
+  * Mendes, Beatriz V.M. and Leal, Ricardo P.C., Maximum Drawdown: Models and Applications (November 2003). Coppead Working Paper Series No. 359. Available at SSRN: http://ssrn.com/abstract=477322 or http://dx.doi.org/10.2139/ssrn.477322
+
+  * Meucci, Attilio, Review of Dynamic Allocation Strategies: Utility Maximization, Option Replication, Insurance, Drawdown Control, Convex/Concave Management (July 7, 2010). Available at SSRN: http://ssrn.com/abstract=1635982 or http://dx.doi.org/10.2139/ssrn.1635982
+
+  * Okunev, John and White, Derek R., Hedge Fund Risk Factors and Value at Risk of Credit Trading Strategies (October 2003). Available at SSRN: http://ssrn.com/abstract=460641 or http://dx.doi.org/10.2139/ssrn.460641
+
+  * Skeggs, J.  Do the autocorrelations hold with daily and weekly data? (November 2012) Newedge working paper. http://www.newedge.com/content/dam/newedgecom/documents/brokerage-services/alternativeedge-snapshots/Newedge_Snapshot_Do_the_autocorrelations_hold_with_daily_data.pdf
+
+  * Yang, Z. George and Zhong, Liang, Optimal Portfolio Strategy to Control Maximum Drawdown - The Case of Risk Based Dynamic Asset Allocation (February 25, 2012). Available at SSRN: http://ssrn.com/abstract=2053854 or http://dx.doi.org/10.2139/ssrn.2053854
+
+  * Zabarankin, M., Pavlikov, K., and S. Uryasev.  Capital Asset Pricing Model (CAPM) with Drawdown Measure. Research Report 2012-9, ISE Dept., University of Florida, September 2012 (http://www.ise.ufl.edu/uryasev/files/2012/12/CAPM-CDaR-working-paper-10.pdf).

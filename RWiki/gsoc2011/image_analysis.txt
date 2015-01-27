@@ -1,0 +1,23 @@
+**Summary:** Image analysis for R
+
+**Description:** 
+
+Being visual creatures, much of the information that humans process and make inference from are images. While R is incredibly strong in many aspects of statistical analysis, with multiple packages competing to address similar analysis types and issues, however there are few packages dealing with the manipulation and analysis of images. This project will bring full integration of ImageJ to R ( http://rsbweb.nih.gov/ij/ ) and would expand the RImageJ package, which is currently mostly a stub, into a fully functional R image analysis engine. The implementation will have two components: 
+
+1. Easy programatic manipulation of image objects from within R. ImageJ images and image stacks will be encapsulated in R objects (perhaps the new reference class system?). R functions will be provided to perform common manipulation and analysis tasks.
+
+2. Interoperability with the ImageJ GUI. When in a java R console such as JGR or Eclipse statet, the ImageJ GUI can be run in parallel with R. ImageJ will be altered so that the user can export Images, Stacks and result tables from ImageJ to R. Like wise, Image objects altered within R will be reflected within the ImageJ GUI. If Deducer is loaded, Menu items and dialogs will be available to manage the relationship between R and ImageJ. Support for the ImageJ plug-in system will also be included.
+
+**Skills required:** Experience with Java is highly desirable. Experience using rJava/JRI is preferred.
+
+**Test:** 
+
+1. Using rJava, write some R code that creates and displays a JDialog with the text "Hello from R."
+
+2. Using JRI, write java code to create a JDialog with a JTextArea and a button named "Add". When Add is pressed, any code written in the JTextArea should be executed in R.
+
+3. Using the RImageJ package, open and flip http://www.google.fr/intl/en_en/images/logo.gif along its x-axis ( the "Flip Horizontally" command).
+
+Hint: for 1 and 2 see http://www.deducer.org/pmwiki/pmwiki.php?n=Main.Development for some ideas on how to use rJava/JRI. For 3 see http://romainfrancois.blog.free.fr/index.php?post/2009/06/22/using-ImageJ-from-R%3A-the-RImageJ-package 
+
+**Mentor:** Ian Fellows thefell@gmail.com 3-1-11

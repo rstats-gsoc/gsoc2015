@@ -1,0 +1,76 @@
+====== Turning R objects into Pandoc's markdown ======
+
+ 
+**Summary:** Extending the [[http://rapporter.github.io/pander/|pander]] package with new and improved methods to render R objects easily in markdown.
+
+**Description:** //pander// contains helper functions and a generic S3 method to render various types of R objects into markdown format that can be converted further to HTML, pdf, docx, odt and other document formats based on [[http://johnmacfarlane.net/pandoc/README.html|pandoc]]. The package can be used as a standalone tool for literate programming building on the traditions of [[http://cran.r-project.org/web/packages/brew/index.html|brew]], or can be also used inside of e.g. [[http://yihui.name/knitr/|knitr]] or other markdown-based tools to render [[http://rapporter.github.io/pander/#tables|nice tables]] and other textual forms. To see the currently supported classes, run: 
+
+<code>
+> methods(pander)
+ [1] pander.anova*      pander.aov*        pander.cast_df*    pander.character* 
+ [5] pander.data.frame* pander.default*    pander.density*    pander.evals*     
+ [9] pander.factor*     pander.ftable*     pander.glm*        pander.htest*     
+[13] pander.image*      pander.list*       pander.lm*         pander.logical*   
+[17] pander.matrix*     pander.NULL*       pander.numeric*    pander.option*    
+[21] pander.POSIXct*    pander.POSIXt*     pander.prcomp*     pander.rapport*   
+[25] pander.return      pander.table*     
+
+   Non-visible functions are asterisked
+</code>
+
+In short, //pander// is like //summary//, but returning markdown. It can already deal with a bunch of R objects, but defaults to //list// for "unknown" classes. It would be great if the general //pander// method could support more and more R classes with elegant markdown tables, as currently much of hacks are required to build nicely formatted tables of e.g. models inside of //knitr// documents.
+
+Similar packages like //xtable// provides an alternative solution by already supporting more R classes, but e.g. //xtable// can only return HTML or LaTeX syntax, which is out of scope in general markdown documents to be converted to various file formats. Another similar solution can be found bundled with //knitr//, but the //kable// is a very simple table generator by design, so //pander// can be a great add-on. In most cases, implementing the //pander// method of an R class is simply writing a wrapper around //summary// or checking the examples of //xtable//, but some classes require special treatment (like //CrossTable//) due to the limitations of markdown. For example Pandoc's markdown does not support row and column-spanning.
+
+These limitations of markdown becomes more and more problematic and requires decent creativity from the prospective student when trying to build complex tables. For example the //stargazer// package can return multiple models in one table in a really elegant way (with LaTeX), which cannot be reproduced in markdown. On the other hand, there are some great features in //stargazer// that should be reproduced, for example [[https://github.com/Rapporter/pander/issues/46|filtering]] or [[https://github.com/Rapporter/pander/issues/36|configurable column widths]].
+
+//pander// already supports bunch of options to globally fine-tune the appearance of tables and even plots. One can e.g. specify the max. width of cells or the table, so that //pander// would automatically split wide cells/tables into multi-line texts if supported by the chosen markdown table style, and //pander// can also return vectors in rather elegant way by adding comma between the elements with "and" in front of the last element etc. Other unique features are [[http://rapporter.github.io/pander/#highlight-cells|highlighting]] some parts of the table, adding significance stars to those or that all //base//, //lattice// and //gplot2// plots can be fine-tuned by global options with extremely [[http://rapporter.github.io/pander/graphs.html|similar look and feel]], so the users can define the general style of the plot and then create charts with any popular plotting directory. Please find more details on [[http://rapporter.github.io/pander/#pander-options|GH]].
+
+Another way to improve the usage of //pander// would be to improve error handling, as sometime (especially with nested R code chunks) it is really hard to debug a literate programming document without a deep understanding of //pander// internals. Logging chunk-based events would be also highly desirable (processing time, resulted object, if cache was used or not) in debugging. This latter is partially done in the object returned by //Pandoc.brew//.
+
+[[http://www.r-bloggers.com/?s=markdown|Markdown is increasingly popular in the R community]], so this general "R to markdown" tool could help bunch of useRs to produce elegant and platform independent textual reports.
+
+**Potential tasks in a nutshell:** 
+  * create new //pander// methods for not yet supported R classes
+  * extend //pandoc.table// to support configurable column width
+  * implement new global options for tables and plots
+  * think about the markdown version of //stargazer//
+  * refactor current codebase, especially the [[https://github.com/Rapporter/pander/blob/master/R/brew.R|forked brew]] function
+  * improve error handling and logging facilities
+
+**Skills required:** Literative programming experiences, so decent markdown and R experience is needed. In more details:
+  * [[http://johnmacfarlane.net/pandoc/README.html|Pandoc's markdown]] syntax and the //pandoc// command line,
+  * previous experience with [[http://cran.r-project.org/web/packages/brew/index.html|brew]] or [[http://rapporter.github.com/pander/|pander]] packages,
+  * at least a basic [[http://git-scm.com/documentation|git]] knowledge (e.g. //branching//) and experience with [[http://learn.github.com/p/intro.html|GitHub]].
+
+**Test:** Fork the package on [[https://github.com/Rapporter/pander|GH]] and create a pull-request implementing a method for //CrossTable// e.g. similar to:
+
+<code>
+> library(descr)
+> ct <- CrossTable(mtcars$am, mtcars$gear)
+> pander(ct)
+
+------------------------------------------
+                3        4       5   Total
+----------- --------- ------- ------ -----
+**0**
+N               15       4       0      19
+Row (%)        79%      21%      0%    60%
+Column (%)     100%     33%      0%        
+               47%      12%      0%        
+
+**1**
+N                0       8       5      13
+Row (%)          0%     61%     38%     40%
+Column (%)       0%     67%     100%        
+                 0%     25%     16%        
+
+Total           15      12       5      32
+               47%      38%     16%
+------------------------------------------
+
+</code>
+
+**Mentor:** [[https://github.com/daroczig|Gergely Daróczi]] <daroczig {at} rapporter {dot} net> and [[http://www.planimeter.hu/about-2/|László Szakács]] <cocinerox {at} gmail {dot} com> as backup mentor
+
+**Note:** this is the harder and unfinished part of an accepted project from [[http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2013:rapport|GSoC 2013]]. I would be really happy if the applicant could also dig into //pander// internals this year, e.g. refactoring //Pandoc.brew// and a few other functions would be really welcomed.

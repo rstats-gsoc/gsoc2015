@@ -1,0 +1,18 @@
+====== Crantastic  ======
+ 
+**Summary:** Continue building on crantastic to add more features needed by the community.
+
+**Description:** Last year's google summer of code project achieved its goals of implementing the basic infrastructure for users to find, rate and review R packages.  Currently crantastic receives about 6,500 visitors a month, mainly (70%) as a result of searching for R packages using google.  Some ideas for possible enhancements are:
+
+  * intelligent package diffs so it's easy to see what has changed between versions
+  * a comprehensive function index to make it easy for users to what package a function lives in and for developers to find possible conflicts between packages
+  * display top related conversations from the R-help mailing list
+  * other ideas from http://crantastic.uservoice.com/
+
+The developer would also be expected to be a crantastic evangelist, engaging with the R community to encourage their participation in crantastic and figuring out will be most useful for the community.
+
+**Skills required:** Web design/development, Ruby on Rails.  Also helpful is some experience using R.
+
+**Test:** Fork the crantastic source code from http://github.com/hadley/crantastic and improve the existing source code in some way, by either refactoring existing code to make it cleaner and more maintainable or by implementing a small new feature.
+
+**Mentor:** Hadley Wickham

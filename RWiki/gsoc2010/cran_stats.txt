@@ -1,0 +1,15 @@
+====== Aggregating CRAN statistics  ======
+ 
+**Summary:** Aggregate download statistics across CRAN mirrors to gain global view of R package ecosystem.
+
+**Description:** Currently each CRAN mirror collects statistics on package downloads, but there is no way to centrally aggregate all download statistics.  This is a problem because it makes it difficult to get a global view of the R package ecosystem: how many people are downloading packages, and which package are most popular. This must be done in such a way that it is easy for CRAN mirror maintainers to install and that does not compromise user privacy (e.g. individual ip addresses should be obfuscated).  
+
+An additional component would be to develop an opt-in R package that would allow you to send 
+
+There are also challenges associated to weed out people who are downloading every package, and to take package dependencies into account when computing rankings.
+
+**Skills required:** Should be able to use R to perform data manipulation and aggregation.  Familiarity with apache web statistics a plus.
+
+**Test:** A test an applicant has to pass in order to qualify for the topic 
+
+**Mentor:**  Hadley Wickham.  With guidance from Stefan Theussl and optionally Ian Fellows

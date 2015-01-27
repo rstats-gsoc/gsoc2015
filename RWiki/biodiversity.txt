@@ -1,0 +1,19 @@
+**Title:** Biodiversity data visualization in R
+
+**Description:**
+
+R is increasingly being used in Biodiversity information analysis. There are several R packages like rgbif and rvertnet in rOpenSci suite to query, download and to some extent analyse the data within R workflow. We also have packages like dismo, randomForest and SDMTools for modelling the data. It will be useful to have a package to quickly visualize biodiversity data. These visualizations would be helpful to understand extent of geographical, taxonomic and temporal coverage, gaps and biases in data.
+
+The functions provided would be for following tasks:
+
+  * Data preparation - The data needs to be converted into suitable format for visualizations and analysis i.e. date format, taxonomic classification and geographical co-ordinates should be in uniform and usable formats.
+
+  * Geographic coverage - functions to visualize the data points on maps, density maps at different scales like Country level, Degree grid and so on.
+
+  * Temporal coverage - functions to visualize the data on different temporal scales like monthly / annual counts, seasonality of data by months, weeks or days, Chronohorogram. [Ref:http://dx.doi.org/10.1093/bioinformatics/bts359]
+
+  * Taxonomic coverage -  functions to visualize the taxonomic coverage of data in Tree Map formats by Number of records per species and number of species covered.
+
+  * Completeness analysis - functions to assess and visualize completeness of biodiversity inventory of the region [Ref:http://dx.doi.org/10.1111/j.0906-7590.2007.04627.x ]
+
+**Mentor(s):** Javier Otegui

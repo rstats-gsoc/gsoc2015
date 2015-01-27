@@ -1,0 +1,11 @@
+====== ITK Functionality in R  ======
+ 
+**Summary:** Provide an R interface to medical image analysis routines   (segmentation, registration, etc.) using ITK 
+
+**Description:** [[http://www.itk.org|ITK]] is an open-source software toolkit for performing registration and segmentation. Segmentation is the process of identifying and classifying data found in a digitally sampled representation. Typically the sampled representation is an image acquired from such medical instrumentation as CT (computed tomography) or MRI (magnetic resonance imaging) scanners. Registration is the task of aligning or developing correspondences between data. For example, in the medical environment, a CT scan may be aligned with a MRI scan in order to combine the information contained in both. Several R packages now provide I/O routines to standard medical imaging data formats and the user community would benefit from access to sophisticated image processing routines in ITK.
+
+**Skills required:** R programming, R package building, C++ programming for R and ITK, proficiency in Cmake (for ITK). Familiarity with [[http://rcpp.r-forge.r-project.org|Rcpp]] and an interest in medical imaging are advantageous.
+
+**Test:** Wrap a single ITK data structure with Rcpp, operate on it in ITK and return the result to R.
+
+**Mentor:** Brandon Whitcher. Core members of the Rcpp development group have suggested that the mailing list will be able to provide support. Suggested on 2010-Mar-19.

@@ -1,0 +1,78 @@
+====== OpenMP parallel framework for R ======
+
+**Summary:** Using OpenMP parallel framework, package developers and R users can easily write multithreaded functions without much knowledge of C/C++, Fortran and OpenMP.
+
+**Description:** Nowadays, most of the CPUs have a muticore/shared memory architecture. OpenMP is an API for multi platform shared memory programming in C/C++ and Fortran. R needs to have an interface to OpenMP so that it benefits from muticore/shared memory architecture. This OpenMP parallel framework will provide #pragma omp parallel, #pragma omp for, #pragma omp sections/section and task directives of OpenMP in R. One possible direction is to extend the "inline" package to support multithreaded programming in R. This framework can be implemented using C or Fortran or Both. It will provide a simple and efficient parallel programming interface for multicore architecture to the R user/community.
+
+**Skills required:** Programming experience in R, C, C++, Fortran, OpenMP and knowledge of multithreaded programming.
+
+**Test:** Some packages will be modified using this framework to provide a performance benchmark.
+
+**Reference packages:** pnmath, multicore, foreach, doMC, romp, inline, Rcpp and bigmemory.
+
+**Mentors:** 
+
+George Ostrouchov,Ph.D., Statistics and Data Sciences Group, Computer Science and Mathematics Division, Oak Ridge National Laboratory, Phone: +1-865-574-3137  http://www.csm.ornl.gov/~ost , e-mail: ostrouchovg@ornl.gov
+
+Dr. Ferdinand Jamitzky, Leibniz Supercomputing Centre, of the Bavarian Academy of Sciences and Humanities, Boltzmannstraße 1, 85748 Garching bei München, Room I.2.035, Phone: ++49-89-35831-8727, e-mail: jamitzky@lrz.de
+
+Suggestion date: 11-March-2011 (12:00 UTC)
+
+
+**More information about project:**
+
+Nowadays, most of the compilers support OpenMP directives(GNU, Intel, Microsoft, PGI, IBM, HP, Cray etc). R-OpenMP framework/package will provide power of multithreading programing with minimal involvement to the R users/package developers.We will also provide some functionalities using GPGPU. 
+
+Our framework will provide "registerDo" functions to register the programming languages and architectures(programming languages: C and Fortran, Architectures: multicore (using OpenMP), GPU (using OpenCL, CUDA, PGI directives)). It will also provide option to register the specific compiler (e.g. Intel, GNU, Microsoft, PGI, Cray). Our proposed framework would be extension of "foreach" package and "inline" package. It will somewhat similar to "doMC" package, but proposed package would have many more functionalities using OpenMP,OpenCL and/or CUDA. We also like to do performance benchmarking of the framework using combination of different architectures, compilers, and OS.In the future, we will  it more transparent and will extend it to general "apply" function. 
+
+**Possible functionalities:** 
+
+library(doC)
+
+registerDoC ("gcc -O3")  ## similar we can specify icc, pgcc etc.
+
+registerDoC ("gcc -fopenmp -O3") ## similar we can specify icc, pgcc etc. (flag would be different, e.g for intel "-openmp")
+
+registerDoC ("gcc -ta=nvidia") ## similar we can specify icc, pgcc etc.
+
+library(doFortran)
+
+registerDoFortran ("gfortran -O3")  ## similar we can specify ifort, pgf90, pgf77 etc.
+
+registerDoFortran ("gfortran -fopenmp -O3") ## similar we can specify ifort, pgf90 etc.(flag would be different, e.g. for intel "-openmp")
+
+registerDoFortran ("gfortran -ta=nvidia") ## similar we can specify ifort, pgf90, pgf77 etc.
+
+**Detail example:**
+
+registerDoFortan ("ifort -openmp -g -O3") 
+
+myfunc<- foreach (i=1:n, x=double(n), y=double(n), .combine="+") %dopar% {y[i]<-sin(x[i])+3*cos(2*x[i])}
+
+Then generates a fortran file containing a fortran version of the
+
+subroutine:
+
+subroutine myfunc (integer n, double x, double y)
+
+double x (n), y (n)
+
+!$OMP DO
+
+do i=1,n
+
+y (i)=sin (x(i))+3*cos(2*x(i))
+
+enddo
+
+end subroutine
+
+Then the fortran code is compiled on the fly and imported as a shared
+
+object into R:
+
+dyn.load("myfunc.so")
+
+myfunc<- .Fortran ("myfunc",x=double(n),y=double(n),n=as.integer(n))
+ 
+(Note : The OMP pragmas could also be exchanged for generating GPGPU code using the pgi compiler. (This is helpful, but might not have large user) )

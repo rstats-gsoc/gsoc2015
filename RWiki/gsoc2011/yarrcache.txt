@@ -1,0 +1,93 @@
+====== yarr Cache Extension ======
+
+==== Summary ====
+Experiment with caching mechanisms in the ''yarr'' package framework for mixing ''R'' code with text.
+
+==== Description ====
+=== What is yarr ? ===
+ ''yarr'' [[http://r-forge.r-project.org/projects/yarr]] is a new, but fully functional ''R'' package that facilitates mixing delimited ''R'' code with text, including text with other markup (//e.g.// HTML, LaTeX). The functionality of ''yarr'' has some intersection with that of the ''brew'' package. However, the ''yarr'' package is designed with flexibility and extensibility in mind. No other ''R'' package of this kind offers flexible syntax, on-the-fly extension, and facilities for handling various types of input and output simultaneously. In addition, then small code base of ''yarr'' makes it ripe for new contributors.
+
+Download the nightly build of ''yarr'' here [[http://r-forge.r-project.org/src/contrib/yarr_0.0.tar.gz|yarr_0.0.tar.gz]]. Or, install from ''R'' with
+<code
+> install.packages("yarr", repos="http://R-Forge.R-project.org")
+</code>
+
+The following ''yarr'' file illustrates a simple case where ''R'' code delimited by <nowiki>'<<'</nowiki> and <nowiki>'>>'</nowiki> is mixed with text to form an email message to the R-help mailing list. 
+<file>
+Dear R-Help,
+<<
+# Function to format and cat the date
+d <- function() cat(format(Sys.time(), "%m-%d-%Y"))
+>>
+I want to write an email that contains R code and output, as if I 
+had entered the code at the R prompt. For example:
+<<@
+f <- function(x) {
+    x+1
+}
+f(1)
+stem(rnorm(50))
+>>
+Is there a way to do that without copy and pasting from R?
+Also, is there a way to include the date (<<= d() >>) in the
+text of my email?
+
+Regards,
+useR
+</file>
+
+Evaluating this file with a call to ''yarr'', say ''yarr::yarr('email.yarr')'' yields the following output, which could be pasted into an email editor and mailed to the R-help list.
+
+<code>
+Dear R-Help,
+
+I want write an email that contains R code and output, as if I 
+had entered the code at the R prompt. For example:
+> f <- function(x) {
++     x+1
++ }
+> f(1)
+[1] 2
+> stem(rnorm(50))
+
+  The decimal point is at the |
+
+  -2 | 1
+  -1 | 97766
+  -1 | 4320
+  -0 | 8887655
+  -0 | 4321100
+   0 | 000122344
+   0 | 566777
+   1 | 00003344
+   1 | 568
+
+Is there a way to do that without copy and pasting from R?
+Also, is there a way to include the date (03-03-2011) in the
+text of my email?
+
+Regards,
+useR
+</code>
+
+Like the ''brew'' package, ''yarr'' is designed to work with the [[http://httpd.apache.org/|Apache]] module [[http://rapache.net/|rapache]] to facilitate dynamic web applications powered by ''R''. This [[http://biostatmatt.com/yarr/MortCalc.yarr|mortgage calculator]] demonstrates the combined use of ''yarr'' and ''rapache''.
+
+=== yarr caching ===
+In many contexts, the ''yarr'' function may be called repeatedly, with little or no change to the input file. This is common in web applications like an online [[http://biostatmatt.com/yarr/MortCalc.yarr|mortgage calculator]], but also for document authorship (//e.g.// LaTeX, Texinfo, markdown). In these cases, it may be wasteful to reevaluate each embedded ''R'' expression, especially when the ''yarr'' input is identical from one call to the next.
+
+Ideally, the ''yarr'' function would remember (cache) the input and output of earlier calls, and use this information to process the current input more efficiently. This Google Summer of Code 2011 application proposes to experiment with, and develop a caching mechanism for the ''yarr'' framework. 
+
+==== Skills required ====
+Familiarity with ''R'', willingness to learn new things, and some creativity are required. Caching strategies may include manipulation of ''R'' environments and serialization of ''R'' data structures. There are a variety of caching strategies that might work for ''yarr'', and there are several examples of caching among the existing ''R'' packages that might facilitate ideas.
+
+==== Test ====
+Consider the following ''yarr'' file. Which of these sentences with embedded ''R'' expressions might be processed more efficiently using a caching mechanism, and why?
+<code>
+1. The answer is <<= cat(40 + 2) >>.
+2. The current date and time is <<= cat(date()) >>.
+3. This sentence defines a function<< f <- function(x) x+x >>.
+4. This is a test for a file 'foo': <<= cat(file.exists('foo')) >>
+</code>
+
+==== Mentor ====
+03/03/2011\\ Matt Shotwell\\ Assistant Professor\\ Department of Biostatistics\\ Vanderbilt University\\ Matt.Shotwell _at_ Vanderbilt.edu

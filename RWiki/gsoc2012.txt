@@ -1,0 +1,132 @@
+====== Google Summer of Code 2012 ======
+
+
+This wiki page will be the central hub of information about the [[http://www.r-project.org|R Project]] participation in the [[http://code.google.com/soc/|Google Summer of Code]] (GSoC) for 2012. Administrators are Toby Dylan Hocking, John C. Nash, with Brian Peterson and Virgilio Gomez Rubio as a backup. Questions should be posed to the google group!
+
+**!!!Everyone who wants to participate in this year's Google Summer of Code with R please join our google group:
+
+[[https://groups.google.com/group/gsoc-r|gsoc-r@googlegroups.com]]!!!**
+
+
+
+
+
+
+
+
+
+===== Overview =====
+
+In short, each student will get paid $5000 to work on an R package for 3 months during the summer:
+
+  * Mentors can add projects to this wiki page to give ideas to students.
+  * Students should look at the list of projects and see if any project interests them. If so, email the project mentors to express your interest, and describe any prior experience. Students with ideas for R projects not listed below are encouraged to post a query on the [[https://groups.google.com/group/gsoc-r|gsoc-r google group]].
+  * Students will submit project applications directly to Google. The home page is [[http://www.google-melange.com/gsoc/homepage/google/gsoc2012]]
+  * Google will award a certain number of student slots to the R project.
+  * The GSOC-R administrators and mentors will rank projects in order of importance to the R project, and the top projects will be funded.
+  * Students get paid $5000, mentors get code written for their project, but no money.
+
+{{http://code.google.com/images/GSoC2012_300x200.png}}
+
+
+Previous projects are listed on the [[http://www.r-project.org/soc08|soc08]], [[http://www.r-project.org/soc09|soc09]], [[http://www.r-project.org/soc10|soc10]], and [[http://www.r-project.org/soc11|soc11]] pages.
+
+
+===== Status and Timeline =====
+
+  * Feb 27: Mentoring organizations can begin submitting [[admin_application_2012|applications]] to Google.
+  * Mar 9: Mentoring organizations application deadline.
+  * Mar 16: List of accepted mentoring organizations published on the Google Summer of Code site.
+  * Mar 26: Student application period opens.
+  * Apr 6: Student application deadline.
+  * Apr 20: Student ranking/scoring deadline.
+  * Apr 23: Accepted student proposals announced on the Google Summer of Code site.
+  * May 21: Coding begins.
+  * Jul 13: Midterm evaluation.
+  * Aug 20: Final evaluation.
+  * Oct 20: Mentor summit.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===== Project Ideas =====
+
+Submission of unsolicited proposals (via, say, adding to the list below) is certainly welcome.  However, each proposal has a big barrier to pass: it will to need explain why this particular project is of use to the community, and it will have to show how it can be achieved in three months. At a minimum, a submission should also include a review of related packages that address the same or similar problems and discuss how these packages are not sufficient to the task.
+
+^ Mentors ^ Proposal ^ Status ^ Students ^ Results ^
+| Project Template | [[developers:projects:gsoc2010:suggestion_form|Project Suggestion Template]]| //Use this to add new proposals// by copying the page content |  |
+| Y. Richet, backup John Nash | [[developers:projects:gsoc2012:vectorizedoptim|Handle parallel (vectorized) objective functions in a new optimization wrapper package]] | inquiries from 2 candidates, not accepted | |
+|C. Boettiger| [[developers:projects:gsoc2012:wikipediaR|Wikipedia Articles]] | not accepted | Christoph Molnar |
+| Toby Dylan Hocking, Yihui Xie | [[developers:projects:gsoc2012:interactive_animations|Interactive animations for exploring high-dimensional and time series data]] | 2 applications not accepted | Deeptanshu Jha, Eric Momsen |
+| Eric Chu, H. W. Borchers | [[developers:projects:gsoc2011:convex_optimization|Implement an optimization modeling tool or solver for Disciplined Convex Programming]] | will be pursued outside of gsoc | |
+| Toby Dylan Hocking, Paul Murrell | [[developers:projects:gsoc2012:image_labels|Label plots using images rather than factor names]] | not accepted | Christoph Molnar |
+| V. Gómez-Rubio | [[developers:projects:gsoc2012:sp_econometrics| Translate Matlab code for Bayesian methods in the Spatial Econometrics Toolbox into R]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/abhirupkgp/19001|accepted]] | Abhirup Mallik | EDITME |
+| David Carino | [[developers:projects:gsoc2012:PerformanceBenchmarking|Portfolio Performance Measurement and Benchmarking]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/ababii/33001|accepted]] |Andrii Babii | EDITME |
+|Rafa ?|BigMatrix: Super Scalable Predictive Analytics for Big Matrices| [[http://www.google-melange.com/gsoc/project/google/gsoc2012/fanghan/21001|accepted]] |Fang ?| EDITME |
+| Guy Yollin, Brian Peterson | [[developers:projects:gsoc2012:PortfolioAnalytics|Add additional closed form and global optimizers to portfolio optimization framework]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/hezky_varon/20001|accepted]] | Hezky Varon | EDITME |
+| Kris Boudt | [[developers:projects:gsoc2012:RTAQ|Extend RTAQ for additional high frequency time series analysis]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/jonathancornelissen/16001|accepted]] | Jonathan Cornelissen | [[ https://r-forge.r-project.org/projects/highfrequency/]] for the code and [[https://r-forge.r-project.org/scm/viewvc.php/*checkout*/pkg/highfrequency/inst/doc/highfrequency.pdf?root=highfrequency]] for the vignette -- The highfrequency package contains an extensive toolkit for the use of highfrequency financial data in R. It offers functionality to manage, clean and match highfrequency trades and quotes data. Furthermore, it enables users to: calculate easily various liquidity measures, estimate and forecast volatility, and investigate microstructure noise and intraday periodicity -- In the future, some work could still be done on the implementation of forecasting models based on highfrequency data, testing for jumps using realized volatility estimates, and many other interesting applications of high frequency data analysis.  |
+| H. W. Borchers | [[developers:projects:gsoc2012:rmaxima|Develop an R package interfacing the computer algebra system Maxima]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/saila/45001|accepted]] | Kseniia Shumelchyk | [[http://code.google.com/p/rmaxima/|RMaxima Project Page]] -- RMaxima enables the user to communicate with the CAS Maxima (at the moment Linux only). A Windows version, easier installation, and ways to avoid Maxima syntax will be needed to make it a popular R package. |
+| Brian Peterson | [[developers:projects:gsoc2012:meucci|Convert Meucci's Matlab Code to R]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/mananks/18001|accepted]] | Manan Shah | EDITME |
+| Peter Carl | [[developers:projects:gsoc2012:PerformanceAnalytics|Additional performance measures and attribution functionality]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/matthieu_ensimag/26001|accepted]] | Matthieu ? | EDITME |
+| Joshua Ulrich, Stuart Greenlee | [[developers:projects:gsoc2012:xts|Improvements to xts time series visualization and subsetting]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/mweylandt/22001|accepted]] | Michael Weylandt | Code is available in the [[http://r-forge.r-project.org/R/?group_id=118|xtsExtra package on R-Forge]]. Code provides a vastly expanded plot.xts method, and xts wrappers to commonly-used analytic functions (e.g. arima, acf, HoltWinters, etc). There is a prototype for the multi-type xts object portion of the project; finishing that implementation could be a project for another student. |
+| Claudia Beleites | [[developers:projects:gsoc2012:hyperSpec|Handling of spectroscopic data sets in R]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/simonfuller/28001|accepted]] | Simon Fuller | code in [[https://github.com/simonfullernuim/hy.GSOC|github]] and [[https://r-forge.r-project.org/scm/viewvc.php/?root=hyperspec|R-Forge]], [[http://hyperspec.wordpress.com/|blog]], import functions for binary formats written, talk to Claudia for ideas for next year  |
+| Yihui Xie | [[developers:projects:gsoc2012:knitr|Dynamic report generation in the web with R]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/cloud_wei/16001|accepted]] | Taiyun Wei | [[https://github.com/yihui/knitr/tree/v0.8|code developed]]; at the moment no enough work left for the next GSoC |
+| Hadley Wickham, John Nash, Di Cook | [[developers:projects:gsoc2010:cran_stats|Aggregate CRAN package download statistics across multiple mirrors]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/timjurka/24001|accepted]] | Timothy Jurka | [[http://www.cranstats.org/|Live site]] is available, but no CRAN mirrors are supplying data at the moment. However, some sample data has been uploaded, and can be viewed in "Year to Date" view.  |
+|cbhurley | [[developers:projects:gsoc2011:dendro|Interactive dendrograms]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/alchemist/42002|accepted]] | Tomáš Sieger        |  EDITME |
+| Roeder ? | SAM: A General-purpose classifier for modern predictive data analysis | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/tourzhao/52002|accepted]] | Tour ? | EDITME |
+| Carl Boettiger, Karthik Ram, Scott Chamberlain | [[developers:projects:gsoc2012:ropensci|Dynamic access and visualization of scientific data repositories]] | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/vijaybarve/27002|accepted]] | Vijay Barve |  code for rgbif hosted at GitHub [[https://github.com/ropensci/rgbif|here]], [[http://vijaybarve.wordpress.com/|student's blog posts]], R interface to [[http://www.gbif.org/|Global Biodiversity Information Facility (GBIF)]]. Could be more work on rgbif and related packages next year |
+| Han Liu | Biganalysis: a robust, general-purpose R package for large-scale classification | [[http://www.google-melange.com/gsoc/project/google/gsoc2012/grebamboo/16001|accepted]] | Xiaolin Yang | EDITME |

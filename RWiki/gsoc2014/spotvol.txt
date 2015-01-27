@@ -1,0 +1,68 @@
+====== Spot volatility estimation: Methods and applications ======
+===== Summary =====
+This project aims at expanding the R package highfrequency with a broad range of functionality allowing to estimate the intraday volatility of highfrequency return series.
+
+
+
+===== Description =====
+Spot volatility estimates are important for highfrequency trading signal generation and risk management.  Several spot volatility estimators have been proposed over the last years. This project aims at implementing them in the R package highfrequency:
+
+i. The stochastic volatility approach of Beltratti and Morana (2001), which, in particular includes both deterministic and stochastic periodic terms. The stochastic volatility model can be casted in state space form and estimated by maximum likelihood. 
+
+ii. The non-parametric kernel approach of Kristensen (2010).
+
+iii. The piecewise constant volatility approach in Fried (2012). 
+
+iv. The kalman filter of periodic intraday volatility in Bos, Janus and Koopman (2012).
+
+v. The GARCH + periodicity factor of Giot (2005), Chu and Lam (2011) and So and Xu (2013).
+
+vi. Periodic egarch model proposed by Bollerslev and Ghysels (1996). 
+
+Besides estimation functions, the project aims at creating simulation functions to generate highfrequency data according to various highfrequency models with periodicity in the volatility of the diffusion. 
+
+Finally, functions should be developed to test for jumps based on the estimated spot volatility and to forecast intraday value-at-risk under different distributional assumptions.
+
+This project is most related to the function spotVol in the highfrequency package, which implements the spot volatility estimators proposed in Boudt, Croux and Laurent (2008).  
+
+===== Skills required =====
+Applicants should have:
+
+ - A good working knowledge of programming in R. 
+
+- A background in financial econometrics. 
+
+
+===== Test =====
+
+i.	The successful applicant should be able to demonstrate the ability to extend the spotVol function in the highfrequency package with the above described methods. To this end, the candidate should screen the function spotVol and propose improvements. 
+
+ii.	Develop a suggested plan for the project including a timeline for the development of the code,  its documentation and testing.
+
+
+
+
+
+===== Mentor =====
+
+Dr. Kris Boudt and Jonathan Cornelissen who are coauthors of the R package highfrequency and Dr. Daniele Signori. All three mentors have published research on spot volatility estimation.
+
+===== References =====
+
+Beltratti, Andrea and Claudio Morana (2001). Deterministic and stochastic methods for estimation of intraday seasonal components with high frequency data. Economic Notes 30, 205-234.
+
+Bollerslev, T., and E. Ghysels. 1996. Periodic Autoregressive Conditional Heteroscedasticity. Journal of Business & Economic Statistics 14, 139–151.
+
+Bos, Charles, Janus, Pawel and Siem Jan Koopman (2012). Spot variance path estimation and its application to high-frequency jump testing. Journal of financial econometrics 10, 354-389. 
+
+Boudt, Kris, Croux, Christophe and Laurent, Sebastien (2011) Robust estimation of intraweek periodicity in volatility and jump detection. Journal of Empirical Finance 18, 353-369.
+
+Chu, Carlin C.F and K.P. Lam (2011) Modeling intraday volatility: A new consideration. Journal of International Markets, Institutions and Money 21, 388-418.
+
+Fried, Roland (2012). On the online estimation of local constant volatilities. Computational Statistics and Data Analysis 56, 3080-3090. 
+
+Giot, Pierre (2005). Market risk models for intraday data. European Journal of Finance 11, 309-324. 
+
+Kristensen, Dennis (2010). Nonparametric filtering of the realized spot volatility: A kernel-based approach. Econometric Theory 26, 60-93.
+
+So, Mike K.P. and Rui Xu (2013) Forecasting intraday volatility and value-at-risk with highfrequency data. Asia-Pacific Financial Markets 20, 83-111. 

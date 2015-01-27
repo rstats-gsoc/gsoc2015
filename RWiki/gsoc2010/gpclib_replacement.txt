@@ -1,0 +1,11 @@
+====== Replacement for gpclib  ======
+ 
+**Summary:** Implement a replacement for the gpclib package using an existing external topology library  
+
+**Description:** The aim is to provide topology operations on points, lines and polygons in 2D using a free software external library. The CRAN gpclib package has an unclear and non-free license, and only does polygon clipping. Work has started on a replacement using GEOS [[http://trac.osgeo.org/geos/]] on R-Forge [[https://r-forge.r-project.org/projects/rgeos/]] (project rgeos), but is delayed. Use of Boost ggl [[http://geometrylibrary.geodan.nl/]] is another possibility, and would probably be able to base on the build techniques used by CRAN RBGL, which also uses a Boost library.
+
+**Skills required:** R programming, C programming for R and GEOS, ability to read C++ to "get behind" the GEOS C-API, R package building. For ggl, those and C++ programming. Desirable in both cases a willingness to understand the OGC SFS, [[http://www.opengeospatial.org/standards/sfa]] which underlies both libraries.
+
+**Test:** Write a short C program to demonstrate specified GEOS (or ggl) operations reading input data from file and writing output data to file (using WKT or an agreed alternative format).
+
+**Mentor:** Roger Bivand (who had hoped to have rgeos ready now, but is seriously stuck, but where the problem (operation failure with change of scale) may be very shallow). Suggested on 2010-02-24.

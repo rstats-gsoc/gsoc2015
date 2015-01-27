@@ -1,0 +1,28 @@
+====== NoSQL interface for R  ======
+
+**Summary:** Provide a new package that accesses a NoSQL database
+
+**Description:** So-called [[http://en.wikipedia.org/wiki/NoSQL|NoSQL]] databases such as 
+  * [[http://1978th.net/tokyocabinet/|TokyoCabinet]], 
+  * [[http://www.mongodb.org|MongoDB]], 
+  * [[http://couchdb.apache.org/|CouchDB]], 
+  * [[http://code.google.com/p/redis/|Redis]], 
+  * [[http://incubator.apache.org/cassandra/|Cassandra]] 
+  * ... 
+are becoming increasingly popular. They generally provide very efficient lookup of key/value pairs.  Some other projects build on top of these, see e.g. [[http://labs.gree.jp/Top/OpenSource/Flare-en.html|Flare]] which extends [[http://1978th.net/tokyocabinet/|TokyoCabinet]].  
+
+Beyond a sample interface package, it would be desirable to think about a //generic// interface similar to what the [[http://cran.r-project.org/package=DBI|DBI package]] does for SQL backends.
+
+A related package is provided by [[http://cran.r-project.org/package=RBerkeley|RBerkeley]] even though the underlying BerkeleyDB is not typically listed as a part of the '//NoSQL Club//' but can arguably be considered an ancestor.
+
+Also of note may be  [[http://cran.r-project.org/package=RProtoBuf|RProtoBuf]] which provides an interface to the efficient and language-agnostic Protocol Buffers.
+
+//Update on 2010/03/18//: A new package [[http://cran.r-project.org/package=rredis|rredis]] for Redis is now on CRAN.
+
+//Update on 2010/04/29//: The package [[http://github.com/wactbprot/R4CouchDB|R4CouchDB]] for CouchDB is at Github.
+
+**Skills required:** C/C++ and R programming skills coupled with sufficient administrative skills to set some test servers up. Familiarity with a common Linux distribution may help to take advantage of pre-built backends.  The [[http://cran.r-project.org/package=Rcpp|Rcpp]] package may be helpful for C++ interfaces.
+
+**Test:** Ideally a basic proof of concept of an R function calling the underlying API to store and/or retrieve data. This meant to provide a proof of competence for working with these technologies.
+
+**Mentor:** Dirk Eddelbuettel (who has a preference for C++ implementations). Added 2010-02-24.

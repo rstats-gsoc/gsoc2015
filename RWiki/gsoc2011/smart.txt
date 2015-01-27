@@ -1,0 +1,34 @@
+====== SMART: Sparse Multivariate Adaptive Regression Toolkit ======
+
+ 
+**Summary:** A R package for large-scale nonparametric predictive learning and data mining
+
+**Background:** Modern data acquisition routinely produces massive amounts of very large-scale, ultrahigh-dimensional and highly complex datasets. Examples include interactive logs, unstructured text, multimedia/images, and high throughput genomics data. Driven by the complexity of these modern datasets, highly adaptive and scalable data analysis procedures are crucially needed. However, existing large-scale learning and data mining softwares rely heavily on parametric models, which assume the data come from an underlying distribution that can be characterized by a finite number of parameters. These parametric models, though simple and tractable, are incapable of fully exploiting the information provided by the large amount of data due to their restrictive modeling assumptions. 
+In this project, we propose to develop a scalable R package containing a family of modern nonparametric methods, which directly conduct inference in infinite-dimensional spaces and are more powerful to capture the subtleties in challenging applications. The expected deliverables include careful C/C++ implementations (with easy-to-use R interfaces) of the Sparse Additive Models (Ravikumar et. al. 2009), Multi-task Sparse Additive Models (Liu et. al. 2008), and Greedy Sparse Additive Models (Liu and Chen 2009). The resulting package is expected to be able handle very large datasets with millions of data point and thousands of features. This package has the potential to become a general purpose exploratory data analysis toolbox for a wide range of data analysis practitioners. This proposed project lies at the intersection of machine learning and computational statistics.
+
+
+**Description:** Though many nonparametric packages exist in R (e.g. locfit, classPP, logspline, lokern, mboost, et al.), none of them is scalable to datasets with millions of data points and thousands of features (Such data are quite common in large-scale text mining and preprocessing of raw genomic data). The main purpose of this project is to get “the fastest and most scalable” implementation of our flagship nonparametric method: Sparse Additive Models (SpAM). The SpAM can simultaneously conduct high-dimensional prediction (e.g. regression/classification), function estimation (e.g. smoothing and curve fitting), and feature selection. It can be viewed as a nonparametric version of the Lasso regression. Using the SpAM implementation as the basic infrastructure, we will also provide high-quality implementations of several other states-of-the-art nonparametric predictive models, including Multi-task Sparse Additive Models (MT-SpAM), and Greedy Sparse Additive Models (G-SpAM). We plan to use two months to finish the basic SpAM model, and one more month to finish the MT-SpAM and G-SpAM.
+Our implementation will feature both software engineering practice and heuristic coding tricks to make the algorithm efficient and scalable. Example tricks include Database back-end (use Berkeley DB).  Adaptive coordinate descent (selectively choose which coordinate to update instead of cyclical update), stochastic gradient descent (a hybrid framework of online estimation+ Batch estimation), Path-following (calculate the full regularization path), Generative skeleton + Discriminative correction (Use generative models to get a fast initialization, then conduct more iterations to obtain a more discriminative solution), sparse B-spline/P-spline smoothing (in contrast to traditional kernel smoothing). To make the package more user-friendly, we will emphasize on careful design patterns and software engineering thinking. For example, the software will adopt a loosely coupled architecture, which enables users to easily tailor and modify it to fit their own purposes. Also, we will develop efficient tuning parameter selection methods so that the users can use all the functions in a tuning parameter-free mode.
+
+
+**Skills required:** R/C/C++ are required. Familiarity with numerical linear algebra using C is a plus.
+
+**Test:** A qualified applicant should have strong background in numerical linear algebra.
+
+
+**Mentor:** Han Liu (Assistant Professor in Biostatistics and Computer Science, Johns Hopkins University). Email: hanliu@jhsph.edu or hanliu@cs.cmu.edu. With guidance from John Lafferty (Computer Science, Carnegie Mellon University), Kathryn Roeder (Statistics, Carnegie Mellon University), and Larry Wasserman (Statistics, Carnegie Mellon University).
+
+**References**
+
+
+**Nonparametric Greedy Algorithm for the Sparse Learning Problems**, 
+Han Liu and Xi Chen
+In Advances in Neural Information Processing Systems (NIPS), 22, 2009. 
+
+**Sparse Additive Models**,
+Pradeep Ravikumar, John Lafferty, Han Liu, Larry Wasserman
+Journal of the Royal Statistical Society: Series B (Statistical Methodology) (JRSSB), 2009.
+
+**Nonparametric Regression and Classification with Joint Sparsity Constraints**, 
+Han Liu, John Lafferty, and Larry Wasserman
+In Advances in Neural Information Processing Systems (NIPS), 21, 2008.

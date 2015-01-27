@@ -1,0 +1,70 @@
+{{https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20140203/images/gsoc/logo/920x156xbanner-gsoc2014.png.pagespeed.ic.cjQI8p7ZBE.jpg}}
+
+====== Google Summer of Code 2014 ======
+
+This wiki page will be the central hub of information about the [[http://www.r-project.org|R Project]] participation in the [[http://code.google.com/soc/|Google Summer of Code]] (GSoC) for 2014. Administrators are Brian Peterson, Toby Dylan Hocking, and Joshua Ulrich and Virgilio Gomez Rubio as a backup. Questions should be posed to the google group!
+
+**!!!Everyone who wants to participate in this year's Google Summer of Code with R please join our google group:
+
+[[https://groups.google.com/group/gsoc-r|gsoc-r@googlegroups.com]]!!!** make sure to explain your relationship to R and your interest in the program.... requests without any other identifying or qualifying information may be considered spam.
+
+===== Overview =====
+
+In short, each student will get paid $5000 to work on an R package for 3 months during the summer:
+
+  * Mentors can add projects to this wiki page to give ideas to students.
+  * Students should look at the list of projects and see if any project interests them. If so, email the project mentors to express your interest, and describe any prior experience. Students with ideas for R projects not listed below are encouraged to post a query on the [[https://groups.google.com/group/gsoc-r|gsoc-r google group]].
+  * Students will submit project applications directly to Google. The home page is [[http://www.google-melange.com/gsoc/homepage/google/gsoc2014]]
+  * Google will award a certain number of student slots to the R project.
+  * The GSOC-R administrators and mentors will rank projects in order of importance to the R project, and the top projects will be funded.
+  * Students get paid $5000.
+  * Mentors get code written for their project, but no money.
+
+Previous projects are listed on the [[http://www.r-project.org/soc08|soc08]], [[http://www.r-project.org/soc09|soc09]], [[http://www.r-project.org/soc10|soc10]], [[http://www.r-project.org/soc11|soc11]], [[developers:projects:gsoc2012|soc12]], and [[developers:projects:gsoc2013|soc13]] pages.
+
+===== Status and Timeline =====
+
+  * 14 Feb: Mentoring organization [[developers:projects:gsoc2014_application|application]] deadline.
+  * 24 Feb: Accepted mentoring organizations announced.
+  * Interim Period: Would-be students discuss project ideas with mentoring organizations.
+  * 10 March: Student application period opens. use the [[developers:projects:student_app_template]]
+  * 21 March: Student application deadline.
+  * Interim Period: Mentoring organizations review and rank student proposals;
+  * 21 April: Accepted student proposals announced.
+  * 21 April - 19 May: Community Bonding Period.
+  * 19 May: Students begin coding for their Google Summer of Code projects.
+  * 19 May - 23 June: Work Period: Mentors give students a helping hand and guidance on their projects.
+  * 23-27 June: Mid Term Evaluations
+  * 27 June - 11 Aug: Work Period: Mentors give students a helping hand and guidance on their projects.
+  * 11 August: Suggested 'pencils down' date.
+  * 18 August: Firm 'pencils down' date. 
+  * 18-22 August: Final Evaluation Period.
+  * 25 August: Final results of Google Summer of Code 2014 announced.
+
+===== Project Ideas =====
+
+Project proposals are welcome, and should be added to the list below.  However, each proposal has a big barrier to pass: it will to need explain why this particular project is of use to the community, and it will have to show how it can be achieved in three months. At a minimum, a submission should also include a review of related packages that address the same or similar problems and discuss how these packages are not sufficient to the task.
+
+^ Mentors ^ Proposal ^ Non-R languages? ^ Status ^ Students ^ Results ^
+| mentors | [[developers:projects:gsoc2010:suggestion_form|Use this to add new proposals by copying the page content]]| languages | status | students | results |
+| David S. Matteson & Jacob Bien | [[developers:projects:dimension_reduction_methods_for_multivariate_time_series|Dimension Reduction Methods for Multivariate Time Series]] | Cpp | accepted | William Nicholson |  |
+| Jung Hoon Lee, Chungha Sung & Jae W. Lee | [[http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2014:right|RIGHT: R-Interactive-Graphics-via-HTml]] | HTML5, Javascript | accepted | Jong Hyun BAE |  |
+| Toby Dylan Hocking, Susan VanderPlas | [[developers:projects:gsoc2014:animint|Improve rendering of interactive, animated ggplots]]| Javascript | accepted | Carson Sievert | |
+| Gergely Daróczi, László Szakács | [[developers:projects:gsoc2014:pander|Turning R objects into Pandoc's markdown]] | markdown| accepted | Roman Tsegelskyi | |
+| Peter Foster | [[developers:projects:gsoc2014:discrimination|Kernel Density Estimation and Nonparametric Discriminant Analysis for Functional Data]] | | accepted | dapr12? | |
+| Peter Carl | [[developers:projects:gsoc2014:tsvisualization|Improve time series visualisation ]]| | not accepted | | |
+| Michael Lawrence | [[developers:projects:gsoc2014:bio-interactive-web-plots|Interactive plots for scientific reports ]]| web | withdrawn | | |
+| Laurent Gatto, Steffen Neumann | [[developers:projects:gsoc2014:bio-mzr|Extending mzR ]]| C++ | accepted | Qiang Kou | |
+| Kris Boudt, Jonathan Cornelissen, Daniele Signori | [[developers:projects:gsoc2014:spotvol|Spot volatility estimation: Methods and applications ]] | | accepted | Maarten Schermer | |
+| Valentin Todorov, Kris Boudt, David Ardia | [[developers:projects:gsoc2014:CItools|Tools for composite index analysis  ]]| | accepted | Keshav Pratap | |
+| A Mani | [[developers:projects:gsoc2014:roughset|Rough Sets ]]|  | not accepted |  | |
+| Jianhua Huang, Yihui Xie |[[developers:projects:gsoc2014:manifold_optimization|Optimization on Manifolds]]|C++| accepted | Kejun He | | 
+| pbdR Core Team |[[developers:projects:gsoc2014:pbdprof|Profiling Tools for HPC with R]] | C | accepted | Christian Heckendorf | |
+| Javier Otegui, Jorge Soberón, Virgilio Gómez-Rubio | [[developers:projects:gsoc2014:bdvis|Biodiversity data visualizations using R]] | - | accepted | Vijay Barve | |
+| Douglas Martin, Kjell Konis | [[developers:projects:gsoc2014:covariance_matrix|Covariance Matrix Estimators]]| | accepted | Rohit Arora |  |
+| Jorge Soberón, Robert Guralnick, Alberto Jiménez | [[developers:projects:gsoc2014:ENMGadgets|Tools for pre and post processing of data in Ecological niche modeling using R]] | - | accepted | Narayani Barve | |
+| Guy Yollin | [[developers:projects:gsoc2014:factoranalytics|FactorAnalytics]]|  | accepted | Sangeetha Srinivasan |  |
+| Brian Peterson | [[developers:projects:gsoc2014:portfolioanalytics|PortfolioAnalytics]]|  | accepted | Ross Bennett  |  |
+| Charles J. Geyer, Galin Jones | Generalized Linear Mixed Models via Monte Carlo Likelihood Approximation |  | accepted | Christina Knudson |  |
+| Jun Chen | PhyloVS: phylogeny-constrained regularization and variable selection |   | accepted | lichenbiostat86 |  |
+| tourzhao | GenPCA: A Generalized PCA Toolkit for High-dimensional Data Analysis in R |  | accepted | lixx1661 |  |

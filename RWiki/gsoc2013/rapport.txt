@@ -1,0 +1,93 @@
+=== Statistical report templates ===
+
+ 
+**Summary:** //rapport// package depends on //pander// package and  provides a way to create statistical report templates that can be reused with any R data frame. This let useRs define custom report templates with plots, 
+tables and dynamic annotations with a [[http://cran.r-project.org/web/packages/brew/index.html|brew]]-like syntax and extensible input parameters, and the resulting document can be exported to 
+[[http://johnmacfarlane.net/pandoc/README.html|Pandoc's markdown]], pdf, HTML, docx or odt formats. So it is something like a //Sweave//, //brew// or //knitr// document that can be generally applied to any dataset.
+
+**Demo:** [[http://rapport-package.info/#templates|sources and preview of rapport-bundled templates]]
+
+== Description ==
+
+//pander// contains helper functions and a generic S3 method to return various R objects into markdown formats that can be converted further to HTML, pdf, docx, odt and other document formats based on [[http://johnmacfarlane.net/pandoc/README.html|pandoc]]. Beside the "**Pandoc** writer" part //pander// package can also act like [[http://cran.r-project.org/web/packages/brew/index.html|brew]] (or to be more precise: contains a forked version of //brew//) similar to [[http://yihui.name/knitr/|knitr]] or //Sweave//, but with a bit modified goal in the long run.
+
+//Sweave// and e.g. //knitr// were created to provide a way for **literative programming** with R, so that users could run R commands inside reports. These awesome tools have a wide variety of //chunk// options, so that the professional useRs can fine-tune the output of each separate part of the custom documents, while we dreamed about a general document syntax with **global and user-specified options** instead of hard-coded chunk options. This means that the same document syntax can result in slightly different results on different computers based on global user options, e.g. the same //brew// file  would generate plots with a green color theme and automatically added major and minor grid even on //base// plots, while other useRs would get a red plot without any major grid. The global options also help the authors of these documents: there is no need to tweak the chunk options (although they still can), instead the users have a global control over the style of tables, numbers and e.g. plots.
+
+Currently //pander// provide [[http://rapporter.github.com/pander/#pander-options|global options]] for:
+  * numeric values (significant digits, decimal mark, round digits),
+  * list and
+  * table styles,
+  * where to split too "wide" tables and table cells with line breaks,
+  * the separator and wrap character of vectors,
+  * and some other options - please see below.
+  
+So e.g. an international user can change really easily the decimal mark in all reports with a single command even with even with his favorite color palette and background color for all plots without touching the sources of the report.
+
+//pander// also tries to help the literative R programmers with some other tweaks, like:
+  * it provides an automatic (although optional) chunk-based **cache** with memory or disk back-end and trigger level in elapsed time, that takes into account the content of affected variables and environments, so no need to specify if a chunk should be cached or not - //pander// can decide this  [[http://rapporter.github.com/pander/#caching|automatically]],
+  * //pander//'s internal evaluation function (//evals//) can also "**unify plots**" which means that it tries to convert all plots (let it be a base //graphics//, //lattice// or //gplot2// chart) to similar style with optionally added grid and applied color palette. User can also specify the font family and font size, the axis angle, default symbols to use or legend position beside other - //pander// will apply all these to almost any plots,
+  * a **unique feature** of //pander// is that it returns not only the printed results (in pdf, markdown or any other format), but all kind of information about the results of the chunks in a list - like error and warning messages, the raw R object(s), its printed version, //stdout// and also in Pandoc's markdown format.
+  * and //pander// can also handle some **security issues** (as was intended to be used in webapps) with the help of [[https://github.com/Rapporter/sandboxR|sandboxR]] and [[https://github.com/jeroenooms/RAppArmor|RAppArmor]] (see [[https://github.com/Rapporter/pander/tree/RAppArmor|separate branches]] on GitHub).
+
+//rapport// depends on //pander// (a year ago that latter was even part of the prior) and tries to use its features to provide an easy way for repeated reporting tasks. The main goal of statistical reports in //rapport// is simple re-using the above described //pander// documents and let useRs run those with various input parameters on any R data frame.
+
+This means a user can create any custom document with R chunks inside that and apply that to an R data frame with some pre-defined options. So the dynamic reports not only take the data frame as input parameters, but other arguments can also be passed like numbers, strings, variables from the data frame among others.
+
+With the help of statistical reports useRs can create robust dynamic reports to be applied to any standard data format. For example we have implemented a few univariate and bivariate statistical methods with graphs, tables and of course annotations - which can be applied e.g. in university courses thanks to the high number of commentary about the statistical methods. But one can also use these templates to generate a few hundred paged report about a custom dataset under a few minutes.
+
+And our main goal with all these packages were to let useRs integrate these statistical reports in web applications or simply in any homepage, so that even non-R users could also benefit from the great power of R - with reproducible and open code.  A POC of concept demo is available on our [[http://rapporter.net|rapporter.net]] site, although simpler solutions can be easily created with the help of [[http://rapache.net/|rApache]] or [[https://github.com/jeffreyhorner/Rook|rook]] applications.
+
+== Related packages ==
+
+As can be seen above, there are several similar packages to //pander// and even to //rapport// on CRAN, please see the [[http://cran.r-project.org/web/views/ReproducibleResearch.html|Reproducible Research CRAN Task View]] for a nice collection.
+
+What makes //pander// **unique** in the above list is e.g. the
+  * robust and automatic **caching** without any known side effects,
+  * the option to automatically **unify plot theme and style** for any of base/lattice/ggplot2 images,
+  * that it returns R objects in **markdown format** for potential further processing,
+  * and also **returns the original R objects** along with all captured messages/warnings/errors and stdout beside the markdown format.
+
+But //rapport// has an even more visible unique feature (or rather: purpose) compared to the other R packages in the Reproducible Research CRAN Task View: the main goal of the package is to **write a template with literate programming only once** and then **apply that to any number of data frames** with **flexible input types**, so providing a way to generate dynamic and textual reports just like using R functions with arguments.
+
+== Project ideas ==
+
+Although we are eager to upgrade and revise our packages from time to time on our own, it seems that we have [[https://github.com/Rapporter/rapport/wiki/Future-ideas|more project ideas]] then resources to address those. A promising candidate could help us with two high priority tasks:
+
+  * [[http://rapport-package.info/#custom|create new statistical templates]] to be shipped with the //rapport// package like (not exclusively):
+    * hierarchical cluster analysis,
+    * principal component and factor analysis,
+    * multidimensional scaling,
+    * three-way crosstables,
+    * a robust and highly annotated template to analyze time-series like our basic [[https://github.com/Rapporter/templates/blob/master/quandl.tpl|Quandl template]],
+    * plotting-only templates with numerous input fields etc.
+  * extend [[http://rapporter.github.com/pander/#generic-pander-method|pander S3 method]] to support more R classes. The list of the currently supported classes can be triggered by e.g. //methods(pander)//, but that should be extended further based e.g. a recent [[http://www.r-bloggers.com/r-to-latex-packages-coverage|R-bloggers post]]. So simply design and implement what should //pander// return in //markdown// format for various R classes.
+
+So the first project idea would bring more **markdown formatted, annotated statistical reports to the R console** with the option to export those to typographically correct pdf/HTML/docx/odt and bunch of other formats ready to share with others and/or publicize with a simple //rapport// command and a few parameters, while the other task would result in a more robust **markdown converter** that automatically transforms any R objects to //Pandoc's markdown// to be used inside of //knitr// or transformed further with the [[http://cran.r-project.org/web/packages/markdown/index.html|markdown package]] or directly with //Pandoc//.
+
+== Skills required ==
+
+The prior task would require some literative programming experiences, while the latter rather needs a general overview of a variety of R object classes and some statistical knowledge to know what to show and how in //markdown//. In more details, to the end that the student would be able to handle the above proposed tasks, it would be important that the candidate knows about:
+
+  * [[http://johnmacfarlane.net/pandoc/README.html|Pandoc's markdown]] syntax and the //pandoc// command line,
+  * and has strong [[http://www.r-project.org/|R]] skills,
+  * also some previous experience with [[http://cran.r-project.org/web/packages/brew/index.html|brew]] or [[http://rapporter.github.com/pander/|pander]] packages or with any literative programming technique,
+  * a basic [[http://git-scm.com/documentation|git]] knowledge (e.g. //branching//) and experience with [[http://learn.github.com/p/intro.html|GitHub]],
+  * and //optionally// HTML, JavaScript and CSS skills.
+
+== Tests ==
+
+A promising candidate could:
+
+  * create a //rapport// template for PCA. See the [[http://rapport-package.info/#templates|rapport homepage]] and [[https://github.com/Rapporter/rapport/tree/master/inst/templates|template 
+sources on GitHub]] for futher ideas, or e.g.
+  * extend //pander// to also work with //CrossTable// R objects.
+
+**Mentors:** [[https://github.com/daroczig|Gergely Daróczi]] <daroczig@rapporter.net> and [[https://github.com/aL3xa|Aleksandar Blagotić]] <alex@rapporter.net> or Gergely Tóth 
+<gergely.toth@rapporter.net> as backup 
+
+== References ==
+
+  * [[http://rapport-package.info/|"rapport" R package]]
+  * [[http://rapporter.github.com/pander/|"pander" R package]]
+  * [[https://github.com/rapporter|R sources codes for "pander" and "rapport"]] 
+  * [[http://johnmacfarlane.net/pandoc/README.html|Pandoc's markdown]]

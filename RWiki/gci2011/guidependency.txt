@@ -1,0 +1,22 @@
+====== Graph of Dependencies for different GUI toolkits in R ======
+
+ 
+**Task Summary:** Develop  a figure that shows the use of the different GUI toolkits available in R.
+
+**Task Description:** 
+The graph should show the different GUI toolkits, and how many / which packages rely on them to:
+  - enhance it
+  - depend on the toolkit  
+  - are suggested
+
+One difficulty that needs to be solved is that the package dependency description does not specify that a package depends on one of a list of packages (see e.g. gwidgets). These are hopefully listed in Suggests.
+
+[[http://csgillespie.wordpress.com/2011/03/23/graphical-display-of-r-package-dependencies/|Colin Gillespie's blog article]] is a good starting point. 
+
+**Skills needed:** R
+
+**Rating:** Medium
+
+**Category:** Research
+
+**Mentor:** [[Claudia.Beleites@ipht-jena.de|Claudia Beleites]] 2011/11/04

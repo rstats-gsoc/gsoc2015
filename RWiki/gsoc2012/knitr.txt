@@ -1,0 +1,32 @@
+====== Dynamic report generation in the web with R  ======
+
+**Summary:** Extend the **[[http://yihui.name/knitr|knitr]]** package for better applications in the web so that web pages can be easily compiled with R like Sweave documents.
+
+**Description:** The **knitr** package is a general-purpose tool for dynamic report generation; the basic idea is like Sweave: we only write source code in a document mixed with normal texts, then use a tool to evaluate the code to get output, so that we do not need to copy and paste results from the computing engine to the output document. Knitr comes with a flexible design and can be extended to multiple output formats via output hooks. Currently the LaTeX and Markdown support is almost complete, and HTML is not yet fully supported. Two missing features are code highlighting themes and animation support (both have been done for LaTeX).
+
+The first part of this project is to add the missing features in HTML, which involve with CSS and the R package **[[http://cran.r-project.org/package=animation|animation]]** (function ''saveHTML()''). After this is done, the old [[http://animation.yihui.name|wiki site]] of the **animation** package can be rewritten with **knitr**. Each page is written with R source code mixed with HTML or Markdown, then compiled to the final output containing animations. This will be easier to validate if the **animation** package works correctly and the animations can be reproducible. Depending on the progress, not all pages have to be converted in this project. The expected time span on this part is one month.
+
+The second part focuses on online collaboration of reproducible research. We will explore two possible directions:
+
+  - [[http://www.omegahat.org/R/src/contrib/RGoogleDocs_0.6-0.tar.gz|RGoogleDocs]]: this package enables us to manipulate Google Documents through R, and a Google document is essentially an HTML document, so hopefully we can use **knitr** to process such a document and upload the results back to a Google account; since several people can share the same document, this may facilitate online collaboration of data analysis
+  - [[http://johnmacfarlane.net/pandoc/|Pandoc]]: a universal document converter; we can start with a simple markdown document, compile it with **knitr**, convert it to a Word document and upload to a Google account
+
+This part is also expected to be done in a month.
+
+The third part is not completely decided yet: we can either see if the work can be applied to other websites like [[http://addictedtor.free.fr/graphiques/|R Graph Gallery]], or go to another direction -- convert R package documentation to better web pages.
+
+  - R Graph Gallery: the site can be built dynamically with R, which guarantees reproducibility and is hopefully easier to maintain
+  - R doc: one problem with the current R package documentation is we do not know the results of examples unless we copy and run the code; **knitr** should be able to extract the example code and convert it to HTML with all results displayed under the code (similar ideas can be found in the [[http://rgm2.lab.nig.ac.jp/RGM2/|R Graphical Manual]], but we want better web pages like [[https://github.com/downloads/yihui/knitr/knitr-minimal.html|this one]], with code highlighted and output commented out; this is also a chance to use much better CSS than R's default one)
+
+References:
+
+  * [[http://yihui.name/knitr/|knitr homepage]]
+  * [[https://github.com/downloads/yihui/knitr/knitr-manual.pdf|knitr main manual]]
+  * [[https://github.com/downloads/yihui/knitr/knitr-graphics.pdf|knitr graphics manual]]
+  * [[https://github.com/downloads/yihui/knitr/knitr-themes.pdf|knitr themes manual]]
+
+**Skills required:** Good knowledge of R (especially text processing) and basic knowledge of the **knitr** package; familarity with HTML/CSS/JavaScript and Markdown; experience with Sweave, the [[http://cran.r-project.org/package=animation|animation]] package and RGoogleDocs is a plus, so is longer "[[http://github.com|GitHub]] age".
+
+**Test:** Read the [[http://yihui.name/knitr/demo/minimal/|minimal demos]] in the **knitr** website, and use the **knitr** package to write a small report in HTML with a dataset (must contain plots; a few paragraphs will be enough).
+
+**Mentor:** [[http://yihui.name|Yihui Xie]] and [[http://www.linkedin.com/pub/shangxuan-zhang/4/b1/672|Shangxuan Zhang]]

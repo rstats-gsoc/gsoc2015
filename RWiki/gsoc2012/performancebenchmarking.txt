@@ -1,0 +1,40 @@
+**Summary**: R code for Portfolio Performance Measurement and Benchmarking from Christoperson, Carino, and Ferson(2009)
+
+**Description**: 
+PerformanceAnalytics is an R package that provides a collection of econometric functions for performance and risk analysis. It applies current research on return-based analysis of strategy or fund returns for risk, autocorrelation and illiquidity, persistence, style analysis and drift, clustering, quantile regression, and other topics. 
+
+As a key repository of important performance and risk benchmarking and attribution functions, it is important to keep up with the latest publications in the field.  Christopherson(2009) is such a publication.  David Cariño is a Research Fellow at Russell Investments, one of the co-authors of this text and would co-mentor this project.
+
+The majority of the measures described in Portfolio Performance Measurement and Benchmarking already exist in Performanceanalytics, but several newer or lesser used functions do not.  A non exhaustive list includes: 
+* holding period returns
+* linked returns
+* cash flow and unit value returns
+* money weighted returns
+* Modigliani measure
+* Appraisal Ratio
+* Fixed Income Risk Measures for duration, convexity, prepayment, and issuer-specific risks
+* market timing metrics
+* portfolio attribution
+* linking attribution
+* benchmark and index construction
+
+Additionally, there are multiple chapters on factor analysis that may be mostly covered by functions already in the package FactorAnalytics: overlap and required functionality will need to be cross-referenced, with necessary additional functionality created as part of this project.
+
+
+**References**: 
+  * ReturnAnalytics on R-Forge.  https://r-forge.r-project.org/projects/returnanalytics/
+  
+  * Portfolio Performance Measurement and Benchmarking. 2009. McGraw-Hill Finance & Investing. J. Christopherson, D. Carino, W. Ferson
+
+**Test**:
+The successful applicant will demonstrate proficiency with R, and specifically with xts and PerformanceAnalytics or PortfolioAnalytics. This could be via identifying a patch or extension, providing a new demo script for the one of the packages that would show understanding of the functionality provided, or by doing a detailed proposal with pseudocode for one or more potential enhancements to the toolchain. The ideal candidate would also demonstrate prior interest or experience in finance.
+
+**Mentor**: 
+
+David Cariño is Research Fellow at Russell Investments
+
+Doug Martin is the head of the University of Washington Computational Finance program, and would co-mentor this project.
+
+Peter Carl is one of the primary authors of these related packages, and would mentor the GSOC participant. 
+
+Brian Peterson is one of the primary authors of these packages, has previously mentored GSoC projects, and would be backup mentor for this project. 2012-03-23

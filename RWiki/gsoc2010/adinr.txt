@@ -1,0 +1,40 @@
+====== Automatic Differentiation (AD) in R with ADMB, cppAD or other tools. ======
+ 
+**Summary:** Develop R capabilities or for Automatic Differentiation and/or interfaces to existing AD tools. 
+
+**Details:** The availability of AD tools in R would greatly assist users requiring derivatives in solving optimization, differential equation, and similar problems. Linking R to Automatic Differentiation Tools such as ADMB, ADOL-C or cppAD provides one possibility for such capabilities. A full or partial implementation in R is another.
+
+Several //ad hoc// methods have been developed for linking [[http://admb-project.org|ADMB]] to R but it is difficult to transparently exploit ADMB capabilites from within R. In particular, interfaces to R optimization packages need to be better established and documented. However, ADMB is already fairly well understood by some R users and may be well-suited for a Google-project to interface to R. There is currently considerable support from ADMB users to improve the interaction between ADMB and R.
+
+The R package [[http://code.google.com/p/pbs-admb/|PBSadmb]] allows ADMB to be run entirely from R, where an R command performs every operation implemented in ADMB. PBSadmb can be obtained from the standard [[http://cran.r-project.org/|CRAN]] site for all contributed R packages. It works with every platform (Windows, Linux, MacOS) supported by R. A complete User's Guide, included with the package and also available at [[http://code.google.com/p/pbs-admb/|PBSadmb]], explains in detail the philosophy of integrating R with ADMB. In particular, the Guide proposes and demonstrates some protocols for integrating R code with ADMB template files. Any further work along these lines would probably benefit from ideas discussed in this report and implemented in this package.
+
+[[http://www.coin-or.org/CppAD/|cppAD]] is a free powerful AD tool written in C++ due to Brad Bell. He has an example how cppAD could be linked to C. Utilizing operator overloading and pointer techniques would allow one to link R in a similar way to cppAD as in the example suggested. The power of cppAD is well illustrated by a [[http://www.seanet.com/~bradbell/pycppad/runge_kutta_4_cpp.py.xml|runge-kutta example in python]] where python-cppAD  brings a speed up of 20 - 100 times over pure python. A similar speed up can be expected for R, as well.
+Experience with cppAD and its linkage to R is needed to bring the power of this tool to R, but there is a strong body of work in the [[http://cran.r-project.org/package=Rcpp|Rcpp]] package.
+
+The result of this project should allow R users to use AD tools to 
+  * Differentiate scalar valued R functions 
+  * Differentiate nested simple basic functions such as power, exponential, logarithm, etc. 
+  * If possible, differentiate vector valued functions and of functions of any complexity.  
+
+**Skills:** Good R and C++ programming skills. Familiarity with basic open source development tools like svn and make is assumed. An appreciation of AD tools would be an asset.  
+
+**Tests:** 
+
+1. Write a simple R package that calls a C++ program to return the sum of the digits of today's date. --- //[[nashjc@uottawa.ca|J C Nash]] 2010/03/02//
+
+The following two suggestions (which are unsigned) should be taken as suggestions. They first of these really is part of the work of the project, and in my opinion inappropriate to request of candidates. Is the second related to automatic or algorithmic differentiation? As mentor I am NOT requesting that these be answered, as I prefer students to provide more information in their proposals, now due shortly. If there are reasons that these suggestions should be required tests, please contact me off-wiki.  --- //[[nashjc@uottawa.ca|J C Nash]] 2010/04/03//
+
+2. Write R functions to produce the first and second derivatives of three trigonometric, three polynomial, and three nonlinear functions of your choice.
+
+3. Describe how, when fitting a function to a distribution of points, you might decide whether a folded manifold or a probability distribution is more appropriate.
+
+**Mentor:** John Nash. Additional help from the AD side (with ADMB, cppAD knowledge) welcome; likewise for C++ and R internals. Brad Bell is available for cppAD related issues. Two members of the Rcpp group have suggested that the mailing list for that group is almost certain to be supportive.
+
+A brief bio: John C. Nash obtained his B.Sc.  from the University of Calgary (in Chemistry, 1968) and his doctorate in Mathematics from Oxford (1972).  He was in charge of a statistical analysis unit for Agriculture Canada until 1980, and is now retired Full Professor in the Telfer School of Management of the University of Ottawa where he taught statistics, forecasting, government online, and managing technological risk.  Dr. Nash is the author of several books on scientific and statistical computation and numerous scientific and popular articles. Algorithms from his "Compact Numerical Methods for Computers" formed the core of the optim() function in R implemented by Brian Ripley. He was Editor and Managing Editor of SSC Liaison for the Statistical Society of Canada from 1991 to 1994. Earlier he was a columnist for Interface Age and the scientific computing editor for Byte. He has been President of Nash Information Services since 1980 (incorporated 1982), through which he has conducted a number of practical applications of his ideas. He is President of the Ottawa Canada  Linux Users Group, co-organizer (with Paul Gilbert of the Bank of Canada) of the Ottawa Gatineau R User Group, and an organizer of the Foresight Synergy Network for which he runs the wiki/website.
+
+
+==== Student applicants ====
+
+As mentor, I invite you to add a link to your student proposal/application page below. It would also be useful to put a link to this page on your proposal/application page so the connection is clear.
+
+  * [[http://socghop.appspot.com/gsoc/student_proposal/private/google/gsoc2010/quantumelixir/t126989852709|rdx - Automatic (Algorithmic) Differentiation in R]] - Chidambaram Annamalai

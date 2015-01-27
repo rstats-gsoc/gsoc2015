@@ -1,0 +1,17 @@
+====== Becoming GSoC Mentor ======
+
+===== Mailing Lists =====
+
+sign up for the following mailing lists:
+
+  * [[https://stat.ethz.ch/mailman/options/gsoc-mentors/ | R's mentor-private mailing list]]
+  * [[https://groups.google.com/forum/?fromgroups#!forum/gsoc-r|students + mentors mailing list]]
+
+===== Melange =====
+Google organizes the GSoC in Melange. You need to 
+  - have a google account
+  - [[ http://www.google-melange.com/gsoc/profile/mentor/google/gsoc2012| Register as mentor at melange]]
+  - [[http://www.google-melange.com/gsoc/request/google/gsoc2012/rproject|Request to be a mentor for R]]: telling the admins one or two sentences who you are (consider using a nickname that is reasonably close to your real name) and why you want to become mentor for R makes their life much easier. 
+  - You can see the proposals for R via the "Dashboard"
+  - To sign up as possible mentor for a proposal, click at the picture below "Wish to Mentor" at the left side. 
+  - The image should display an orange "YES" then and the table "Proposals submitted to my orgs" will display your login if you select the additional column "Possible Mentor link_ids" (via "columns" at the foot of the table)

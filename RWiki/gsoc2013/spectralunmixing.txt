@@ -1,0 +1,44 @@
+====== spectral unmixing ======
+
+Many types of [[http://en.wikipedia.org/wiki/Spectroscopy|spectroscopy]] follow a bilinear model, e.g. 
+* absorption in the UV/VIS/NIR/IR
+* fluorescence emission
+* Raman emission
+
+The spectrum //X (λ)// of a mixture of m substances is a linear combination of the pure substance spectra //S,,i,, (λ)// weigthed with their concentrations //c,,i,,//
+
+%%$$X (λ) = sum_(i = 1)^m c_i S_i (λ)$$%%
+
+or, written with matrices for n spectra:
+
+**X**^^(//n// x //p//)^^ = **C**^^(//n// x //m//)^^ **S**^^(//m// x //p//)^^ + ε
+
+where **X** is the matrix of observed mixture spectra, measured at //p// distinct wavelengths, the concentrations are stored in **C**, and the pure componnent spectra in **S**.
+
+[[http://en.wikipedia.org/wiki/Imaging_spectroscopy#Unmixing|Spectral unmixing]] tries to reverse this and find pure component spectra and concentrations from the observed spectra. A number of approaches exist, which follow different heuristics and constraints (e.g. spectra and concentrations should be non-negative, the pure component spectra actually exist in the observed matrix, ...).
+
+Several algorithms are described in the literature, and I also have Matlab code of Vertex Component Analysis and NFINDR.
+
+===== Aim of the project =====
+
+Aim of the project is to implement/port spectral unmixing methods to R.
+
+===== Requirements =====
+
+R, possibly C++
+
+git/svn
+
+===== Test =====
+
+Please contact me for a test task.
+
+
+**Mentor:** Claudia Beleites [[Claudia.Beleites@ipht-jena.de|Claudia Beleites]]
+**Co-Mentors:** 
+
+ --- //[[Claudia.Beleites@ipht-jena.de|Claudia Beleites]] 2013/04/07//
+
+
+
+

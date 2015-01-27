@@ -1,0 +1,37 @@
+====== Storage-based vectors and arrays with R and Python  ======
+ 
+**Summary:** Provide an improved access to disk-based solution for R and Python code.
+
+**Description:** Persistent storage-based representation of vectors and arrays can be required for larger datasets,
+and in a form that this better optimized for slicing and dicing than relational databases can be.
+
+In R, the "ff" package is arguably the solution under the most active development, as the wrappers to the 
+HDF5 or netCDF libraries expose a small subset of the respective API. 
+
+The purpose of this project is to improve the access to such storage-based structure, making cross-process and cross
+language access to data easy and efficient.
+
+Depending on the skills and interest of the candidate, the overall outcome would be:
+
+* Access ff-stored data from Python, with eventually special treatment for access from Python's numpy 
+
+* HDF5 and netCDF data passed on to R code through Python, as the Python wrappers for HDF5 and netCDf provide a more complete mapping of the HDF5 and and netCDF libraries than their R counterparts do.
+
+* memory-mapped data (R has "mmap", Python's numpy has "numpy.memmap")
+
+The exact specifics will be discussed with the applicant.
+
+**Skills required:** Knowledge of R, Python, rpy2 (Python-R bridge), and of C / C++ if optimization through lower-level
+access is wished, are required.
+
+**Test:** Using rpy2, be able to implement a rudimentary class that can expose ff::ff_vector instances to Python. From that implementation, list anticipated limitations (performances, design, etc...), imagine use-cases and features that would be nice to have (no matter they can realisitically be implemented or not, within the course of the SoC project or at all).
+
+**Mentor:** Laurent Gautier [[mailto:lgautier@gmail.com|email]]. March 14th, 2010.
+
+==== Questions: ====
+
+* //[[jsalsman@gmail.com|James Salsman]] 2010/03/23//: will you be doing ff format reading and writing both in Python before attempting memory mapping?
+
+* //[[lgautier@gmail.com|Laurent Gautier]] 2010/03/23//: In a first instance, the ff format reading and writing will be exposed to Python users/programmers, but the tasks delegated to the ff package by using rpy2. Native reading/writing might not be considered in the final proposal, one of the reasons being that that format is not a standard (only known to R/ff, and may even be ff version-specific).
+
+----

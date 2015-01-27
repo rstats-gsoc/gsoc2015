@@ -1,0 +1,21 @@
+**Summary**:
+RMaxima --- an R package for interfacing the free Computer Algebra System Maxima.
+
+**Description**:
+Maxima is a free, open source Computer Algebra System (CAS), descending from the former Macsyma system on Lisp machines. Maxima has a bit older syntax than the three Ma's (Mathematica, Maple, Matlab), but is much more powerful than the symbolic algebra systems available for R right now.
+
+Maxima has been integrated with Scilab and the [[http://euler.rene-grothmann.de/|Euler Math Toolbox]]. Especially the C++ files for Euler appear to be relatively clear, where communication with Maxima is realized through 'pipes'. The main C++ file can probably be directly utilized.
+
+The design of the interface is another major task, that is how to use symbolic expressions in R, reuse of numeric results, or later on the connection to the Rmpfr package and its high-precision arithmetic.
+
+**Skills required**:
+Programming in C++ and R, possibly using the 'Rcpp' and 'inline' packages. Some interest in high-precision numerics and symbolic algebra.
+
+**Test**:
+Have a look at the interfaces to Maxima in Scilab and the Euler Math Toolbox.
+Propose how such an interface could be designed for R. Download the Euler sources and identify the files that realize this bridge between Maxima and Euler.
+
+**Mentor**:
+Hans W. Borchers for the R side and design of the interface. A mentor for the C++ and Rcpp side is still to be found.
+
+(Please note: the author of the Euler Math Toolbox has explicitely agreed that his sources can be reused for such a project.)

@@ -1,0 +1,21 @@
+**Summary**: Add Measures and Attribution to PerformanceAnalytics and PortfolioAnalytics based on Bacon (2008)
+
+**Description**: PerformanceAnalytics is an R package that provides a collection of econometric functions for performance and risk analysis. It applies current research on return-based analysis of strategy or fund returns for risk, autocorrelation and illiquidity, persistence, style analysis and drift, clustering, quantile regression, and other topics. 
+
+PerformanceAnalytics has long enjoyed contributions from users who would like to see specific functionality included.  In particular, Diethelm Wuertz of ETHZ (and the well-known R/Metrics packages) has very generously contributed a very large set of functions based on Bacon (2008).  It is a great starting point, but many of these functions need to be finished and converted such that the functions and interfaces are consistent with other PerformanceAnalytics functions, and are appropriately documented.  
+
+In addition, certain functions useful for optimization will need to be converted to be used in PortfolioAnalytics, an extensible business-focused framework for portfolio optimization and analysis.  That package focuses on numeric approaches for solving non-quadratic problems useful, for example, in risk budgeting.
+
+Assuming the prior work goes well, there will be an opportunity to extend PortfolioAnalytics to cover portfolio attribution as described in Bacon (2008).  This is frequently-requested functionality from the finance community that uses R.  We would use FinancialInstrument, an R package for defining and storing meta-data for tradeable contracts (referred to as instruments, such as for stocks, futures, options, etc.), to define relationships among securities to be used by attribution functions.
+
+**References**: 
+  * ReturnAnalytics on R-Forge.  https://r-forge.r-project.org/projects/returnanalytics/
+  * Carl Bacon "Practical Portfolio Performance Measurement and Attribution", (London, John Wiley & Sons. September 2004) ISBN 978-0-470-85679-6. 2nd Edition May 2008 ISBN 978-0470059289
+
+
+**Test**:
+The successful applicant will demonstrate proficiency with R, and specifically with xts and PerformanceAnalytics or PortfolioAnalytics. This could be via identifying a patch or extension, providing a new demo script for the one of the packages that would show understanding of the functionality provided, or by doing a detailed proposal with pseudocode for one or more potential enhancements to the toolchain. The ideal candidate would also demonstrate prior interest or experience in finance.
+
+**Mentor**: Peter Carl is one of the primary authors of these related packages, and would mentor the GSOC participant. 2012-02-18
+
+Brian Peterson is one of the primary authors of these packages, has previously mentored GSoC projects, and would be backup mentor for this project.

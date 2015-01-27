@@ -1,0 +1,104 @@
+====== Google Summer of Code 2011 ======
+**!!!Everyone who wants to participate in this year's Google Summer of Code with R please join our google group:
+
+[[https://groups.google.com/group/gsoc-r|gsoc-r@googlegroups.com]]!!!**
+
+
+===== Overview =====
+
+This wiki page will be the central hub of information about the [[http://www.r-project.org|R Project]] participation in the [[http://code.google.com/soc/|Google Summer of Code]] (GSoC) for 2011. 
+
+{{:developers:projects:gsoc2011_300x200.png|:developers:projects:gsoc2011_300x200.png}} 
+
+
+Previous projects are listed on the [[http://www.r-project.org/soc08|soc08]], [[http://www.r-project.org/soc09|soc09]], and [[http://www.r-project.org/soc10|soc10]] pages.
+
+
+===== Status and Timeline =====
+
+  * Feb 28: Mentoring organizations can begin submitting applications to Google.
+  * Mar 11: Mentoring organizations application deadline.
+  * Mar 18: List of accepted mentoring organizations published on the Google Summer of Code 2011 site.
+  * Mar 28: Student application period opens.
+  * Apr  8: Student application deadline.
+  * Apr 22: Student ranking/scoring deadline.
+  * Apr 25: Accepted student proposals announced on the Google Summer of Code 2011 site.
+  * ...
+
+
+
+===== Project Ideas =====
+
+Project ideas can be listed below on per-topic Wiki pages.  //Please// follow the formatting used for the first suggestion.
+
+  * [[developers:projects:gsoc2010:suggestion_form]] //Use this to add new proposals// by copying the page content
+  * [[developers:projects:gsoc2011:SMART]] A R package for large-scale nonparametric predictive learning and data mining
+  * [[developers:projects:gsoc2011:msfga]] Model Search Space Size Fit Goodness Adjustment: When adjusting goodness of fit statistics, use the total degrees of freedom in an entire stepwise or symbolic regression model, not just the number of independent variables in the best fit
+  * [[packages:cran:hyperspec:gsoc|hyperSpec]] Extensions to the hyperSpec package for hyperspectral data (several separate and independent projects possible)
+  * [[packages:cran:optimgui:gsoc|optimgui]] Graphical or menu interface to assist the preparation of optimization problem functions
+  * [[developers:projects:gsoc2011:SRA with roles]] Social relations analyses with roles 
+  * [[developers:projects:gsoc2010:cran_stats]] Aggregate CRAN package download statistics across multiple mirrors
+  * [[developers:projects:gsoc2010:crantastic2]] Enhancements to crantastic to encourage further community building 
+  * [[developers:projects:gsoc2010:interactive-check]] Run R CMD check interactively during package development
+  * [[developers:projects:gsoc2011:convex_optimization]] Convex Optimization for R
+  * [[developers:projects:gsoc2011:image_analysis]] Image analysis in R
+  * [[developers:projects:gsoc2011:TradeAnalytics]] TradeAnalytics toolchain additions
+  * [[developers:projects:gsoc2011:yarrcache]] Develop a caching mechanism for the ''yarr'' package
+  * [[developers:projects:gsoc2011:manipulate]] Interactive graphical R applets for teaching statistics and calculus
+  * [[developers:projects:gsoc2011:optile]] Category order optimization for graphical displays of categorical data
+  * [[developers:projects:gsoc2011:panorama]] Interactive web graphics for R
+  * [[developers:projects:gsoc2011:R-OpenMP]] OpenMP parallel framework for R
+  * [[developers:projects:gsoc2011:R-EM-accelerator]] Convergence Acceleration of the Expectation-Maximization (EM) Algorithms in R
+  * [[developers:projects:gsoc2011:cranvastime]] Interactive longitudinal and temporal data plots
+  * [[developers:projects:gsoc2011:DClusterm]] Model-based detection of disease clusters
+  * [[developers:projects:gsoc2011:APIM]] Dyadic data analysis in R (APIMs etc)
+  * [[developers:projects:gsoc2011:ropenclcuda]] Library for OpenCL/CUDA Parallelism in R
+  * [[developers:projects:gsoc2011:ExploreStoch]] Exploratory tools and visualization of multivariate stochastic processes
+  * [[developers:projects:gsoc2011:GibbsTrading]] Gibbs Sampler for evaluating trading direction
+  * [[developers:projects:gsoc2011:HUGE]] A R package for high dimensional undirected graph estimation
+
+
+
+===== Results =====
+
+(to be completed in order to summarize the results of GSOC 2011 and which projects we can keep on the 2012 list, TDH 10 nov 2011)
+
+[[https://gsoc-r.googlegroups.com/attach/f17352072b063ba9/GSoCAdmins-paper.pdf?part=2|Draft of Claudia and John's paper on GSOC 2011]]
+
+[[http://code.google.com/p/google-summer-of-code-2011-r/downloads/list|Google's repos of GSOC 2011 packages]]
+
+
+^ Mentor ^ Student ^ Project proposal ^ Result ^
+| Daniel Kaplan and JJ Allaire | Andrew Rich | [[developers:projects:gsoc2011:manipulate|RStudio teaching graphics]] | [[https://r-forge.r-project.org/scm/viewvc.php/pkg/mosaicManip/?root=mosaic|mosaicManip package on R-Forge]] |
+| Claudia Beleites | Sebastian Mellor | [[packages:cran:hyperspec:gsoc|hyperSpec GUI]] | [[http://r-forge.r-project.org/scm/viewvc.php/src/hyperSpecGUI/?root=hyperspec&pathrev=508|hyperSpecGUI package on R-Forge]] |
+| Di Cook and Heike Hofmann | Xiaoyue Cheng | [[developers:projects:gsoc2011:cranvastime|Cranvastime]] | [[https://github.com/ggobi/cranvas|part of cranvas package on github]] |
+| John Nash and Ben Bolker | Yixuan Qiu | [[packages:cran:optimgui:gsoc|Optimization GUI]] | [[https://r-forge.r-project.org/scm/viewvc.php/pkg/optimgui/?root=optimizer|optimgui package on R-Forge]] |
+| Virgilio Gomez-Rubio and Barry Rowlingson | Paula Moraga | [[developers:projects:gsoc2011:DClusterm|Disease clustering]] | [[https://r-forge.r-project.org/projects/dclusterm/|dclusterm project on R-Forge]] |
+| Niels Richard Hansen | Kare Jacobsen | [[developers:projects:gsoc2011:ExploreStoch|Exploratory tools and visualization of multivariate stochastic processes]] | processdataanim in google repos, not on CRAN as of 10 nov 2011 |
+|Kathryn Roeder and Han Liu| Tuo Zhao|[[developers:projects:gsoc2011:huge|High-dim Undirected Graph Estimation]]|[[http://cran.r-project.org/web/packages/huge/|huge package on CRAN]] |
+|Ian Fellows | Sunil Kumar | [[developers:projects:gsoc2011:image_analysis|Image analysis in R]] | Updated RImageJ package in google repos, not yet on CRAN as of 11 Nov 2011 |
+|Ferdinand Jamitzky, George Ostruchov, and Pragneshkumar B. Patel | Lei Jiang | [[developers:projects:gsoc2011:R-OpenMP|OpenMP parallel framework for R]] | [[http://code.google.com/p/parallel-computing-toolbox-r/downloads/list|several packages on google code]] |
+| Anthony Unwin | Alexander Pillhöfer | [[developers:projects:gsoc2011:optile|Category order optimization for graphical displays of categorical data]] | [[http://cran.r-project.org/web/packages/extracat/index.html|extracat package on CRAN]] | 
+| Brian Peterson | Yu Chen | [[developers:projects:gsoc2011:TradeAnalytics|TradeAnalytics toolchain additions]] | [[https://r-forge.r-project.org/scm/?group_id=316|several commits to quantstrat package in TradeAnalytics project on R-Forge]] |
+| Ravi Varadhan | Jennifer Feder Bobb | [[developers:projects:gsoc2011:R-EM-accelerator|Convergence Acceleration of the Expectation-Maximization (EM) Algorithms in R]] | code in google repos |
+| Roger Peng and Ravi Varadhan | Hui Zhao | [[developers:projects:gsoc2011:R-EM-accelerator|Convergence Acceleration of the Expectation-Maximization (EM) Algorithms in R]] | code in google repos |
+| Han Liu | Juemin Yang | [[developers:projects:gsoc2011:SMART|Sparse additive models]] | SpAM package in google repos |
+
+  * [[developers:projects:gsoc2011:msfga]] Model Search Space Size Fit Goodness Adjustment: When adjusting goodness of fit statistics, use the total degrees of freedom in an entire stepwise or symbolic regression model, not just the number of independent variables in the best fit
+  * [[developers:projects:gsoc2011:SRA with roles]] Social relations analyses with roles 
+  * [[developers:projects:gsoc2010:cran_stats]] Aggregate CRAN package download statistics across multiple mirrors
+  * [[developers:projects:gsoc2010:crantastic2]] Enhancements to crantastic to encourage further community building 
+  * [[developers:projects:gsoc2010:interactive-check]] Run R CMD check interactively during package development
+  * [[developers:projects:gsoc2011:convex_optimization]] Convex Optimization for R
+  * [[developers:projects:gsoc2011:yarrcache]] Develop a caching mechanism for the ''yarr'' package
+  * [[developers:projects:gsoc2011:panorama]] Interactive web graphics for R
+  * [[developers:projects:gsoc2011:APIM]] Dyadic data analysis in R (APIMs etc)
+  * [[developers:projects:gsoc2011:ropenclcuda]] Library for OpenCL/CUDA Parallelism in R
+  * [[developers:projects:gsoc2011:GibbsTrading]] Gibbs Sampler for evaluating trading direction
+
+
+
+===== Proposal Suggestions =====
+
+Submission of unsolicited proposals (via, say, the mailing list mentioned in the next paragraph) is certainly welcome.  However, each proposal has a big barrier to pass: it will to need explain why this particular project is of use to the community, and it will have to show how it can be achieved in three months. At a minimum, a submission should also include a review of related packages that address the same or similar problems and discuss how these packages are not sufficient to the task.
+

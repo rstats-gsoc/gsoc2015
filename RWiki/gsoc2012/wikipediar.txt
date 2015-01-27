@@ -1,0 +1,24 @@
+wikipediaR package
+
+ 
+**Summary:** A package for retrieving and handling wikipedia articles
+
+**Description:** 
+
+Wikipedia is a great source of information, which can be accessed free and analyzed. For other resources like Twitter and OpenStreetMap there are already packages ([[http://cran.r-project.org/web/packages/twitteR/| twitteR]], [[http://osmar.r-forge.r-project.org/| osmar]]). 
+
+To my knowledge there is no package covering Wikipedia articles. I wondered why nobody wrote a package for that task yet, because there is a lot of interesting stuff a statistician can do with this data. The content can be analyzed using text mining tools, there is the information of which other articles are linked in the text, one can examine the external links ...
+For example you can take a group of articles and calculate their relatedness based on their links and the cosinus similarity ([[http://www.cip.ifi.lmu.de/~molnarc/| example]])
+
+
+After the 3 months of work the package should fulfill the following tasks: 
+
+  * The user is able to choose the source of the articles. This could be the [[http://www.mediawiki.org/wiki/API|Wikipedia API]] or a local XML-Dump of all articles (those can be downloaded). In the first case the task could completly be done by R (using the [[http://www.omegahat.org/RCurl/|RCurl]] and [[http://www.omegahat.org/RSXML/|XML]] packages), but in the latter case the dump is a large file (2.5GB). I don't think one wants to parse this file with R. The idea would be to make use of other programs, e.g. read the XML-file into a database and import the articles with the [[http://cran.r-project.org/web/packages/RMySQL/index.html|RMySQL package]].
+
+  * Save articles as S4 objects (other possiblities: S3 objects, lists)
+  * Include print, summary and plot methods for articles. So the user can have a quick explorative overview over his data. 
+
+  * Provide some methods which transform the articles in a suitable way, so that it will be easy for the user to analyze them with text mining tools from the [[http://tm.r-forge.r-project.org/tm|tm package]] or plot word clouds ([[http://cran.r-project.org/web/packages/wordcloud/index.html|wordcloud package]])
+
+
+**Mentor:**  

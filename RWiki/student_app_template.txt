@@ -1,0 +1,100 @@
+===== R GSoC Student Application Template =====
+
+Project title: Spot volatility estimation: Methods and applications
+
+Project short title (30 characters):  Spot volatility estimation
+
+URL of project idea page: http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2014:spotvol
+
+
+
+
+==== Bio of Student ====
+
+Provide a brief (text) biography, and why you think your background qualifies you for this project.
+
+Born in 12 Nov. 1990 in Rome,Italy. I start learing R in the second year of my undergraduate program in Finance at "La Sapienza" University of Rome, now after four year I will be graduate in July. I teach in a R course for undergraduated studends of Corporate Finance, two weeks ago the second year course has started, more info could be find here : http://finanzasapienza.org/it/studenti/ricerca/iniziative/primi-passi-nelleconometria.html .
+I'm writing my thesis on univariate and multivariate GARCH models, I made havy usage of rugarch and rmgarch packages, and for thoose chapters where high frequency data are used also of highfrequency package. 
+
+=== CONTACT INFORMATION ===
+
+Student name: Leopoldo Catania
+
+Link_id:  leopoldocatania@gmail.com
+
+Student postal address:  Viale Cortina D'Ampezzo 57, 00135, Rome, Italy
+
+Telephone(s): +39-3338579388
+
+Email(s): leopoldocatania@gmail.com
+
+Other communications channels: Skype/Google+, etc. : skype :leopoldo.catania
+
+
+=== Student affiliation ===
+
+Institution: "La Sapienza" University of Rome
+ 
+
+Program: Finance
+
+Stage of completion: july 2014
+
+Contact to verify:  lea.petrella@uniroma1.it
+
+
+
+
+==== Schedule Conflicts: ====
+
+Until July I will work also on my thesis, probably if I will be accepted one chapter of my thesis will be on this project in order to create synergies.
+
+
+==== MENTORS ====
+
+Mentor names: Dr. Kris Boudt and Jonathan Cornelissen 
+
+Mentor emails:  no reported
+
+Mentor link_ids: 
+
+Have you been in touch with the mentors? When and how? No
+
+
+
+==== CODING PLAN & METHODS ====
+
+Describe in detail your plan for completing the work.  What functions will be written, how and when will you do design, how will you verify the results of your coding?  The sub-section headings below are examples only.  Each project is different, please make your application appropriate to the work you propose.  
+
+In the first part of the period I will work on point i, ii and vi, in the second on the remaining. I usually work with short deadlines for little pieace of work, the testing should be made during the coding time. I will write each part of documentation at the end of each single work. I have an high database on intraday data to test each function.
+
+Describe perceived obstacles : likelihood definition
+
+
+
+==== TIMELINE ====
+
+(consult GSOC schedule)
+
+Provide a detailed timeline of how you plan to spend your summer.  Don't leave testing and documentation for last, as that's almost a guarantee of a failed project. : as previous section
+
+What is your contingency plan for things not going to schedule? :Sunday work
+
+
+==== MANAGEMENT OF CODING PROJECT ====
+
+How do you propose to ensure code is submitted / tested?
+
+How often do you plan to commit?  What changes in commit behavior would indicate a problem?
+
+
+==== TEST ====
+
+Describe the qualification test that you have submitted to you project mentors.  If feasible, include code, details, output, and example of similar coding problems that you have solved.
+
+
+==== Anything Else ====
+
+I hear about this project on 21/03/2014 so didn't be able to complete this form as I wanted
+
+ 

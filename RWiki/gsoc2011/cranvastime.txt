@@ -1,0 +1,13 @@
+====== cranvastime: Interactive longitudinal and temporal data plots ======
+
+**Summary:** Interactive longitudinal data plots in cranvas, a cutting edge data graphics package
+
+**Background** A close connection between plots and modeling has been a moving and elusive target for interactive graphics research for decades. Fleeting glimpses, DataDesk and  XLispStat, have come and gone. With the emergnce of R we took two steps backwards, until now. Two recent developments have the promise to bring us forward in leaps, iplots eXtreme, and cranvas. Cranvas interfaces to the Qt libraries using the R packages, qtbase and qtpaint, to provide interactive and dynamic graphics for large amounts of data. It provides programmable interactive graphics in R,  enabling users to link plots with graphics analytical methods. Cranvas currently has basic plot types, scatterplots, histograms, mosaic plots, maps, parallel coordinate plots and tours.  More information about cranvas can be found at https://github.com/ggobi/cranvas. 
+
+**Description** This project involves developing interactive plots for longitudinal and temporal data, the type of data used to study problems involving human health, and medical treatments, wages, prices and economic indicators, temperature and climate change. Longitudinal data plots show values for individuals, possibly at irregular time intervals. The purpose is to explore individual differences and similarities.  Time series plots tend to show just one measurement for each time, but there is implicitly an interest in studying seasonal trends, and temporal dependencies. The code should follow the code structure of existing plotting routines. The plots will need incorporate ways to interactively explore the individual temporal patterns and seasonal trends. 
+
+**Skills required:** : A good working knowledge of R and an interest and enthusiasm for visualization, and exploring data.
+
+**Test:** Generate an R function to plot a time series. Have the plot pan in the horizontal (time) direction, and wrap on itself when it extends past the boundaries of the plot space.
+
+**Mentor:** Dianne Cook, Iowa State University (dicook@iastate.edu), and Heike Hofmann, Heike Hofmann, Iowa State University (hofmann@iastate.edu).

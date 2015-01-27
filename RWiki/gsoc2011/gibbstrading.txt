@@ -1,0 +1,49 @@
+====== Header ======
+Gibbs sampling for detecting trade direction
+ 
+===== Summary: =====
+Utilize a Gibbs sampling Bayesian approach to impute trade direction from financial data.
+
+===== Description: =====
+Given a series of prices, this method exploits the price movements in a stock (or bond) to infer spread and trade direction. 
+
+===== Background: =====
+In financial markets, a buyer typically pays more than the previously posted price. Similarly a seller gets less than the previously posted price. This discrepancy between previously posted price and the price that a buyer (or seller) pays is called spread, 2c. If one has the quote data, one can make an attempt to infer the spread using the difference between the bid and offer quotes. 
+
+Assume that the price moves up by half a spread, (2c) when there is a buy order.
+
+p_t=p_{t-1} + c + u_t
+
+In this setting the price moves down by half a spread when there is a sell order.
+p_t=p_{t-1} - c + u_t
+
+The half spread is can be estimated as the square root of -1 * correlation between consecutive price changes. It is known as the Roll (1984) estimator of spread. In practice, it does not work very well since prices are positively autocorrelated, Harris(1990).
+
+
+===== Gibbs Sampling: =====
+
+Hasbrouck (2009) proposes a way around it using Gibbs sampling. The starting point is the equation
+
+\delta p_t = c \delta q_t + u_t
+
+If we knew trade direction for each trade, then the equation suggests that regressing price changes on trade direction will provide us the estimate for half spread. But we do not know the trade direction. In practice, we only observe \delta p_t, i.e., the price changes. The problem can solved by treating trade direction(s) as latent variables and sample from a joint distribution of q_t and c. This method works remarkably well. Hasbrouck (2009) shows that the correlation between estimates for spread using only the price data and spread using the quote data is 0.965. An side effect of this method is that we have reasonable estimate for trade direction for the price series. We propose to implement this estimator in R.
+
+===== References: =====
+Harris (1990) Statistical Properties of the Roll Serial Covariance Bid/Ask Spread Estimator. Journal of Finance.
+
+Hasbrouck (2009) US equities: estimating effective costs from daily data.Journal of Finance 64(3), 1445-1477; 
+
+Roll(1984) A simple implicit measure of the effective bid-ask spread in an efficient market. Journal of Finance.
+
+===== Skills required: =====
+
+Programming will be in R, with possible extension to C/C++/Fortran, as required for performance.
+
+Applicant must have knowledge of the literature in this area, as well as knowledge of Bayesian techniques, and their implementation in R.  R has several Bayes packages already that contain Gibbs sampling, if possible, one of these should be used as a dependency, to keep the project scope to implementing, documenting, and testing the technique described in Hasbrouck (2009)
+
+===== Test: =====
+A test an applicant has to pass in order to qualify for the topic 
+
+===== Mentor: =====
+Brian G. Peterson (2011-04-07)
+with backup mentoring from Dale Rosenthal and Nitish Sinha of the faculty at the University of Illinois, Chicago

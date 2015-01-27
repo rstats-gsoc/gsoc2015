@@ -1,0 +1,29 @@
+**Summary:** Social Relations Analyses in R
+
+**Description:** Social Relations Analyses (SRA) are an emerging trend in psychological research, both in social psychology and in personality research.The goals of SRAs are:
+a) the decomposition of interpersonal phenomena (like interpersonal perceptions, or behavioral acts) into statistically independent variance components (actor effect, partner effect, and relationship effect)
+b) The calculation of bivariate correlations which take the non-independence of data into account
+c) Providing significance tests for variance components, both as a within-group test (Lashley & Bond, 1997), as well as between group test (Kenny, 1994)
+
+An increasing number of research projects employs this method, and it is becoming a standard method in social research. Interestingly, however, the main software employed for calculating these analyses are two DOS-programs from 1995, which have some disadvantages (in addition to being DOS-programs: no missing values allowed, data files have to be transformed into some odd input file format, very strict limitations of number of cases, output only as relatively unstructured text files with 5000+ lines, ...). Hence, bringing the power of SRAs to R would be a very valuable benefit for the social science community; we know of several research groups eagerly awaiting an R implementation.
+
+First steps were already taken to implement SRAs in R: A first stable version of TripleR (which calculates SRAs in round robin designs; version 0.1) is already hosted at CRAN and in productive use. The goal of this GSOC project would be to extend the existing version of TripleR by allowing multiple groups with between group t-tests, adding handling of missing values, and implementing standard plots (presumably using ggplot2).
+Furthermore, basic functions for calculating SRAs in block designs should be developed and tested against the existing DOS program.
+
+**Skills required:** R programming, experiences in package building and documenting, psychological background knowledge with specific expertise concerning social relations analyses
+> 
+
+
+**Test:** 
+
+- Outline a way on how to implement a social relations analysis of multiple Round-Robin groups into the already existing version of TripleR hosted on CRAN
+
+- Write a function for weighted t-tests that may be used for significance tests of multiple group results (see Kenny, 1994)
+
+
+**Mentor:** Stefan Schmukle (http://wwwpsy.uni-muenster.de/Psychologie.inst1/AESchmukle/en/publikationen_schmukle.html); [[mailto:schmukle@uni-muenster.de|email]]
+Suggestion date: Mar 06 2010
+
+**References:**
+Kenny, D. A. (1994). Interpersonal perceptions: A social relations analysis. New York: Guilford Press.
+Lashley, B. R., & Bond, C. F. (1997). Significance testing for round robin data. Psychological Methods, 2, 278-291. 

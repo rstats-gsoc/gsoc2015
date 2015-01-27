@@ -1,0 +1,44 @@
+===== Title =====
+**NSO -- NonSmooth Optimization Package**
+
+===== Summary =====
+Implement different approaches for the minimization of non-smooth functions, e.g. pattern-based methods, hybrid approaches, and specialized stochastic methods.
+
+===== Description =====
+These functions may be smooth in their domain, except for some regions of smaller dimension resp. of probability zero, and they may not be differentiable at their minimum (or maximum). Difference approximations of gradients may not be useful or even lead to serious failures, for instance in case of noise or oscillations. Often smooth algorithms will not converge or will converge to suboptimal solutions.
+
+Special techniques have been developed to exploit these features and thus to solve non-smooth optimization tasks more effectively: Bundle techniques and subgradient projection methods for convex minimization problems, hybrid approaches that utilize BFGS approaches where possible, or global stochastic solvers.
+
+The goal of this project will be to build a package for non-smooth optimization that provides different methods, one using a derivative-free approach, a hybrid approach, and (if time allows) a more stochastic way of finding an optimum. Students applying will have a vote in deciding which approahes to start with.
+
+Some Matlab toolboxes relevant for non-smooth optimization are 'SID-PSM' or 'Hanso', see [3] and [4], that are available for conversion to R. Bundle/subgradient approaches could be implemented following textbook chapters on non-smooth optimization (see Part II in the [1]).
+
+(Very interesting is also the work by Zhang on non-smooth least-squares problems, unfortunately the Fortran code is not freely available, thus the coding would have to be based on the article [5].)
+
+===== Skills Required =====
+  * Some knowledge in optimization theory
+  * Good programming expertise in Matlab and R
+  * Know-how in Fortran and C may be useful
+
+===== Tests =====
+Identify some typical examples of non-smooth functions (literature, Internet, own imagination); see also reference [2] below. ---
+Try to find local/global minima by applying optimization routines in Matlab (or Octave) and R. ---
+Take a look at the NonSmooth Optimization (NSO) web page and try out some of the software packages listed there on your problem(s). ---
+Take a look at reference [5] and implement Wolfe's line search in R.
+
+===== Mentors =====
+  * Hans W. Borchers, ABB Corporate Research <hwborchers@googlemail.com>
+  * [tbd.]
+
+===== References =====
+  - Part II "Nonsmooth Optimization", in: J. F. Bonnans et al., Numerical Optimization: Theoretical and Practical Aspects, Springer-Verlag, Berlin Heidelberg, 2006.
+  - [[http://napsu.karmitsa.fi/nso/|NonSmooth Optimization]] NSO Web page by N. Karmitsu
+  - [[http://www.cs.nyu.edu/overton/software/hanso/|HANSO: Hybrid Algorithm for Non-Smooth Optimization]] by M. L. Overton
+  - [[http://www.mat.uc.pt/sid-psm/|SID-PSM]], L. N. Vincente, University of Coimbra
+  - H. Zhang, [[https://www.math.lsu.edu/~hozhang/zhcpaper.html|"A derivative-free algorithm for the least-squares minimization"]]
+  - [[http://www.norg.uminho.pt/aivaz/pswarm/|PSWARM]] Version 1.5, a global approach, C code (not the Matlab version)
+  - A. Skajaa, [[http://cs.nyu.edu/overton/mstheses/skajaa/msthesis.pdf|Limited Memory BFGS for Nonsmooth Optimization]], Master's Thesis, Courant Institute of Mathematical Sciences, New York, 2010.
+
+----
+
+Please note: The authors of Matlab codes of these approaches have explicitly agreed that their programs may be used as guidelines and for re-implementation in R under the GPL license.

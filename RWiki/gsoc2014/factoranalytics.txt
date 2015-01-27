@@ -1,0 +1,66 @@
+====== Improve factorAnalytics ======
+===== Summary =====
+The purpose of this project is to improve the useability, reliability, features, and documentation of the factorAnalytics package.
+ 
+
+===== Description =====
+
+==== Summary methods ====
+The major factor model estimation functions (fitTimeSeriesFactorModel, fitFundamentalFactorModel, and fitStatisticalFactorModel) all have summary methods that display output.  However, these methods to not return an object.  Each summary method should be enhanced to compute informative summary statistics and information and return these values in an object.
+
+==== Variable selection ====
+The function fitTimeSeriesFactorModel supports variable selection using the functions step, regsubset, or lars.  Similar functionality should be added to the function fitFundamentalFactorModel to support automatic variable selection.  Also, an automated technique for choosing the appropriate number of components in a PCA factor model could be added to the function fitStatisticalFactorModel.
+==== Goodness of fit measures ====
+Summary methods discussed above should include factor model goodness of fit measures.  For example, R-squared, AIC/BIC, and possibly some factor model specific goodness of fit measures.
+==== Unbalanced panel data ====
+The current implementation of fitFundamentalFactorModel only supports balanced panel data; the function should be extended to also accept unbalanced panel data.
+
+==== Industry factor model with an intercept term ====
+The current implementation of fitFundamentalFactorModel supports fitting a Barra-type industry sector model without an intercept term (see Zivot 2005 eq. 15.9).  The implementation should be extended to also fit Barra-type industry sector model with an intercept term (see Ruppert 2010 eq. 17.15).
+
+
+==== Explanatory and predictive models ====
+The current implementation of fitFundamentalFactorModel is unaware of the difference between an explanatory and predictive factor model; hence it would be the users responsibility to lag RHS variables to have the model be predictive versus explanatory. The implementation should be enhanced to allow the user to specify a model that is an explanatory or a predictive.
+
+
+==== Help documentation, package vignettes, unit tests ====
+The help documentation needs to be improved and include additional examples and explanation.  Additional package vignettes should also be created to demonstrate the full capabilities of the package.  Lastly, unit tests should be developed to help insure the stability of the code base as new features are added.
+
+
+
+===== Skills required: =====
+Applicants should have:
+
+- Familiarity with using the factorAnalytics package.
+
+- Proficiency with R and some experience in developing in R.
+
+- Knowing or comfort in quickly learning tools such as svn, Roxygen2 and LaTeX 
+
+- Those with demonstrable experience with finance-related packages will be preferred.
+
+- A background in computer science or engineering with graduate training in finance is ideal.
+
+
+===== Test: =====
+
+A successful applicant will:
+
+- Discuss the proposed package functionality.
+
+- Write development timeline for code implementation, documentation and testing.
+
+- Provide a complete code example of a function with documentation that demonstrates familiarity with the tools listed above.
+
+- Identify any personal commitments that conflicts for their time during summer 2014.
+
+
+===== Mentors =====
+Guy Yollin is a faculty member in the Department of Applied Mathematics at the University of Washington.  He teaches courses in statistical computing and electronic trading in the Computational Finance and Risk Management Masters of Science program.  He has previously mentored GSOC projects, and would mentor the GSOC participant.
+Email:  gyollin@uw.edu
+
+Eric Zivot is the Robert Richards Chaired Professor in Economics at the University of Washington. He previously mentored the GSOC 2013 project on factorAnalytics.
+Email:  ezivot@u.washington.edu
+
+Doug Martin is Professor of Applied Mathematics and Director of the MS-CFRM program at the University of Washington.  He is co-author with Bernd Scherer of Introduction to Modern Portfolio Optimization (2005), and is currently writing a new book on the topic with Scherer and Guy Yollin.  He has previously mentored GSOC projects.
+Email:  doug@amath.washington.edu

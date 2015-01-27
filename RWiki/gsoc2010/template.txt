@@ -1,0 +1,14 @@
+====== Header ======
+
+ 
+**Task Summary:** A brief project summary in just a few words aka "headline"
+
+**Task Description:** A more detailed description, possibly enhanced with links and references.
+
+**Skills needed:** A list of required skills (programming languages, experience, methodologies, ...) for the prospective student
+
+**Rating:** Rate the task as Easy, Medium or Hard (See the mentoring guide for how to do this.) 
+
+**Category:** What type of task is it? Code, Documentation, Outreach, Quality Assurance, Research, Training, Translation, or User Interface (See the mentoring guide for how to do this.) 
+
+**Mentor:** A mentor willing and able to guide the student. A datestamp about when the suggestion was made.

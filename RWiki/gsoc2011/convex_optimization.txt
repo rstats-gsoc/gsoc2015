@@ -1,0 +1,47 @@
+**Summary**:
+CVX-R: Disciplined convex programming in R
+
+**Description**:
+Convex optimization problems represent a class of optimization problems
+that can be solved efficiently and reliably. They include least-squares
+and linear programming problems. Surprisingly many problems can be
+solved via convex programming, though it is often difficult to recognize
+their convexity or to transform them into a convex form.
+
+There is a free, GPLed software package, CVXOPT, for convex optimization
+distributed as a Python module. Several modeling tools have been built
+on top of it such as CVXMOD for Python. CVX for Matlab has similar goals
+but uses different solvers. The goal of
+this GSoC project will be to do a similar implementation with R and thus
+develop an R package for [[http://www.stanford.edu/~boyd/papers/disc_cvx_prog.html|Disciplined Convex Programming (DCP)]]
+like CVX and CVXMOD.
+
+The possible approaches for developing a modeling language:
+
+  * Port the modeling language of CVX/CVXMOD to R and use standard solvers in R, i.e. [[http://cran.r-project.org/web/packages/quadprog/index.html|quadprog]], [[http://cran.r-project.org/web/packages/linprog/index.html|linprog]], and the new [[http://cran.r-project.org/web/packages/ROI/index.html|ROI]] interface
+  * Exploit the [[http://cran.r-project.org/web/packages/inline/index.html|inline]] package to generate high-speed solvers, as in [[http://cvxgen.com/|CVXGEN]].
+  * Define new S3 methods for standard operators i.e. >=.class, as in the demo [[http://quadmod.r-forge.r-project.org|quadmod package on R-Forge]].
+
+The developers of CVXOPT have several times indicated an interest in porting their work to R, so they shall be willing
+to give some support to the project. 
+UPDATE 15 Nov 2011: TDH got several emails today from the Stanford people including Stephen Boyd <boyd@stanford.edu>, Balasubramanian Narasimhan <naras@stanford.edu>, and Michael Grant <mcg@cvxr.com> that confirmed their interest in helping develop a DCP package for R.
+
+Also, there are pages on the Web showing how
+to solve problems from the book "[[http://www.stanford.edu/~boyd/cvxbook/|Convex Optimization]]" by Boyd and
+Vandenberghe with CVXOPT. These examples could be used to write a vignette for the package.
+
+**Skills required**:
+Some knowledge of R and its package building features;
+experience with programming in Python and/or C and/or Matlab;
+background or strong interest in mathematical optimization.
+
+**Test**:
+Select two or three convex optimization problems from the literature,
+solve them with CVXOPT/CVXMOD in Python (and maybe with CVX in Matlab);
+try to solve them with one of the optimization packages in R.
+
+**Mentor**: There will be one mentor for each of the two sides of things one from R and one from the disciplined convex programming.
+
+**R side**: Hans W. Borchers with support from Stefan Theussl, the maintainer of the CRAN Task View on Optimization, who will assist in R/Python programming related questions.
+
+**CVX side**: [[http://www.stanford.edu/~echu508/|Eric Chu]] will mentor the convex optimization part. 

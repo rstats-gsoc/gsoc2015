@@ -1,0 +1,55 @@
+====== Kernel Density Estimation and Nonparametric Discriminant Analysis for Functional Data ======
+
+ 
+**Summary:** To develop an R package to enable the user to implement kernel density estimation and nonparametric discriminant analysis for functional data.
+
+**Description:** Functional data analysis (FDA) has received considerable attention over recent years in different fields of application.   These include the fields of bioscience, system engineering, and meteorology (see e.g., Ramsay and Silverman (2006)). 
+The need for methods in FDA arises when the sample data are a collection of curves or continuous functions or, at least observations of such curves at discrete points in time, say.  Such observations may be subject to measurement error.  One of the first steps in an analysis is to construct the underlying smooth functions, often using a smoothing technique, such as being based on smoothing splines, and the current fda package in R helps to facilitate this.
+
+In discriminant analysis we want to assign a new curve to one of say k (>=2) different groups using a classification rule which has been derived from samples of data whose actual group membership is known a priori.  There are a number of different approaches to this problem including:
+
+i.	A regularized version of linear discriminant analysis called penalized discriminant analysis proposed by Hastie et al (1995);
+
+ii.	The nonparametric curves discrimination methods of Ferrarty and Vieu ( 2003) where the underlying curves are represented using a semi-metric which may be based on functional principal component scores, or the values of successive derivatives, for example.  The posterior classification probabilities are estimated using kernel smoothing techniques and, in particular, ideas in kernel density estimation are very important here.  These are  discussed by Delaigle and Hall (2010)
+
+iii.	Using truncated versions of linear methods, as proposed by Delaigle and Hall (2012), where the truncation is achieved by projecting on to a finite number of principal components or by using partial least squares.
+
+
+Where the problem is to develop discrimination rules for multivariate data,  there are already a number of functions available in R.  The MASS package contains functions for performing both linear and quadratic discrimination, as well as logistic regression.  CART methodology is catered for in the rpart package while the klaR package which is specifically for classification and visualization of data, contains many functions, including those for regularized discriminant analysis and nearest neighbour methods.   However,  these are all designed for multivariate data and are not able to utilise the form of truly  functional data. 
+
+The successful project would include:
+- A package of functions in R (which would link in with the current fda package) that would firstly enable the user to construct and visualize kernel density estimates for the different groups in the data.  Secondly, it would make available a suite of nonparametric functional discrimination techniques which the user could then implement for their data.  These two aims are not currently implemented in available R packages, as discussed above.
+-A package vignette or Journal of Statistical Software article which enables practitioners to understand and use these procedures. 
+
+
+**Skills required:** Applicants should have:
+ - A good working knowledge of programming in R. 
+- A background in statistical functional data analysis, optimization, linear algebra and multivariate statistics.
+- Experience integrating compiled code within R. 
+
+
+**Test:** 
+
+i.	The successful applicant should be able to demonstrate the ability to smooth functional data in a meaningful way using splines and carry out a functional principal components analysis using the fda package in R.  To this end,  they should implement these techniques on a chosen set of data and write a short report on the methods used, results and conclusions and include the R code which has been used
+
+ii.	Write an R Function to simulate a set of functional data using a self-selected procedure.
+
+iii.	Develop a suggested plan for the project including a timeline for the development of the code,  its documentation and testing.
+
+
+**Mentor:** Dr. Peter Foster. (peter.foster@manchester.ac.uk ) who is a statistician with experience in nonparametric smoothing techniques, functional data analysis and in R.
+
+
+**References:**
+
+Delaigle, A and Hall, P (2010). Defining Probability Density for a Distribution of Random Functions.  The Annals of Statistics, 38, 1171-1193.
+
+Delaigle, A and Hall, P (2012).  Achieving Near Perfect Classification for Functional Data.  Journal of Royal Statistical Society, Series B, 74, 267-286.
+
+Hastie, T, Buja, A and Tibshirani, R (1995).  Penalized Discriminant Analysis.  The Annals of Statistics, 23, 73-102.
+
+Ferraty, F. and Vieu, P. (2003).  Curves Discrimination: A Nonparametric Functional Approach.  Computational Statistics and Data Analysis, 44, 161-173.
+
+Ramsay, James O., and Silverman, Bernard W. (2006), Functional Data Analysis, 2nd ed., Springer, New York.
+
+

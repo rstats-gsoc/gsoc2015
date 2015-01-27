@@ -1,0 +1,29 @@
+====== optile: Category order optimization for graphical displays of categorical data ======
+
+ 
+**Summary:**
+There are different ways of displaying categorical data, e.g. in contingency tables, mosaicplots, fluctuation diagrams, networks or (modified) parallel coordinates plots.  The interpretability of these graphics decreases rapidly with the numbers of categories and more especially with the number of variables.  Various criteria and algorithms exist for reordering nominal categories to improve the displays and make them more informative.  The aim is to design a structured implementation of these tools, providing users with flexible reordering options and an effective interface, both for controlling the analyses and for evaluating the results. 
+
+
+**Description:**
+The project goal is to implement an interface in R which provides category order optimization for different types of input (such as tables, data frames or matrices) and 2- as well as k-dimensional categorical data.  Applying the optimizations for graphical displays of possibly large dimensions (as with microarray data) requires computation times to be small and the interface to be easily applicable. Different criteria as well as different optimization procedures for k-dimensional data are part of the project.
+
+**Skills required:**
+R, C, experience with categorical data analysis and hierarchical clustering
+
+**Test:**
+Implement an R function which computes informative reorderings of a given two-dimensional data table according to user-defined criteria.  The function must be able to handle large tables efficiently and should be included in a minimal R package which can be incorporated into other packages.  Computation will be carried out in C.
+
+
+**Mentor:**
+Antony Unwin
+
+Professor of Computer-Oriented Statistics and Data Analysis
+
+University of Augsburg
+
+86135 Augsburg, Germany
+
+Tel: + 49 821 5982218
+
+antony.unwin@math.uni-augsburg.de

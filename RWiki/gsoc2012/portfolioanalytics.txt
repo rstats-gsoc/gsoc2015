@@ -1,0 +1,42 @@
+===== Summary ===== 
+Add additional closed form and global optimizer backends to PortfolioAnalytics
+
+
+
+
+
+===== Description ===== 
+PortfolioAnalytics is a leading R package for complex portfolio optimization, allowing for the creation of complex constraints and objectives that mirror real-world portfolio optimization problems.
+
+Many of these complex problems are 'global optimization' problems, and not tractable by closed form optimizers.  As such, PortfolioAnalytics includes a Burns-style random portfolio backend, and also utilizes R package DEoptim.  These methods work very well for global optimization objectives.
+
+Unfortunately, most people are introduced to portfolio optimization in much simpler contexts where global optimizers are not required.  This project would first add support for quadratic, linear, and conical solvers to PortfolioAnalytics, and some intelligence to detect optimization objectives that would be suitable for this kind of back-end.  For example, mean-variance portfolios with simple box constraints are quadratic, mean-gaussian-ETL objectives are linear or conical, etc.
+
+Additionally, more global optimizers should be added.  Candidates include packages rgenoud, soma, and pso.  
+
+The new 'ROI' optimization framework for R should be examined and quite possibly integrated, as it may provide a one-stop entry to multiple additional optimization backends.  Currently, ROI supports quadprog, glpk, lpop, symphony, and cplex.  There seems to be some complexity in the specification of constraints, but translation from PortfolioAnalytics constraints to ROI constraints should be straightforward.
+
+=== References ===
+  * ReturnAnalytics on R-Forge.  https://r-forge.r-project.org/projects/returnanalytics/
+
+  * ROI on R-Forge: https://r-forge.r-project.org/projects/roi/
+
+  * Particle Swarm Optimization on CRAN: http://cran.r-project.org/web/packages/pso/index.html
+
+  * SOMA on CRAN: http://cran.r-project.org/web/packages/soma/index.html
+
+  * rgenoud on CRAN: http://cran.r-project.org/web/packages/rgenoud/index.html
+
+  * quadprog on CRAN: http://cran.r-project.org/web/packages/quadprog/index.html
+
+===== Test ===== 
+The successful applicant will demonstrate proficiency with R.  Within R, the candidate should show proficiency with xts and PortfolioAnalytics, and also one or more optimization tools in R. This could be via identifying a patch or extension, providing a new demo script for the one of the packages that would show understanding of the functionality provided, or by doing a detailed proposal with pseudocode for one or more potential enhancements to the toolchain. The ideal candidate would also demonstrate prior interest or experience in finance.
+
+
+
+=====Mentor===== 
+Guy Yollin is a Professor in the Computational Finance program at the University of Washington, former head developer at Insightful, and has extensive optimization experience.
+
+Peter Carl is one of the primary authors of these related packages, and would co-mentor the GSOC project. 
+
+Brian Peterson is one of the primary authors of these packages, and has previously mentored GSoC projects. 2012-03-23

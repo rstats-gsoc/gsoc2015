@@ -1,0 +1,12 @@
+====== Web page for softclassval ======
+
+ 
+**Task Summary:** Write a web page for softclassval
+
+**Task Description:** [[http://softclassval.r-forge.r-project.org|Softclassval]] needs a nice web page, too. Write/find a nice css and update the content of the page.
+
+**Skills needed:** html/css/(php)
+
+**Rating:** easy
+
+**Category:** outreach

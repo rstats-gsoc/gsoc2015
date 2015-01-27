@@ -1,0 +1,31 @@
+====== Interactive Dendrogram + Heatmap ======
+
+**Summary:** An interactive dendrogram + heatmap plot for exploring results of hierarchical clustering analysis
+
+**Description:**
+
+R is extensively used to study intrinsic relations in multidimensional data. While hierarchical clustering analysis (HCA) can be employed to reveal the internal structure of such data, there is no (to my knowledge) interactive tool to browse, select and visualize HCA results (dendrograms) in R. As this is a common use case of many scientists, who often analyze data consisting of tens of thousands of samples, I feel it would be beneficial to fill in this gap.
+
+None of existing R dendrogram plotting means meet both the criteria of satisfactory interactivity and high-speed processing:
+  * low-level dendrogram plotting functions (''plot.dendrogram'' and ''plclust'' as well as ''identify.hclust'', all in the ''stats'' package [1]) offer a very limited interactivity,
+  * ''iPlots'' [2], a high-interaction statistical graphics library written in Java, is quite slow in processing large dendrograms,
+  * there are several feature-rich packages offering HCA, but none of them allows users to interact with dendrograms and (sub)clusters in a convenient way.
+ 
+I'd like to build a dendrogram+heatmap plot, which will enable:
+
+  - to draw a dendrogram+heatmap biplot quickly (it must be capable of drawing dendrograms consisting of thousands of clusters in reasonable time)
+  - to select, color and label multiple individual (sub)clusters anywhere in the dendrogram hierarchy
+  - automatic distance-based cluster selection (cutting dendrogram at specified height)
+  - zooming the dendrogram
+  - visualize selected clusters in feature space (e.g. in terms of scatterplots, parallel coordinate plots etc.)
+
+The last point would not be implemented from scratch, but existing libraries/applications can be utilized for that, either by means of integration of the dendrogram+heatmap in them (e.g. in cranvas [3]), or by means of an user-supplied callback. 
+
+[1] http://stat.ethz.ch/R-manual/R-patched/library/stats/html/00Index.html
+
+[2] http://rosuda.org/iplots/
+
+[3] https://github.com/ggobi/cranvas
+
+
+**Mentor:** 

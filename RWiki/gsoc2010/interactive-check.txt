@@ -1,0 +1,43 @@
+====== Interactive R CMD check  ======
+ 
+**Summary:** Take the pain out of package development by providing continuous feedback while you code. Fix problems as they arise rather than all at once when you want to distribute it.
+
+**Description:** Running R CMD check is always a frustrating process because it uncovers problems a long time after you have made them.  The aim of this project is to make package development a breeze by providing continuous feedback about your code as you code.  Ideally, you could run this package in the background and it will alert you as soon as there is a potential problem.
+
+It would be composed of a series of pluggable components that you could choose from:
+
+  * as many steps of R CMD check as possible
+  * run all tests with test_that / runit / svunit
+  * roxygenize to produce man files
+  * run all examples in documentation
+  * check for na.rm = FALSE and drop = FALSE
+  * someway of sending info to a remote server to monitor progress over time
+  * draft email for r-packages
+  * tweet your package release
+  * pre-release: proof read generic announcement, description
+  * post-release: tag in repos, update version in description
+  * create changelog from scm
+  * push to cran
+  * push to r-forge, github, ...
+  * push to windows builder
+  * load data
+  * load code
+  * compile C code
+
+Ideally it would incorporate dependency description ideas from (e.g.) rake, so that it does the minimum amount of work.
+
+**Skills required:** Intermediate to advanced R programming skills.  Experience working code development in another language, and experience working with a dependency management framework.
+
+Ideally, the applicant would also be able to understand perl code so that they could help convert existing checks written into R code.
+
+**Test:** Implement code that performs one of the tasks described above.
+
+**Mentor:** Hadley Wickham, with additional advice from Uwe Ligges.
+
+
+Comments from others:
+
+
+//[PhG comment: note that ''svUnit'' does a big part of it. It provides a mechanism to define tests and test units that can be run interactively in R. There is one existing GUI in ''SciViews'' that reports tests that fail or raise an error (similar presentation to, say, ''jUnit''). See the vignette of the 'svUnit'' package. The API is very simple and comprises less than ten functions so that it is very easy to reimplement it for other GUIs (''ESS/Emacs'', ''JGR'', ''RKward'', ''StatEt/Eclipse'', ...). I am willing to collaborate and incorporate possible changes/improvements/additions made on top of ''svUnit'' in that package.]//
+
+//[Hadley comment: testing is just a small part of this.  It also involves running all the existing R CMD checks, documentation etc. I would imagine running svUnit tests as one of many modules.]]//

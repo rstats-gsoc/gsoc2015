@@ -1,0 +1,98 @@
+====== Symbolic Regression for R  ======
+ 
+**Summary:** Implement a Symbolic Regression package in R capable of discovering implicit equation relationships in input data by using Genetic Programming.
+
+**Description:** 
+
+SR is a valuable tool in for both analytic and explanatory studies on experimental data [3] that is notably missing from R's toolset. Ideally regression involves, given a set of labels and multivariate data {y_i, x_i} finding a general symbolic relationship of the form f(x, y)=0 based on goodness of fit measures (e.g. F statistics) adjusted by degrees of freedom. However, until the infrastructure for general relationships exists ([[adinr]]), the syrfr package project will concentrate first on regressing only functions of the form f(x_1, ..., x_i) = y instead of general relations.
+
+SR assists in finding such functions f through Genetic Programming evolving a set of potential solutions through crossover, mutation and recombination and evaluating them with a suitable fitness function.
+
+The motivation for a Symbolic Regression system for R is twofold:
+
+  - SR within R would nicely complement the existing powerful regression capabilities built into R enabling independent model fitting of the data (besides the Multivariate, Polynomial, Logistic Regression and other methods). Data analysis with SR only assumes the initial Terminal Set while biological evolution controls both, the resulting models as well as parameters, as opposed to Parametric methods that assume a model, and find likelihood maximizing parameters, and Non-Parametric methods that infer function values from "similar" training data. SR is also able to find "implicit" relationships that are often beyond the scope of simple regression techniques and determination of such relationships can prove crucial to analysis.
+  - There exist no SR packages for R at [[http://cran.r-project.org/web/packages/ | CRAN]]. [[http://ccsl.mae.cornell.edu/eureqa | Eureqa]] is a closed source SR system while [[http://sites.google.com/site/gptips4matlab/ | GPTIPS]] is only for Matlab.
+
+
+In short,
+  * Search for symbolic functions with genetic algorithm-directed beam search using a d.o.f.-adjusted F statistic as a search heuristic. Implicit relationships, which are beyond simple regression techniques, may be implemented by parameters or later, e.g., in a future 'syrr' package if syrfr can not be easily parametrized.
+  * Analysis freed from assuming a specific model (Case in point: Parametric methods).
+  * Assist in exploratory analysis: Discover new models capable of explaining the same data that are potentially more accurate or simpler than existing ones.
+  * No SR package available on CRAN till date.
+
+
+**To be implemented:**
+  * Symbolic regression
+  * Genetic algorithm beam search using mutation and crossover operations to form the function tree search space
+  * Unit Test suite sourcing several real world tests, e.g. from [4]
+
+**Later:**
+  * Implicit Derivatives (as opposed to naive fitness methods) to prevent formulation and propagation of trivial solutions [1]
+  * Diversity promoting recombination [2]
+  * Multigene SR techniques as used in GPTIPS [3]
+
+
+**Roadmap**
+  - Begin writing unit tests for various kinds of functions that the project intends to cover
+  - Decide on basic package framework
+  - Write code to fill stubs
+  - Test against unit tests and refine code
+  - Finally test for (and remove) bugs
+
+
+**References**
+
+[1] Schmidt M., Lipson H. (2009), "Symbolic Regression of Implicit Equations," Genetic Programming Theory and Practice, Vol. 7, Chapter 5, pp. 73-85.
+
+[2] Steven Gustafson, Edmund K. Burke and Natalio Krasnogor, On Improving Genetic Programming for Symbolic Regression (Technical Report)
+
+[3] Schmidt M., Lipson H. (2009) "Distilling Free-Form Natural Laws from Experimental Data," Science, Vol. 324, no. 5923, pp. 81 - 85.
+
+[4] Ekaterina Vladislavleva, (2008) "Model-based Problem Solving through Symbolic Regression via Pareto Genetic Programming", Tilburg University, Netherlands.
+
+
+**Skills required:** Knowledge of Symbolic Regression. R and C++ programming skills. Ability to use a Version Control System (svn/git). (Idea suggested on 3rd March, 2010 IST)
+
+**Test:** A test an applicant has to pass in order to qualify for the topic
+
+Proposed test from [[jsalsman@talknicer.com|James Salsman]] 2010/03/27: 
+
+(note: all of these questions are optional except for number 4)
+
+1. Describe each of the following terms as they relate to statistical
+regression: categorical, periodic, continuous, bimodal, log-normal, 
+logistic, Gompertz, and nonlinear.
+
+2. Explain which parts of http://bit.ly/tablecurve were adopted in
+SigmaPlot and which weren't.
+
+3. Use the 'outliers' package to improve a regression fit maintaining
+the correct extrapolation confidence intervals between those
+with and without outlier exclusions in proportion to the confidence
+that the outliers were reasonably excluded.  (Show your R transcript.)
+
+4. Explain the relationship between degrees of freedom and correlated
+independent variables.
+
+5. Critique http://sites.google.com/site/gptips4matlab/
+
+6. Use anova to compare the goodness-of-fit of a SSfpl nls fit 
+with a linear model of your choice.  How can you characterize the 
+degree-of-freedom-adjusted goodness of fit of nonlinear models?
+
+7. Describe the relationship between probabilities used to regress 
+categorical dependent variables -- as in 
+http://www.wmitchell.edu/faculty/kritzer/files/BerryBook-1986.pdf --
+and Bayes' theorem.
+
+8. A Fourier transform can use a spectrum to model periodicity, 
+but how would you model a modulus range, e.g., c(0,1,2,3,4,0,1,2,3,4,0,1,...)?
+
+9. Read http://datamonster.sbs.arizona.edu/communication/faculty/Hullett_overestimation.pdf
+and explain why stepwise regression in R prints the F statistic with two different 
+degrees of freedom.
+
+10. What do you think is the most efficient way to store trees representing 
+model functions in R, assuming you wanted to search a space of 100,000 of them?
+
+**Mentor:** //[[jim@talknicer.com|James Salsman]] 2010/03/08// no student due to stepwise regression not being properly adjusted yet

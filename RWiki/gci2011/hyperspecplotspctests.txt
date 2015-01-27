@@ -1,0 +1,13 @@
+====== plotspc helper functions: tests ======
+ 
+**Task Summary:** Write tests to ensure proper working of the helper functions for plotting spectra (corresponding task) 
+
+**Task Description:** Tests should be written using svUnit.
+
+**Skills needed:** This is a follow up task for the refactoring of the spectra plotting function
+
+**Rating:** medium
+
+**Category:** Quality Assurance
+
+**Mentor:** [[Claudia.Beleites@ipht-jena.de|Claudia Beleites]] 2011/11/04

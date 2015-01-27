@@ -1,0 +1,42 @@
+====== HUGE: High dimensional undirected graph estimation ======
+
+ 
+**Summary:** Nonparametric Structure Learning for Large, Complex Datasets
+
+**Background:** Modern data acquisition routinely produces massive amount of complex datasets, including chip data from high throughput genomic experiments, image data from functional Magnetic Resonance Imaging (fMRI), proteomic data from tandem mass spectrometry analysis, and climate data from geographically distributed data centers. Despite the high dimensionality and complexity of these datasets, many problems have hidden structure that makes efficient statistical inference possible. The most important hidden structure is sparse conditional independence graphs (or undirected graphical models). Learning undirected graphical models is a crucial first step towards better exploring and understanding complex scientific datasets. Existing high dimensional theories and structure learning algorithms rely heavily on parametric models, which assume the data come from an underlying distribution (e.g. Gaussian) that can be characterized by a finite number of parameters. If these assumptions are correct, accurate and precise estimates can be expected. However, given the increasing complexity of modern scientific datasets, conclusions inferred under these restrictive assumptions can be misleading. To handle this challenge, we propose to develop an R package for scalable nonparametric structure learning.
+
+
+**Description:** Significant progress has been made recently on designing efficient algorithms to fit Gaussian graphical models (Meinshausen 2006 and Friedman 2008). There have already been several R packages for fitting sparse Gaussian graphical models such as “glasso”, “space” and “clime”. However, all these packages suffer the same problems as below:
+1. Though these packages are effective in fitting medium sized graphical models (the number of nodes < 2,000), none of them is scalable to estimate large graphs (e.g. the number of nodes > 10,000, such graphs are commonly encountered in modern applications including social network analysis, gene/protein regulatory networks, and financial time-series analysis).
+2. No strategies are available in these packages to relax the normality assumption (parametric models), which usually does not hold in practice. Given the increasing complexity of modern scientific datasets, conclusions inferred under such restrictive assumption can be misleading.
+3. All these packages only output the graph path (multiple estimated graphs corresponding to a sequence of regularization parameters). However, without any prior knowledge, users often expect the package to automatically select one or several appropriate graphs in practice.
+4. All these packages do not provide any visualization function, which is important to further explore and understand the estimated graph in applications. Users also expect more powerful features to visualize the whole graph path instead of one single graph.
+
+Therefore to conduct large-scale graphical model estimation and visualization, more efficient/scalable packages are crucially needed.
+
+The main purpose of our proposed project is to develop an R package “huge” (Zhao et al. 2011), which is scalable to large graphical model learning problems. Our preliminary version of “huge” (available on http://cran.r-project.org/web/packages/huge/index.html) is capable of efficiently handling more than 6,000 nodes using 4GB memory. However it is still below our expectation when the number of nodes is larger than 10,000.
+
+We plan to develop more efficient algorithms to further improve the scalability. Eventually the “huge” packages will provide a general parametric/nonparametric framework for high-dimensional undirected graph estimation: It integrates several state-of-the-art parametric/nonparametric graphical model estimation algorithms into our packages including sparse covariance selection, Nonparanromal, Forest density estimation and graph screening. Several efficient model selection algorithms and some additional features such as the visualization toolkit for large-scale graph path will also be added to our “huge” package. New dynamical memory management paradigm will be designed to reduce the memory cost even in high dimensional settings. We will also apply effective pre-selection strategies to screen the edges before refinery estimation.
+
+To relax the normality assumption (parametric models), we will emphasize more on estimating nonparametric graphical models. Our flagship products include two modern nonparametric graphical model learning algorithms, Nonparanormal (Liu et, al. 2009) and Forest density estimator (Liu et al. 2011). 
+
+
+**Skills required:** : R/C/C++ are required. Familiarity with numerical linear algebra using C is a plus.
+
+**Test:** Strong numerical linear algebra and large-scale data manipulation skills are required.
+
+
+**Mentor:** Han Liu (Assistant Professor in Biostatistics and Computer Science, Johns Hopkins University). Email: hanliu@jhsph.edu or hanliu@cs.cmu.edu. With guidance from John Lafferty (Computer Science, Carnegie Mellon University), Kathryn Roeder (Statistics, Carnegie Mellon University), and Larry Wasserman (Statistics, Carnegie Mellon University).
+
+**References**
+
+
+T. Zhao and H. Liu, “huge”: an R package for high-dimensional undirected graph estimation, Technical Report, Carnegie Mellon University, 2010
+
+H. Liu, J. Lafferty, and L. Wasserman, The Nonparanormal: Semiparametric Estimation of High Dimensional Undirected Graphs, Journal of Machine Learning Research, 2009
+
+H. Liu, M. Xu, H. Gu, A. Dasgupta, J. Lafferty, and L. Wasserman, Forest density estimation, Journal of Machine Learning Research, 2011
+
+J. Friedman, T. Hastie and R. Tibshirani, Sparse inverse covariance estimation with the lasso, Biostatistics, 2007
+
+N. Meinshausen and P. Buhlmann, High dimensional graphs and variable selection with the lasso, Annals of Statistics 2006.

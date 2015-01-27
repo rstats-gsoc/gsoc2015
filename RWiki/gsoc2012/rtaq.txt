@@ -1,0 +1,24 @@
+====== RTAQ: add new high frequency data structure and analytical routines to RTAQ ======
+
+===== Summary =====
+Toolkit for data management and analysis of high-frequency financial data in R.
+
+===== Description =====
+The economic value of analyzing high-frequency financial data is now obvious, both in the academic and financial world. It is not only the basis of intraday and daily risk monitoring and forecasting, input to the portfolio allocation process, and also for high-frequency trading.   For the efficient use of high-frequency data in financial decision making, the RTAQ package of the TradeAnalytics project implements state of the art techniques for cleaning, matching, liquidity, risk and correlation calculation based on high-frequency data. All these methods appropriately take into account the stylized features of high-frequency data such as microstructure noise, jumps in the price  level and the non-synchronicity of the observations. 
+The goal of this project is to develop much needed extra functionality in this growing area: 
+===Data management:===
+RTAQ is now designed to deal with NYSE TAQ data which is popular in the academic world. However, among practitioners, other data sources are popular such as Bloomberg, InteractiveBrokers and Reuters. The goal is to develop an integrated easy-to-use and fast interface to load and manage high frequency data from all major data providers into R as xts objects. 
+Transaction-by-transaction data is noisy. State of the art functionality should be implemented to deal with this noisiness, such as the (volume-weighted) pre-averaging of price data. 
+===Volatility and covariance forecasting based on high-frequency risk measures===
+RTAQ offers now a wide range of univariate and multivariate “realized” volatility measures. For financial decision making, it is important to have volatility forecasts based on those ex post measures. In this project we aim to implement the recently proposed ARFIMA, HAR, HAR-J, Hybrid GARCH, Realized GARCH and HEAVY models for forecasting volatility based on realized volatility measures. In addition, with the permission of the now swamped Scott Paesuer of the //realized// package, functionality from this important package for realized volatility would be integrated to the RTAQ package where it could be maintained by a more active project team.
+
+=====Skills required===== 
+The successful applicant should have proficiency with R, xts and RTAQ. The ideal candidate would also have prior experience on the analysis of high-frequency data and market microstructure.
+
+=====Test===== 
+The successful applicant must demonstrate prior experience with high frequency data and R. This could be via identifying a patch or extension, providing a new demo script for the RTAQ package that would show understanding of the functionality provided, or by doing a detailed proposal with pseudocode for one or more potential enhancements to the toolchain.
+
+=====Mentors===== 
+Dr. Kris Boudt co-authored “RTAQ: Tools for the analysis of trades and quotes in R” and published many articles in the area of high-frequency financial data in leading international financial and econometrics journals.
+
+Brian Peterson is one of the primary authors of the packages in the TradeAnalytics project, and hes previously mentored GSOC participants. 2012-02-22.

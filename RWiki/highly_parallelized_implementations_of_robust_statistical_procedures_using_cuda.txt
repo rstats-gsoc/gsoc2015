@@ -1,0 +1,32 @@
+====== robgpu: Highly parallelized implementations of robust statistical procedures using CUDA ======
+
+ 
+**Summary:** A highly parallelized framework of robust methods for the analysis of large data sets based on utilizing the GPU via the CUDA parallel computing platform.
+
+**Description:** In modern data analysis, data sets are often large in the number of variables or observations. In addition, data sets frequently contain outliers in practice, requiring robust statistical methods for their analysis. However, applying robust methods to large data sets is computationally expensive. Furthermore, state-of-the-art methods frequently require the selection of regularization parameters, further aggrevating the problem of computation time. 
+
+Practical algorithms for widely used robust procedures are often based on exploring different subsets of the data and applying a nonrobust estimator to those subsets. Computation time can thus be drastically reduced by exploring subsets in a highly parallelized manner by taking advantage of the machine's GPU. The CUDA platform allows to perform arbitrary calculations on supported GPUs and is therefore highly suited for this application.
+
+The aim of this project is to develop a new R package **robgpu** by utilizing the CUDA platform to implement the following functionality in a highly parallelized manner:
+
+1. Minimum covariance determinant (MCD) estimator of location and scatter. This is probably the most widely used robust scatter matrix estimator. It is based on finding the subset of the data of a given size that minimizes the determinant of the corresponding covariance matrix.
+
+2. Least trimmed squares (LTS) regression. This widely used regression estimator is based on finding the subset of the data of a given size that minimizes the corresponding sum of squared residuals.
+
+3. Regularized versions of the above estimators for high-dimensional large data.  MCD and LTS cannot be computed if the number of variables exceeds the number of observations. This computational problem can be overcome by adding a penalty term on the estimated parameters to the objective function. Certain penalty terms such as a lasso-type penalty further have the advantage that some of the parameters are set to exactly 0, thus yielding better interpretability of the results through sparse estimates. The implementation should be general such that different penalty functions can easily be used.
+
+4. Integrate the highly parallelized robust methods into functionality for, e.g., outlier detection, graphical modeling, principal component analysis (PCA) or linear discriminant analysis (LDA), as time permits.
+
+**Literature**
+
+P.J. Rousseeuw, K. van Driessen (1999). A fast algorithm for the Minimum Covariance Determinant Estimator. Technometrics. 41(3), 212-223.
+
+P.J. Rousseeuw, K. van Driessen (2006). Computing LTS regression for large data sets. Data Mining and Knowledge Discovery, 12(1), 29-45.
+
+A. Alfons, C. Croux, S. Gelper (2013). Sparse least trimmed squares regression for analyzing high-dimensional large data sets. The Annals of Applied Statistics. In press.
+
+C. Croux, G. Haesbroeck. The regularized minimum covariance determinant estimator. Preprint.
+
+**Skills required:** Experience with R, C++, and in particular parallel computing via the CUDA platform is required. An ideal candidate would be experienced in implementing highly parallelized procedures for the analysis of large data.
+
+**Mentor:** [[http://people.few.eur.nl/alfons/|Andreas Alfons]] authored various R packages for robust statistics written in R and C++ and is experienced in parallel computing. He published articles on applied robust data analysis as well as statistical software in renowned international journals.

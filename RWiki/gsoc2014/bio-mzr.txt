@@ -1,0 +1,44 @@
+===== Introduction =====
+
+The mzR R/Bioconductor package provides a unified application programming interface to the common open and community-driven file formats and parsers available for mass spectrometry data, namely mzXML, mzML and mzData (see current [[http://bioconductor.org/packages/devel/bioc/vignettes/mzR/inst/doc/mzR.pdf|vignette]] for details and references). It relies on C and C++ code from other third party open-source projects and the Rcpp package to, notably, provide a direct mapping from R to C++ infrastructure.
+
+Currently, mzR provides two back-ends to read mass spectrometry raw data:
+
+   * netCDF which reads, as the name implies, netCDF data
+   * RAMP to read mzData and mzXML via the ISB RAMP parser. This back-end can also read mzML through the proteowizard RAMPadapter around the proteowizard infrastructure, but this interface is limited to the lowest common denominator between the mzXML/mzData/mzML formats.
+
+More details about the project can be found on the [[http://bioconductor.org/packages/devel/bioc/html/mzR.html|official package page]].
+
+===== Goal =====
+
+The goal is to extend current useful, yet limited capabilities of mzR by adding support for the state-of-the-art [[http://proteowizard.sourceforge.net/|proteowizard]] project.
+
+===== The tasks =====
+
+We will provide example data in all formats and support on the domain. This project will use the mzR github page as main collaboration and communication hub.
+
+   * Subscribe to the Bioconductor and Bioc-devel mailing lists.
+   * Give us your github account to be added as a mzR collaborator on the [[https://github.com/sneumann/mzR|github page]].
+   * Install and explore the mzR and Rcpp packages and the proteowizard project. We will provide simple tasks to be coded in C++ using the proteowizard code base to familiarise yourself.
+   * Expand mzR on raw data and meta-data accession using the proteowizard 'msdata' object type. This will allow read and write support for the widely used Proteomics Standards Initiative XML-based raw data formats and their latest definitions.
+   * Implement support for additional open formats, in particular the MSMS identification (mzIdentML) using the 'identdata' object type.
+   * Ensure successful compilation of the updated mzR package on the respective architectures.
+
+===== Skills needed: =====
+
+  * Good knowledge of C/C++ and the Rcpp package.
+  * R programming.
+  * Basic knowledge of package development and S4 OO programming.
+  * Knowledge with mass spectrometry data and the respective formats is desired.
+
+The candidate will have to familiarise herself proteowizard code base.
+
+===== Exercises: =====
+
+See the [[https://github.com/sneumann/mzR/wiki/Exercises|exercises page]] on the mzR wiki.
+
+
+===== Mentors =====
+
+
+Laurent Gatto (lg390 <AT> cam <DOT> ac <DOT> uk, melange id is lgatto) and Steffen Neuman (sneumann <AT> ipb <DASH> halle <DOT> de, melange id is sneumann) with support from Dirk Eddelbuettel.

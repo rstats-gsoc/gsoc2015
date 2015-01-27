@@ -1,0 +1,114 @@
+====== Google Summer of Code 2013 ======
+
+
+This wiki page will be the central hub of information about the [[http://www.r-project.org|R Project]] participation in the [[http://code.google.com/soc/|Google Summer of Code]] (GSoC) for 2013. Administrators are Toby Dylan Hocking, Brian Peterson, and Virgilio Gomez Rubio as a backup. Questions should be posed to the google group!
+
+**!!!Everyone who wants to participate in this year's Google Summer of Code with R please join our google group:
+
+[[https://groups.google.com/group/gsoc-r|gsoc-r@googlegroups.com]]!!!** make sure to explain your relationship to R and your interest in the program.... requests without any other identifying or qualifying information may be considered spam.
+
+===== Overview =====
+
+In short, each student will get paid $5000 to work on an R package for 3 months during the summer:
+
+  * Mentors can add projects to this wiki page to give ideas to students.
+  * Students should look at the list of projects and see if any project interests them. If so, email the project mentors to express your interest, and describe any prior experience. Students with ideas for R projects not listed below are encouraged to post a query on the [[https://groups.google.com/group/gsoc-r|gsoc-r google group]].
+  * Students will submit project applications directly to Google. The home page is [[http://www.google-melange.com/gsoc/homepage/google/gsoc2013]]
+  * Google will award a certain number of student slots to the R project.
+  * The GSOC-R administrators and mentors will rank projects in order of importance to the R project, and the top projects will be funded.
+  * Students get paid $5000.
+  * Mentors get code written for their project, but no money.
+
+{{https://developers.google.com/open-source/soc/images/soc-logo-300x200.png}}
+
+Previous projects are listed on the [[http://www.r-project.org/soc08|soc08]], [[http://www.r-project.org/soc09|soc09]], [[http://www.r-project.org/soc10|soc10]], [[http://www.r-project.org/soc11|soc11]], and [[developers:projects:gsoc2012|soc12]] pages.
+
+===== Status and Timeline =====
+
+Note the org admins have a bit more work to do this year than last year from May 6 to May 27.
+
+  * Mar 18: Mentoring organizations can begin submitting [[admin_application_2013|applications]] to Google.
+  * Mar 29: Mentoring organizations application deadline.
+  * Apr 8: List of accepted mentoring organizations published on the Google Summer of Code site.
+  * Apr 22: Student application period opens.
+  * May 3: Student application deadline.
+  * May 6: Mentoring organizations should have requested slots via their profile in Melange by this point.
+  * May 22: First round of de-duplication checks happens; organizations work together to try to resolve as many duplicates as possible.
+  * May 24 07:00 UTC: All mentors must be signed up and all student proposals matched with a mentor. Student acceptance choice deadline. 
+  * May 24 19:00 UTC: IRC meeting to resolve any outstanding duplicate accepted students #gsoc.
+  * May 27: Accepted student proposals announced on the Google Summer of Code site.
+  * Jun 17: Coding begins.
+  * Aug 2: Midterm evaluation deadline.
+  * Sep 27: Final evaluation deadline.
+  * Oct 19 & 20: Mentor summit.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===== Project Ideas =====
+
+Project proposals are welcome, and should be added to the list below.  However, each proposal has a big barrier to pass: it will to need explain why this particular project is of use to the community, and it will have to show how it can be achieved in three months. At a minimum, a submission should also include a review of related packages that address the same or similar problems and discuss how these packages are not sufficient to the task.
+
+
+^ Mentors ^ Proposal ^ Non-R languages? ^ Status ^ Students ^ Results ^
+| mentors | [[developers:projects:gsoc2010:suggestion_form|Use this to add new proposals by copying the page content]]| languages | status | students | results |
+| Michael Rosemblum, Han Liu | Exponential Random Graph Model with block structure|  | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/grebamboo/33001|accepted, passed]] | Xiaolin Yang | [[http://cran.r-project.org/web/packages/blkergm/index.html|blkergm on CRAN]] implements block Exponential Random Graph Models with different dependence assumptions including block Erdos-Renyi, Beta, Markov random graph models. In the future, the package will be extended for more models in the ERGM family with block structures. |
+| Han Liu | MutTLeR: A Generalized Multi-Task Learning Toolkit|  | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/tourzhao/74002|accepted, passed]] | Tour? | [[http://cran.r-project.org/web/packages/camel/index.html|camel package on CRAN implements several solvers]], future work?? |
+| Y. Richet, backup John Nash | [[developers:projects:gsoc2012:vectorizedoptim|Handle parallel (vectorized) objective functions in a new optimization wrapper package]] | C | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/thirdwing/19001|accepted]] | Qiang Kou |[[https://github.com/thirdwing/vectoptim|vectoptim package on github]] and the first version on [[http://cran.r-project.org/web/packages/vectoptim/index.html|CRAN]], remaining work for next year: more optimization methods |
+| Toby Dylan Hocking | [[developers:projects:gsoc2012:interactive_animations|Improve rendering of interactive, animated ggplots]] | Javascript| [[http://www.google-melange.com/gsoc/project/google/gsoc2013/srvanderplas/18001|accepted, passed]] | [[https://github.com/srvanderplas|Susan Vander Plas]] | [[https://github.com/tdhock/animint|animint package on github]] implements most geoms, legends, axes, and stats. [[https://github.com/tdhock/animint/blob/master/NEWS|TODOs for next year are listed in the NEWS file]]: facets, coord_equal, etc. |
+| Paul Murrell | [[developers:projects:gsoc2013:import_graphics|Improve display of imported graphics]] | Postscript, SVG, XML, C | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/sjpnz/13001|accepted, passed]] | [[http://sjp.co.nz/projects/gridsvg/|Simon Potter]] | [[https://r-forge.r-project.org/scm/viewvc.php/pkg/?root=grimport|grConvert, grImport, and grImport2 packages on R-Forge]], [[http://sjp.co.nz/projects/grimport2/grImport2.html|summary]] |
+| Kris Boudt, Jonathan Cornelissen | [[https://r-forge.r-project.org/projects/highfrequency/|highfrequency]] [[Highfrequency: add inferential methods to highfrequency]] |C |[[http://www.google-melange.com/gsoc/project/google/gsoc2013/giangnguyen/25001|accepted, passed]] | Giang Nguyen | [[http://r-forge.r-project.org/R/?group_id=1409]],[[http://github.com/jonathancornelissen/highfrequency]], a large family of jump tests is included, as well as ex post cov estimator using preaveraging and a C-implementation of the heavy model with SE  |
+| Joshua Ulrich, Michael Weylandt | [[http://r-forge.r-project.org/R/?group_id=118|xtsExtra]] [[developers:projects:gsoc2013:xts|multi-type xts objects]] | | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/eviltosha/57001|accepted]] | Anton Samoylov | [[https://github.com/EvilTosha/xts-GSoC13/tree/factor-support|xtsExtra on GitHub (factor-support branch)]] xts/zoo objects are a matrix with an ordered index attribute, so they cannot contain mixed types like a data.frame.  Anton created a great working prototype of an xts-like object that can contain multi-type columns. Work next year could include: improving performance, and fixing bugs and refining edge cases by exploring use-cases. |
+| Claudia Beleites, Simon Fuller, Bryan Hanson | [[developers:projects:gsoc2013:spectralunmixing|spectral unmixing]] | | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/chathurga/11001|accepted, passed]] | Conor McManus | [[ https://github.com/Chathurga/unmixR|unmixR package on GitHub]] Conor implemented the "original" papers for N-FINDR and Vertex Component Analysis, plus some recent papers with improvements. In addition, we developed our own improved version of N-FINDR! |
+| Peter Carl | [[developers:projects:gsoc2013:iid_PerfA|Addressing IID Assumptions in Finance: Autocorrelation and Drawdowns in Performance Analysis]] | | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/pulkit/49001|accepted]] [[http://www.google-melange.com/gsoc/project/google/gsoc2013/shubhankit/24001|two]] projects | pulkit?, Shubhankit Mohan  | |
+| David Ardia, Brian Peterson | [[developers:projects:gsoc2013:meucci|Collection of functionality ported from the MATLAB code of Attilio Meucci]] | Matlab | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/pobben/94005|accepted, passed]] | Xavier Valls  | [[ https://r-forge.r-project.org/scm/viewvc.php/pkg/Meucci/?root=returnanalytics | Meucci package on R-Cran]]. Remaining and future work for next year described in the "to do" file|
+| Doug Martin, Guy Yollin, Brian Peterson | [[developers:projects:gsoc2013:porta|Improve constraints, usability, graphics for PortfolioAnalytics]] | | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/rossbennett34/23001|accepted]] | Ross Bennett | |
+| Gergely Daróczi | [[http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2013:rapport|Reproducible statistical report templates in markdown]] | | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/nagydaniel/23001|accepted]] | [[https://github.com/nagydaniel|Dániel Nagy]] | [[https://github.com/Rapporter/rapport|rapport package on GitHub]] |
+| Andreas Alfons | [[https://github.com/aalfons/robgpu|robgpu]] [[Highly parallelized implementations of robust statistical procedures using CUDA]] | C++, CUDA |[[http://www.google-melange.com/gsoc/project/google/gsoc2013/typ188/14001|accepted]] | Roland Boubela | |
+| Hans W Borchers | [[http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2013:nso|Non-smooth Optimization]] --- Implement different approaches for optimization of non-smooth functions, as often encountered in Engineering and Operations Research | R, Matlab, C or Fortran | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/abhirupkgp/52001|accepted]], failed |Abhirup Mallik | SIDPSM, DFLS?|
+| pbdR Core Team | [[http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2013:mpiprofiler|Profiling Tools for Parallel Computing with R]] --- Develop an MPI profiling package| C | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/igaurav/30001|accepted, passed]] |Gaurav Sehrawat  | [[http://r-pbd.org/|pbdR homepage]], [[https://github.com/RBigData/pbdPROF|github page]], [[https://raw.github.com/RBigData/pbdPROF/master/TODO|future work listed in TODO file]] |
+| Jae W. Lee, Jung Hoon Lee | [[http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2013:right|RIGHT: R-Interactive-Graphics-via-HTml]] | HTML5, Javascript | [[http://www.google-melange.com/gsoc/project/google/gsoc2013/sch8906/49001|accepted, passed]] | Chungha Sung | [[https://code.google.com/p/r-interactive-graphics-via-html/|RIGHT package on Google code]] and [[http://cran.r-project.org/web/packages/RIGHT/index.html|CRAN package]], remaining work for next year: support for additional visual elements, e.g. point and line types, and ggplot2-like R API |
+| Eric Zivot | [[http://rwiki.sciviews.org/doku.php?id=developers:projects:gsoc2013:factors|Factor Models for Return Series]] | |[[http://www.google-melange.com/gsoc/project/google/gsoc2013/chenyian/20001|accepted,passed]] |Yi-An Chen |[[
+http://r-forge.r-project.org/R/?group_id=579|factorAnalytics on R-forge ]], remaining work for next year: Complete Barra type performance attribution |
+| Javier Otegui | [[Biodiversity |Biodiversity data visualization in R]] | |[[http://www.google-melange.com/gsoc/project/google/gsoc2013/vijaybarve/48002|accepted, passed]] | Vijay Barve | [[https://github.com/vijaybarve/bdvis|bdvis source code on github]]. The package provides ways to efficiently visualize biodiversity data. Specifically, it is useful for plotting spatial and temporal distribution of biodiversity data, taxonomic hierarchies and to perform assessments of completeness on the data. Next year: improve current visualizations and add more assessments.|
+| Claudia Beleites, Simon Fuller | [[https://r-forge.r-project.org/scm/viewvc.php/?root=hyperspec|HyperSpec]] [[developers:projects:gsoc2012:hyperSpec|improve HyperSpec]] | | not accepted |  |  |
+| Roger Bivand, Daniel McMillen | [[https://groups.google.com/forum/?fromgroups=#!topic/gsoc-r/8ZUQCVlyodk|Akima's algorithm for interpolation]] [[https://groups.google.com/forum/#!topic/gsoc-r/bFCmsOcGMi0x|test]] | C/C++ | not accepted | | |
+| (added by) Dirk Eddelbuettel (not mentoring) | Port [[https://code.google.com/p/pymssql/|pymssql]] core to R and DBI as RMSSql | C | not accepted | | |

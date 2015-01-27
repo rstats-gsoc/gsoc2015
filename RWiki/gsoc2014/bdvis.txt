@@ -1,0 +1,20 @@
+
+
+
+
+====== bdvis : Biodiversity data visualizations using R ======
+
+ 
+**Summary:** Package bdvis is set of functions to visualize biodiversity occurrence data through R. We intend to improve the package and complete it with bug fixes, feature requests, vignette and submission to CRAN
+
+**Description:** Last year we participated in GSoC and initiated the package [[http://rwiki.sciviews.org/doku.php?id=developers:projects:biodiversity|bdvis : Biodiversity data visualizations using R]]. This set of functions to visualize biodiversity occurrence data through R. The package has received good response from user community and is being used. This year we intend to take this package further by improving some of the visualizations, implementing some more features based on user feedback and prepare a detailed vignette to describe the use of the package in details.
+
+**Goals:**
+  * Implement the features requests and bug fixes
+  * Submit the package on CRAN
+  * Implement additional features based on feedback
+  * Write up a Vignette to explain the usage of each function in package with examples (Which can be submitted as a paper for peer reviewed journal)
+  * Add support for various data formats available in R environment for various packages like rgbif, rvertnet, rinat, spocc etc.
+
+
+**Mentors:** Javier Otegui (Melange ID: jotegui, [[mailto:javier.otegui@gmail.com|javier.otegui@gmail.com]]), Jorge Soberón, Virgilio Gómez-Rubio

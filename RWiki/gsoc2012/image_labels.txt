@@ -1,0 +1,19 @@
+**Background:** the [[http://directlabels.r-forge.r-project.org/|directlabels]] package facilitates use of direct labels instead of legends in everyday statistical graphics made with lattice or [[http://had.co.nz/ggplot2/|ggplot2]]. Labeling is currently limited to textual annotations, but sometimes it is more informative to label using images, i.e. [[http://cbio.ensmp.fr/~thocking/image-labels.png|iris data labeled with photos of the 3 flower species]] or [[http://www.flickr.com/photos/47179524@N02/4346623091/in/photostream|scatterplot comparing several countries using their flags]]
+
+**Goal:** develop a framework for labeling plots using images instead of textual factor names. There is some preliminary code, but there are a few technical problems with plotting images in R that must be overcome:
+
+  * [[https://r-forge.r-project.org/scm/viewvc.php/pkg/directlabels/etc/flags/?root=directlabels|SVG vector graphics]] using [[http://cran.r-project.org/web/packages/grImport/index.html|grImport]]
+    * How to import SVG into R in a portable manner? Currently I use [[https://r-forge.r-project.org/scm/viewvc.php/pkg/directlabels/etc/flags/svg2ps.py?view=markup&revision=533&root=directlabels|a python script]] to convert SVG to PS, then use grImport to read PS images.
+    * Some complicated PS images cause errors in ''grImport::PostScriptTrace()'' when attempting to convert to RGML, i.e. [[http://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Kansas.svg]]
+    * Some PS images are convered to RGML but then plotted incorrectly, i.e. [[http://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg]]
+    * Possible solution: convert SVG images to hi-res raster graphics?
+  * [[https://r-forge.r-project.org/scm/viewvc.php/pkg/directlabels/etc/iris-images/image-labels.R?view=markup&revision=541&root=directlabels|JPG raster graphics]] using [[http://bioconductor.wustl.edu/bioc/html/EBImage.html|EBImage]]
+    * High-resolution JPG images take a long time to read into memory, and create huge files when making R plots using the ''pdf()'' device. i.e. 20MB pdf for [[http://cbio.ensmp.fr/~thocking/image-labels.png|this plot of the iris data]]. Can we compress the images plotted with ''grid.raster''?
+    * Possible solution: just don't use the pdf device? jpg and png images created in this way are of decent size.
+
+**Tests:** 
+  * To see how to direct label using textual annotations, make some direct labeled plots using the lattice, ggplot2, and directlabels packages.
+  * To explore the current state-of-the-art in importing images into R, make some plots that use vector images using the grImport package, and raster graphics using the EBImage package.
+  * To demonstrate basic knowledge of SVG and PS syntax and semantics, make a PS or SVG plot using R, then MANUALLY edit the PS or SVG file to make a modification of the plot.
+
+**Mentors:** [[http://cbio.ensmp.fr/~thocking/|Toby Dylan Hocking]] <toby.hocking@inria.fr>, [[http://www.stat.auckland.ac.nz/~paul/|Paul Murrell]] <p.murrell@auckland.ac.nz>
